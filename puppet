@@ -1,0 +1,31 @@
+近期在学习puppet，puppet的流程和语法就不在此阐述了。请参考如下几个链接即可
+http://kisspuppet.com/
+http://www.puppetcookbook.com/
+https://docs.puppetlabs.com/learning/introduction.html
+  主要有如下的思考及同事的疑问，现记录如下。
+   Q1：puppet支持执行命令吗？
+   A1：puppet是配置管理工具，但也支持部分shell命令（比如不支持source命令），如果想要更好的支持，可使用MCollective。
+
+Q2：puppet默认每隔30分钟（可配置。puppet agent --configprint runinterval查看）由agent端向master端发起请求获取配置执行更新，是否可以master端主动推送呢？
+A2：可以的，服务端可以使用puppet kick命令来主动及时推送。
+详细puppet kick命令可参考：
+https://docs.puppetlabs.com/references/3.6.1/man/kick.html
+
+进一步深入分析，这两种更新方式的优劣：
+agent端主动更新： 此方式不管配置是否需要发生变更，无脑的轮询更新全部配置，浪费了系统资源，同时请求会产生性能瓶颈（可通过节点分批进行更新避免），而且在需要更新的时候不能及时变更。
+master端推送更新：此方式需要agent端开放8139监听端口，agent端配置被篡改后，需要手动触发才能够恢复，不能够及时恢复。由于其锁的问题很难解决外加上主机单元控制不是很灵活，逐渐被抛弃了，puppetlabs也因此收购了mcollecitve。并顺势产生了ActiveMQ+MCollective框架结合Puppet的更新方式。
+
+Q3：agent端和master端的通信机制是否安全？
+A3：agent端和master端通信基于SSL的，是安全的。
+    master端在第一次启动时创建本地认证中心，给自己签发证书和key，agent端在第一次连接master端会向其请求证书。
+    因此，保证master端和agent端时间同步是必须的。
+
+Q4：一个master到底能够支持多少个agent节点？
+A4：Puppetlabs官方给出的数据是使用一台2012年的笔记本 (16 GB of RAM, consumer-grade SSD, and quad-core processor)运行PuppetDB和PostgreSQL足以支撑8000台Puppet nodes每30分钟一次的运行。(https://docs.puppetlabs.com/puppetdb/latest/index.html#robust-hardware)
+如果需要支持更多的节点或提高性能，可以对Puppet进行横向扩展，前端配置LB。
+
+Q5：pp文件中像$osfamily之类的变量找不到定义，其值从哪里来的？
+A5：这类变量是puppet通过facter侦测获取的，也可以使用命令facter --yaml获取。
+facter --yaml返回的结果如：
+  osfamily: RedHat
+  operatingsystem: CentOS
