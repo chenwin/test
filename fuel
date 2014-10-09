@@ -1,0 +1,33 @@
+1.fuel-web
+nailgun\nailgun\fixtures\openstack.yaml 最后
+
+2.fuel-main
+config.mk
+iso\ks.template
+mirror\目录下增加litevirt的pxe img
+
+3.fuel-library
+deployment\puppet\nailgun\manifests\cobbler.pp
+
+4.fuel-astute
+lib\astute\deployment_engine.rb
+关键字ubuntu_1204_x86_64
+
+Git行结束符CRLF转换成LF
+https://help.github.com/articles/dealing-with-line-endings
+$ git config --global core.autocrlf false
+
+ubuntu配置本地光驱源
+http://kazake.blog.51cto.com/2155462/1416393
+
+ovirt-node镜像
+http://resources.ovirt.org/releases/3.4/iso/
+
+apt-get源/etc/apt/sources.list
+
+vi字符串替换
+：g/str1/s//str2/g 用字符串 str2 替换正文中所有出现的字符串 str1
+
+vnc下复制行，光标移至某行，先yy再10p表示复制10行，p表示仅1行
+
+vi中选中多行shift+v，在方向键↑↓
