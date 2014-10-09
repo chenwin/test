@@ -8,6 +8,7 @@ mirror\目录下增加litevirt的pxe img
 
 3.fuel-library
 deployment\puppet\nailgun\manifests\cobbler.pp
+vmlinuz和initrd.img
 
 4.fuel-astute
 lib\astute\deployment_engine.rb
@@ -31,3 +32,6 @@ vi字符串替换
 vnc下复制行，光标移至某行，先yy再10p表示复制10行，p表示仅1行
 
 vi中选中多行shift+v，在方向键↑↓
+
+允许ubuntu root login
+sudo passwd root
