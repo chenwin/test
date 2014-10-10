@@ -38,6 +38,9 @@ vi中选中多行shift+v，在方向键↑↓
 允许ubuntu root login
 sudo passwd root
 
+配置静态ip (http://www.linuxidc.com/Linux/2012-07/65266.htm)
+vi /etc/network/interfaces
+
 ubuntu 12.04国内源163,aliyun (http://mirrors.163.com/.help/ubuntu.html)
 deb http://mirrors.163.com/ubuntu/ precise main restricted universe multiverse
 deb http://mirrors.163.com/ubuntu/ precise-security main restricted universe multiverse
@@ -53,3 +56,10 @@ deb-src http://mirrors.163.com/ubuntu/ precise-backports main restricted univers
 有时候需要配置dns才能访问外网，同本地连接里的DNS
 vi /etc/resolv.conf
 nameserver 202.96.134.133 202.96.134.134
+
+ubuntu ISO地址
+http://releases.ubuntu.com/12.04.5/
+fuel ISO操作指导
+http://docs.mirantis.com/fuel-dev/develop/env.html
+git 操作指导
+http://www.yiibai.com/git/git_push_operation.html
