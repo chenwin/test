@@ -1,3 +1,10 @@
+https://github.com/Mirantis/murano-api
 https://pypi.python.org/pypi/PrettyTable
+https://github.com/openstack/sahara-dashboard
+
 \fuel-main\requirements-rpm.txt
 \fuel-astute\lib\astute\pre_node_actions\pre_patching.rb
+
+No Match for argument murano-api
+No Match for argument python-prettytable
+No Match for argument sahara-dashboard
