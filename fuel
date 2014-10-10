@@ -17,6 +17,8 @@ lib\astute\deployment_engine.rb
 Git行结束符CRLF转换成LF
 https://help.github.com/articles/dealing-with-line-endings
 $ git config --global core.autocrlf false
+git config --global --unset core.autocrlf
+git config [--local|--global|--system] -e
 
 ubuntu配置本地光驱源
 http://kazake.blog.51cto.com/2155462/1416393
