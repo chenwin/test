@@ -8,3 +8,10 @@ https://github.com/openstack/sahara-dashboard
 No Match for argument murano-api
 No Match for argument python-prettytable
 No Match for argument sahara-dashboard
+
+将 VirtualBox硬盘镜像vdi转换为KVM的qcow2
+转换步骤（假设你有一个 VirtualBox 镜像，"ubuntu.vdi"）：
+Step 1. 将VirtualBox的vdi转换为raw原始硬盘镜像
+VBoxManage clonehd --format RAW ubuntu.vdi ubuntu.img
+Step 2. 转换raw原始硬盘镜像为qcow2镜像
+qemu-img convert -f raw ubuntu.img -O qcow2 ubuntu.qcow2
