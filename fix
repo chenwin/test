@@ -15,3 +15,9 @@ Step 1. 将VirtualBox的vdi转换为raw原始硬盘镜像
 VBoxManage clonehd --format RAW ubuntu.vdi ubuntu.img
 Step 2. 转换raw原始硬盘镜像为qcow2镜像
 qemu-img convert -f raw ubuntu.img -O qcow2 ubuntu.qcow2
+
+#python setup.py build     # 编译
+#python setup.py install    #安装
+#python setup.py sdist      #生成压缩包(zip/tar.gz)
+#python setup.py bdist_wininst  #生成NT平台安装包(.exe)
+#python setup.py bdist_rpm #生成rpm包
