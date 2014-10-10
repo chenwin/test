@@ -48,6 +48,6 @@ deb-src http://mirrors.163.com/ubuntu/ precise-updates main restricted universe 
 deb-src http://mirrors.163.com/ubuntu/ precise-proposed main restricted universe multiverse
 deb-src http://mirrors.163.com/ubuntu/ precise-backports main restricted universe multiverse
 
-有时候需要配置dns才能访问外网
+有时候需要配置dns才能访问外网，同本地连接里的DNS
 vi /etc/resolv.conf
-nameserver 202.96.134.133
+nameserver 202.96.134.133 202.96.134.134
