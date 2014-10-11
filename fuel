@@ -41,6 +41,7 @@ sudo passwd root
 
 配置静态ip (http://www.linuxidc.com/Linux/2012-07/65266.htm)
 vi /etc/network/interfaces
+重启网络： /etc/init.d/networking restart 
 
 ubuntu 12.04国内源163,aliyun (http://mirrors.163.com/.help/ubuntu.html)
 deb http://mirrors.163.com/ubuntu/ precise main restricted universe multiverse
