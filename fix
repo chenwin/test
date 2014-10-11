@@ -14,7 +14,7 @@ No Match for argument sahara-dashboard
 Step 0. 解决error: Cannot register the hard disk
 VBoxManage internalcommands sethduuid ubuntu.vdi
 
-Step 1. 将VirtualBox的vdi转换为raw原始硬盘镜像
+Step 1. 将VirtualBox的vdi转换为raw原始硬盘镜像(总是出错，会变成原始大小，非精简，不如直接转vhd格式)
 VBoxManage clonehd --format RAW ubuntu.vdi ubuntu.img
 
 Step 2. 转换raw原始硬盘镜像为qcow2镜像
