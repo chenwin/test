@@ -55,6 +55,8 @@ deb-src http://mirrors.163.com/ubuntu/ precise-updates main restricted universe 
 deb-src http://mirrors.163.com/ubuntu/ precise-proposed main restricted universe multiverse
 deb-src http://mirrors.163.com/ubuntu/ precise-backports main restricted universe multiverse
 
+设置代理，修改/etc/apt/apt.conf无效
+export http_proxy=http://186.100.4.72:808
 有时候需要配置dns才能访问外网，同本地连接里的DNS
 vi /etc/resolv.conf
 nameserver 202.96.134.133 202.96.134.134
