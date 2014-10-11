@@ -1,0 +1,11 @@
+make clean;
+make iso USE_MIRROR=ext MIRROR_CENTOS?=http://download.mirantis.com/fuelweb-repo/3.2/centos MIRROR_UBUNTU?=http://archive.ubuntu.com/ubuntu MIRROR_FUEL_UBUNTU?=http://download.mirantis.com/fuelweb-repo/4.0/ubuntu/
+And the make process have been gone through
+
+参见https://bugs.launchpad.net/fuel/+bug/1255088
+
+修改\fuel-main\config.mk
+MIRROR_BASE?=http://mirror.fuel-infra.org/fwm/$(PRODUCT_VERSION)
+MIRROR_CENTOS?=$(MIRROR_BASE)/centos
+MIRROR_UBUNTU?=$(MIRROR_BASE)/ubuntu
+MIRROR_DOCKER?=$(MIRROR_BASE)/docker
