@@ -21,3 +21,28 @@ qemu-img convert -f raw ubuntu.img -O qcow2 ubuntu.qcow2
 #python setup.py sdist      #生成压缩包(zip/tar.gz)
 #python setup.py bdist_wininst  #生成NT平台安装包(.exe)
 #python setup.py bdist_rpm #生成rpm包
+
+http://releases.ubuntu.com/12.04.5/
+http://docs.mirantis.com/fuel-dev/develop/env.html
+http://www.yiibai.com/git/git_push_operation.html
+
+mount -n -o ro -t ext4 /dev/sda /mnt/
+
+vdi瘦身
+http://blog.sina.com.cn/s/blog_65c4aa290101q67z.html
+https://forums.virtualbox.org/viewtopic.php?p=29272#p29272
+http://blog.csdn.net/zhenyongyuan123/article/details/6141796
+http://blog.csdn.net/mscf/article/details/8432959 (good)
+
+挂载LVM
+http://blog.csdn.net/pu1030/article/details/7457501
+a. 扫描逻辑卷：
+#vgscan
+b. 激活扫描到的卷：
+#vgchange -a y VolGroup00
+c. 挂载
+#mount -n -o ro /dev/VolGroup00/lvm_root /mnt
+
+/usr/sbin/zerofree
+D:\chenliang\
+C:\Program Files\Oracle\VirtualBox\VBoxManage.exe modifyvdi chenliang.vdi --compact
