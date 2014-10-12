@@ -15,6 +15,9 @@ fuel-library   对应fuellib
 fuel-astute    对应astute
 fuel-ostf      对应ostf
 fuel-web       对应nailgun
+由fuel-main下的repos.mk控制删除和下载最新的，可以临时屏蔽掉
+
+
 
 \fuel-main\iso\module.mk
 
@@ -32,3 +35,5 @@ mv /var/cache/apt/archives/*deb /repo/download/
 
 /fuel-main/local_mirror/ubuntu/chroot/repo/download/和
 /fuel-main/local_mirror/ubuntu/pool/main/下的包是一样的
+
+
