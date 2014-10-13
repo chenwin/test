@@ -15,8 +15,9 @@ fuel-library   对应fuellib
 fuel-astute    对应astute
 fuel-ostf      对应ostf
 fuel-web       对应nailgun
-由fuel-main下的repos.mk控制删除和下载最新的，可以临时屏蔽掉
-
+\fuel-main\repos.mk控制删除和下载最新的其它模块，可以临时屏蔽掉,使用本地已经下好的
+	#git clone $2 $(BUILD_DIR)/repos/$1 && (cd $(BUILD_DIR)/repos/$1 && git checkout -q $3)
+	rsync -rp $(TOP_DIR)/local_mirror/repos $(BUILD_DIR)/
 
 
 \fuel-main\iso\module.mk
