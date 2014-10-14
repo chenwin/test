@@ -18,3 +18,10 @@ virtualbox 切换窗口
 右边的ctrl+c，ctrl+home
 
 /home/stack/devstack/stackrc
+
+http://askubuntu.com/questions/263206/ubuntu-12-04-unity-launcher-missing
+进入命令行：
+Press ctrl+alt+t for opening a terminal.
+桌面切换到命令行模式;
+ctrl+alt+f1,可以开启tty1
+ctrl+alt+f2,可以开启tty2
