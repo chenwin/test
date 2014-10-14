@@ -1,0 +1,20 @@
+删除光标之后D 美元号
+Ubuntu的vi不支持方向键和退格键，所以要想加入这些功能配置如下：
+vi /etc/vim/vimrc.tiny
+将 set compatible 改为set nocompatible
+加入一句：set backspace=2
+set compatible
+
+主机名存放在/etc/hostname文件中，修改主机名时，编辑hostname文件
+
+每次重启后都修改DNS配置文件 /etc/resolv.conf
+时间久了，真叫人抓狂
+从网上得知 /etc/resolv.conf中的DNS配置是从/etc/resolvconf/resolv.conf.d/head中加载而来
+于是，用nano或者其他编辑软件打开这个配置文件（建议用nano吧，上手容易）
+    sudo nano /etc/resolvconf/resolv.conf.d/head
+nameserver  xx.xx.xx.xxx
+
+virtualbox 切换窗口
+右边的ctrl+c，ctrl+home
+
+/home/stack/devstack/stackrc
