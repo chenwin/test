@@ -37,4 +37,7 @@ mv /var/cache/apt/archives/*deb /repo/download/
 /fuel-main/local_mirror/ubuntu/chroot/repo/download/和
 /fuel-main/local_mirror/ubuntu/pool/main/下的包是一样的
 
+nat地址转换
+http://www.51cto.com/html/2005/0813/1388.htm
+
 
