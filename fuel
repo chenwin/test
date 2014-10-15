@@ -64,8 +64,8 @@ export http_proxy=http://186.100.4.72:808
 vi /etc/resolv.conf
 nameserver 202.96.134.133 202.96.134.134
 
-在/etc/network/interfaces中添加一行，这样重启不会丢失
-dns-nameservers 202.98.5.68
+在/etc/resolvconf/resolv.conf.d/head文件中添加一行，这样重启不会丢失，重启会拷贝覆盖到/etc/resolv.conf
+nameserver 202.96.134.133
 
 ubuntu ISO地址
 http://releases.ubuntu.com/12.04.5/
