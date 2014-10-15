@@ -28,3 +28,5 @@ ctrl+alt+f2,可以开启tty2
 
 MAC地址存在于，eth乱序可从这里修改
 /etc/udev/rules.d/70-persistent-net.rules
+
+securecrt使用vi去编辑发现insert键不能使用,使用i键代替insert键即可
