@@ -25,3 +25,6 @@ Press ctrl+alt+t for opening a terminal.
 桌面切换到命令行模式;
 ctrl+alt+f1,可以开启tty1
 ctrl+alt+f2,可以开启tty2
+
+MAC地址存在于，eth乱序可从这里修改
+/etc/udev/rules.d/70-persistent-net.rules
