@@ -17,3 +17,5 @@ heat stack-list
 
 docker-heat的bp
 https://review.openstack.org/#/c/114044/4/specs/kilo/containers-service.rst
+
+https://ask.openstack.org/en/question/33963/running-docker-on-devstack/
