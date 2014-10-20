@@ -11,6 +11,7 @@ good
 http://blog.oddbit.com/2014/08/30/docker-plugin-for-openstack-he/
 
 git clone https://github.com/larsks/heat-docker-example下载模板
+heat resource-type-list |grep DockerInc::Docker::Container
 heat resource-template DockerInc::Docker::Container
 heat stack-create -f docker-server.yml -e local.env docker
 heat stack-list
