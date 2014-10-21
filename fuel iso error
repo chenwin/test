@@ -1,0 +1,16 @@
+cp: cannot stat '/etc/astute.yaml': No such file or directory
+Error: Could not run: Could not find file /etc/puppet/modules/nailgun/examples/host-only.pp
+rmdir: failed to remove '/var/log/remove': No such file or directory
+/usr/local/sbin/bootstrap_admin_node.sh: line 80: dockerctrl: command not found
+搭建完的环境：
+没有/etc/puppet/modules/nailgun/examples/目录
+/etc/puppet/modules/目录为空
+出的ISO里:
+没有bootstrap目录
+出错点：
+/usr/local/sbin/bootstrap_admin_node.sh里72行-80行
+dockerctrl通过host-only.pp安装
+根因是host-only.pp不存在(/etc/puppet/modules/目录为空，没有bootstrap目录)，无法执行。
+
+\fuel-main\iso\ks.template里需要修改cp –r
+\fuel-main\iso\bootstrap_admin_node.docker.sh
