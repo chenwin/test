@@ -1,0 +1,65 @@
+http://azure.microsoft.com/zh-cn/
+
+Azure 是被 Gartner 评为基础结构即服务 (IaaS) 和平台即服务 (PaaS) 行业领袖的唯一主流云平台。托管和非托管服务的这种强大组合可让
+
+您以自己舒适的方式构建、部署和管理应用程序，将工作效率提高到极致。
+
+Azure 支持任何操作系统、语言、工具和框架 - 从 Windows 到 Linux，从 SQL Server 到 Oracle，从 C# 到 Java。您可以随心利用 
+
+Windows 和 Linux 生态系统的最大优势，因此可以构建能够在任何设备上运行的完美应用程序和服务。
+
+里面的图，分为windows和linux两个
+http://azure.microsoft.com/blog/2014/10/15/new-windows-server-containers-and-azure-support-for-docker/
+
+Docker
+http://www.kingofcoders.com/viewNews.php?type=news&id=65375&number=73810445
+
+微软开放技术公司先是于6月9日在DockerCon上宣布支持在Microsoft Azure虚拟机上部署Docker，又在7月10日宣布与Google和Docker开展合作
+
+，将Kubernetes和libswarm引入Azure。8月28日，它兑现承诺，宣布开发者已经可以在Azure上使用Kubernetes管理Docker容器。
+
+它的成本
+
+    按分钟计费。估算您的成本
+    只为自己使用的东西付费
+    有竞争力的价格
+
+价格
+http://azure.microsoft.com/zh-cn/pricing/details/cloud-services/
+
+http://azure.microsoft.com/zh-cn/pricing/overview/
+http://azure.microsoft.com/zh-cn/pricing/calculator/
+Web + 移动
+http://azure.microsoft.com/zh-cn/pricing/details/websites/
+
+http://azure.microsoft.com/zh-cn/pricing/calculator/?scenario=cloud
+
+
+
+云服务
+在 Azure 中配置、监视和缩放云服务
+
+使用云服务部署和管理功能强大的应用程序和服务。上载应用程序，Azure 将处理部署细节（从设置和负载平衡到运行状况监视）以实现持续可
+
+用性。
+
+
+http://azure.microsoft.com/zh-cn/documentation/articles/cloud-services-dotnet-get-started/
+Deploy the application to Azure
+
+You'll do the following steps to run the application in the cloud:
+
+    Create an Azure cloud service
+    Create an Azure SQL database
+    Create an Azure storage account
+    Configure the solution to use your Azure SQL database when it runs in Azure
+    Configure the solution to use your Azure storage account when it runs in Azure
+    Deploy the project to your Azure cloud service
+
+利用 Azure 网站，您可以在可扩展和可靠的云基础结构上部署 Web 应用程序。开发人员和网站所有者可快速扩展以满足其流量和应用程序的需
+
+要。我们将提供与各种工具的持续集成，以及可靠的语言支持。
+
+“借助 Microsoft Azure，我们能够大胆创新而不必担心复杂的基础结构，从而加快了发展速度。过去，概念验证可能需要三个月的时间，而现
+
+在只需三天的时间。”
