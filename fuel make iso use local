@@ -1,0 +1,53 @@
+1.local_mirror拷贝
+mkdir -p /home/fwm/6.0
+root@ubuntu:/home/fwm/6.0# ls
+centos  docker  ubuntu
+
+2.使用本地file
+/home/fuel-main/config.mk
+#MIRROR_BASE?=http://mirror.fuel-infra.org/fwm/$(PRODUCT_VERSION)
+MIRROR_BASE?=file:///home/fwm/$(PRODUCT_VERSION)
+
+3../bin/sh symbolic link does not exist的错误
+ERR: ./bin/sh symbolic link does not exist.
+No shell in /home/fuel-main/local_mirror/ubuntu/chroot/. at /usr/sbin/multistrap line 592.
+make: *** [/home/fuel-main/build/mirror/ubuntu/createchroot.done] Error 2
+
+临时屏蔽\fuel-main\mirror\ubuntu\module.mk
+#$(BUILD_DIR)/mirror/ubuntu/createchroot.done
+
+4.每次都要git clone的问题
+先把代码拷贝过去
+cp -r /home/fuel-main_bak/build/repos /home/
+
+git clone https://github.com/stackforge/fuel-astute.git /home/fuel-main/build/repos/astute && (cd /home/fuel-main/build/repos/astute && git checkout -q master)
+Cloning into '/home/fuel-main/build/repos/astute'...
+
+修改\fuel-main\repos.mk，屏蔽
+#git clone $2 $(BUILD_DIR)/repos/$1 && (cd $(BUILD_DIR)/repos/$1 && git checkout -q $3)
+cp -r /home/repos/$1 $(BUILD_DIR)/repos/$1
+
+5.nailgun git下载
+Fatal error: Failed to execute "git ls-remote --tags --heads https://github.com/jrburke/requirejs-bower.git", exit code of #128
+
+export http_proxy=http://186.100.4.109:808
+export https_proxy=http://186.100.4.109:808
+
+6.原因是repos下面的代码有问题，是编译之后的。
+TypeError: Cannot read property 'normalize' of undefined
+In module tree:
+    js/main
+
+{ [Error: TypeError: Cannot read property 'normalize' of undefined
+In module tree:
+    js/main
+
+    at Object.<anonymous> (/home/fuel-main/build/repos/nailgun/nailgun/node_modules/requirejs/bin/r.js:1195:35)
+]
+  originalError: 
+   { [TypeError: Cannot read property 'normalize' of undefined]
+     moduleTree: [ 'js/main' ],
+     fileName: '/home/fuel-main/build/repos/nailgun/nailgun/compressed_static/_build/js/main.js' } }
+
+7.http://mirror.yandex.ru/连接不上
+/home/fuel-main/build/packages/deb/SANDBOX/multistrap.conf
