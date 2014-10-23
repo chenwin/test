@@ -61,3 +61,9 @@ In module tree:
 
 设置本地源
 http://wgkgood.blog.51cto.com/1192594/892897/
+
+8.
+wget -nv -O /home/fuel-main/local_mirror/centos/os/x86_64/images/install.img file:///home/fwm/6.0/centos/os/x86_64/images/install.img
+file:///home/fwm/6.0/centos/os/x86_64/images/install.img: Unsupported scheme `file'.
+make: *** [/home/fuel-main/local_mirror/centos/os/x86_64/images/install.img] Error 1
+make: *** Deleting file `/home/fuel-main/local_mirror/centos/os/x86_64/images/install.img'
