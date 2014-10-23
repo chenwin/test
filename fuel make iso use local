@@ -8,6 +8,13 @@ centos  docker  ubuntu
 #MIRROR_BASE?=http://mirror.fuel-infra.org/fwm/$(PRODUCT_VERSION)
 MIRROR_BASE?=file:///home/fwm/$(PRODUCT_VERSION)
 
+2.5
+No Match for argument murano-api
+No Match for argument python-prettytable
+No Match for argument sahara-dashboard
+
+屏蔽/home/fuel-main/requirements-rpm.txt里的上面3个rpm包
+
 3../bin/sh symbolic link does not exist的错误
 ERR: ./bin/sh symbolic link does not exist.
 No shell in /home/fuel-main/local_mirror/ubuntu/chroot/. at /usr/sbin/multistrap line 592.
