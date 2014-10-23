@@ -14,6 +14,8 @@ No Match for argument sahara-dashboard
 
 Get:1 http://mirror.fuel-infra.org/fwm/6.0/ubuntu/ precise/main libfreetype6 amd64 2.4.8-1ubuntu2.1 [343 kB]
 
+wget -nv -O /home/fuel-main/local_mirror/docker/fuel-centos.tar.xz http://mirror.fuel-infra.org/fwm/6.0/docker/fuel-centos.tar.xz
+
 将 VirtualBox硬盘镜像vdi转换为KVM的qcow2
 转换步骤（假设你有一个 VirtualBox 镜像，"ubuntu.vdi"）：
 Step 0. 解决error: Cannot register the hard disk
