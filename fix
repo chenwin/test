@@ -12,6 +12,8 @@ No Match for argument sahara-dashboard
 2014-10-23 03:20:38 URL:http://mirror.fuel-infra.org/fwm/6.0/ubuntu/pool/main/mlocate_0.23.1-1ubuntu2_amd64.deb [50574/50574] 
 -> "/repo/download/mlocate_0.23.1-1ubuntu2_amd64.deb" [1]
 
+Get:1 http://mirror.fuel-infra.org/fwm/6.0/ubuntu/ precise/main libfreetype6 amd64 2.4.8-1ubuntu2.1 [343 kB]
+
 将 VirtualBox硬盘镜像vdi转换为KVM的qcow2
 转换步骤（假设你有一个 VirtualBox 镜像，"ubuntu.vdi"）：
 Step 0. 解决error: Cannot register the hard disk
