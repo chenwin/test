@@ -19,6 +19,8 @@ wget -nv -O /home/fuel-main/local_mirror/docker/fuel-centos.tar.xz http://mirror
 git clone https://github.com/stackforge/fuel-library.git /home/fuel-main/build/repos/fuellib && (cd /home/fuel-main/build/repos/fuellib && git checkout -q master)
 Cloning into '/home/fuel-main/build/repos/fuellib'...
 
+Get:1 http://mirror.yandex.ru precise-security Release.gpg [198 B]
+
 将 VirtualBox硬盘镜像vdi转换为KVM的qcow2
 转换步骤（假设你有一个 VirtualBox 镜像，"ubuntu.vdi"）：
 Step 0. 解决error: Cannot register the hard disk
