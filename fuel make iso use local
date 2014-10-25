@@ -58,6 +58,13 @@ In module tree:
 
 7.http://mirror.yandex.ru/连接不上
 /home/fuel-main/build/packages/deb/SANDBOX/multistrap.conf
+怎么还是http://mirror.yandex.ru/ubuntu/，需要替换成国内的mirrors.163.com
+
+sed -e "s/@@UBUNTU_RELEASE@@/precise/g" /home/fuel-main/packages/multistrap.conf | sudo tee /home/fuel-main/build/packages/deb/SANDBOX/multistrap.conf
+
+multistrap 2.1.6ubuntu3 using /home/fuel-main/build/packages/deb/SANDBOX/multistrap.conf
+
+修改/fuel-main/packages/multistrap.conf里的http://mirror
 
 设置本地源
 http://wgkgood.blog.51cto.com/1192594/892897/
@@ -69,6 +76,4 @@ make: *** [/home/fuel-main/local_mirror/centos/os/x86_64/images/install.img] Err
 make: *** Deleting file `/home/fuel-main/local_mirror/centos/os/x86_64/images/install.img'
 
 
-wget -nv -O /home/fuel-main/local_mirror/centos/os/x86_64/EFI/BOOT/BOOTX64.conf file:///home/fwm/6.0/centos/os/x86_64/EFI/BOOT/BOOTX64.conf
-file:///home/fwm/6.0/centos/os/x86_64/EFI/BOOT/BOOTX64.conf: Unsupported scheme `file'.
-make: *** [/home/fuel-main/local_mirror/centos/os/x86_64/EFI/BOOT/BOOTX64.conf] Error 1
+
