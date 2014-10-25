@@ -1,0 +1,14 @@
+建立本地源
+http://wgkgood.blog.51cto.com/1192594/892897
+1)创建目录mkdir /data/soft -p   //设立安装源路径 
+2)拷贝/var/cache/apt/archives/文件到/data/soft  
+命令：cp -p /var/cache/apt/archives/*.deb  /data/soft/ 
+3)apt-get install dpkg-dev
+4)在/data/目录下执行
+dpkg-scanpackages soft/ |gzip > soft/Packages.gz
+5)参考http://wiki.qcloud.com/wiki/Ubuntu%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE
+vi /etc/nginx/sites-available/default
+在server{那段
+root /data/soft;
+autoindex on;
+7)service nginx restart
