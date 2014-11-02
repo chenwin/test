@@ -1,0 +1,11 @@
+sed 's/mirror.fuel-infra.org/\127.0.0.1/g' ./config.mk
+sed 's/git clone/\#git clone\n\tcp -r /home/repos/$1 $(BUILD_DIR)/repos/$1/g' ./repos.mk
+sed 's/murano-api/\#murano-api/g' ./requirements-rpm.txt
+sed 's/python-prettytable/\#python-prettytable/g' ./requirements-rpm.txt
+sed 's/sahara-dashboard/\#sahara-dashboard/g' ./requirements-rpm.txt
+chmod 755 *.sh
+chmod 755 Makefile
+chmod 755 ./packages/regenerate_ubuntu_repo
+chmod 755 ./iso/pkg-versions.awk
+sed 's/mirror.yandex.ru/\mirrors.163.com/g' ./packages/multistrap.conf
+cp -r /home/repos/litevirt /home/fuel/mirror/
