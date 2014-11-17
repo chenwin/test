@@ -1,0 +1,14 @@
+myqsl开启允许远程访问:
+在linux下输入mysql -u root -p再输入密码进入
+mysql>grant all privileges on *.* to user@'%' identified by 'password';
+
+postgresql
+在Mysql 众多表中查找一个表名或者字段名的 SQL 语句：
+用正则查找
+SELECT table_name, column_name from information_schema.columns WHERE column_name LIKE '%vcpu%'
+
+mysql> select * from student where name like 'm%';
+列出在表student中所有以字母M开头的学生名字。　
+
+mysql> select * from student where name like '%e';
+列出所有以字母e结尾的学生名字。
