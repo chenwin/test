@@ -1,24 +1,28 @@
- root@iZ25ov5ey82Z:~# docker pull registry.mirrors.aliyuncs.com/library/centos
-Pulling repository registry.mirrors.aliyuncs.com/library/centos
-6cc180b1c73b: Pulling dependent layers 
-34943839435d: Pulling dependent layers 
-25c5298b1a36: Downloading [==============================>                    ] 45.79 MB/74.9 MB 1m51s
-511136ea3c5a: Download complete 
-5b12ef8fd570: Download complete 
-5b12ef8fd570: Pulling metadata
+root@xxx:~# time docker pull registry.mirrors.aliyuncs.com/library/ubuntu:14.04
+Pulling repository registry.mirrors.aliyuncs.com/library/ubuntu
+86ce37374f40: Download complete 
+86ce37374f40: Pulling image (14.04) from registry.mirrors.aliyuncs.com/library/ubuntu 
+5bc37dc2dfba: Download complete 
+61cb619d86bc: Download complete 
+3f45ca85fedc: Download complete 
+78e82ee876a2: Download complete 
+dc07507cef42: Download complete 
+dc07507cef42: Pulling metadata 
+real	1m3.171s
+user	0m0.017s
+sys	0m0.013s
 
-root@iZ25ov5ey82Z:~# docker pull registry.mirrors.aliyuncs.com/library/centos
-Pulling repository registry.mirrors.aliyuncs.com/library/centos
-6cc180b1c73b: Pulling dependent layers 
-34943839435d: Downloading [>                                                  ] 1.056 MB/78.1 MB 26m26s
-25c5298b1a36: Download complete 
-511136ea3c5a: Download complete 
-5b12ef8fd570: Download complete 
-5b12ef8fd570: Pulling metadata
 
-root@iZ25ov5ey82Z:~# docker pull centos:latest
-Pulling repository centos
-34943839435d: Downloading [==>                                                ] 3.694 MB/78.1 MB 9m49s
-34943839435d: Pulling image (latest) from centos 
+root@xxx:~# time docker pull ubuntu:14.04
+Pulling repository ubuntu
+86ce37374f40: Download complete 
+86ce37374f40: Pulling image (14.04) from ubuntu 
 511136ea3c5a: Download complete 
-5b12ef8fd570: Download complete 
+5bc37dc2dfba: Download complete 
+61cb619d86bc: Download complete 
+3f45ca85fedc: Download complete 
+78e82ee876a2: Download complete 
+dc07507cef42: Download complete 
+real	0m5.510s
+user	0m0.007s
+sys	0m0.005s
