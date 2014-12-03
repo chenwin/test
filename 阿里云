@@ -17,5 +17,7 @@
  http://bbs.aliyun.com/read/177626.html?spm=0.0.0.0.bydPHK
  阿里云docker
  http://help.aliyun.com/list/11117164.html?spm=5176.7189909.0.0.qnpIDi
+ docker rm 容器
+ docker rmi 镜像
  
  
