@@ -1,0 +1,8 @@
+ root@iZ25ov5ey82Z:~# docker pull registry.mirrors.aliyuncs.com/library/centos
+Pulling repository registry.mirrors.aliyuncs.com/library/centos
+6cc180b1c73b: Pulling dependent layers 
+34943839435d: Pulling dependent layers 
+25c5298b1a36: Downloading [==============================>                    ] 45.79 MB/74.9 MB 1m51s
+511136ea3c5a: Download complete 
+5b12ef8fd570: Download complete 
+5b12ef8fd570: Pulling metadata 
