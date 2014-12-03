@@ -31,3 +31,6 @@ root@xxx:~# docker images
 REPOSITORY                                     TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
 registry.mirrors.aliyuncs.com/library/ubuntu   14.04               86ce37374f40        7 days ago          192.7 MB
 ubuntu                                         14.04               86ce37374f40        7 days ago          192.7 MB
+
+删除所有容器
+docker rm $(docker ps -a -q)
