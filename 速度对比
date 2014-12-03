@@ -15,3 +15,10 @@ Pulling repository registry.mirrors.aliyuncs.com/library/centos
 511136ea3c5a: Download complete 
 5b12ef8fd570: Download complete 
 5b12ef8fd570: Pulling metadata
+
+root@iZ25ov5ey82Z:~# docker pull centos:latest
+Pulling repository centos
+34943839435d: Downloading [==>                                                ] 3.694 MB/78.1 MB 9m49s
+34943839435d: Pulling image (latest) from centos 
+511136ea3c5a: Download complete 
+5b12ef8fd570: Download complete 
