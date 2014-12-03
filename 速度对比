@@ -13,19 +13,20 @@ user	0m0.017s
 sys	0m0.013s
 
 
-root@xxx:~# time docker pull ubuntu:14.04
+root@iZ25ov5ey82Z:~# time docker pull ubuntu:14.04
 Pulling repository ubuntu
 86ce37374f40: Download complete 
 86ce37374f40: Pulling image (14.04) from ubuntu 
-511136ea3c5a: Download complete 
 5bc37dc2dfba: Download complete 
 61cb619d86bc: Download complete 
 3f45ca85fedc: Download complete 
 78e82ee876a2: Download complete 
 dc07507cef42: Download complete 
-real	0m5.510s
-user	0m0.007s
-sys	0m0.005s
+dc07507cef42: Pulling metadata 
+real	14m48.332s
+user	0m0.020s
+sys	0m0.012s
+
 
 root@xxx:~# docker images
 REPOSITORY                                     TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
