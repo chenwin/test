@@ -13,7 +13,7 @@ user	0m0.017s
 sys	0m0.013s
 
 
-root@iZ25ov5ey82Z:~# time docker pull ubuntu:14.04
+root@xxx:~# time docker pull ubuntu:14.04
 Pulling repository ubuntu
 86ce37374f40: Download complete 
 86ce37374f40: Pulling image (14.04) from ubuntu 
