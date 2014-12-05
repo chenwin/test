@@ -4,6 +4,7 @@ route add default gw 186.100.41.1
 /etc/yum.repos.d/CentOS-Base.repo
 http://mirrors.163.com/.help/CentOS-Base-163.repo
 屏蔽[addons]部分
+同时修改为gpgcheck=0
 
 /etc/yum.repos.d/epel-bootstrap.repo
 修改stack.ch里面的bootstrap部分
