@@ -98,6 +98,7 @@ NOVA_BRANCH=stable/juno
 NOVACLIENT_BRANCH=stable/juno
 NEUTRON_BRANCH=stable/juno
 SWIFT_BRANCH=stable/juno
+CEILOMETER_BRANCH=stable/juno
 
 CINDER_REPO=https://github.com/openstack/cinder
 GLANCE_REPO=https://github.com/openstack/glance
