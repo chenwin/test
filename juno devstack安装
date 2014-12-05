@@ -65,6 +65,8 @@ git checkout -b juno origin/stable/juno
 
 
 6.需要开启安装ceilometer
+cp samples/local.conf ./
+修改local.conf
 localrc单网卡配置文件
 http://www.cloudcraft.cn/devstack-localrc-for-one-nic-installation/
 
