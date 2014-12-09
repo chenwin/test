@@ -154,7 +154,9 @@ grep "https://pypi.python.org/simple/" * -r
 default='https://pypi.python.org/simple/',
 
 问题:keystone ImportError: No module named MySQLdb
-方法1：(可能需要yum install mariadb-devel.x86_64)
+先安装db
+yum install mariadb-devel.x86_64
+方法1：
 http://lovesoo.org/importerror-no-module-named-mysqldb-jie-jue-fang-fa.html
 方法2：推荐
 pip install MySQL-python
@@ -178,7 +180,7 @@ pip install oslo.concurrency
 http://www.gossamer-threads.com/lists/openstack/dev/43030
 方法2：
 git clone https://github.com/openstack/oslo.concurrency
-git checkout branch juno stable/juno
+git checkout -b juno origin/stable/juno
 python setup.py install
 
 pip源异常导致命令不可用，通过yum安装
