@@ -152,3 +152,14 @@ pip install cffi-0.8.tar.gz
 grep "https://pypi.python.org/simple/" * -r
 
 default='https://pypi.python.org/simple/',
+
+问题:keystone ImportError: No module named MySQLdb
+方法1：(可能需要yum install mariadb-devel.x86_64)
+http://lovesoo.org/importerror-no-module-named-mysqldb-jie-jue-fang-fa.html
+方法2：推荐
+pip install MySQL-python
+有bug
+vi /usr/include/mysql/my_config_x86_64.h
+650行注释掉含__GLIBC__那2行
+增加#if defined(__GLIBC__) && defined(SAFE_MUTEX)
+https://bugzilla.redhat.com/show_bug.cgi?id=1166603
