@@ -163,3 +163,52 @@ vi /usr/include/mysql/my_config_x86_64.h
 650行注释掉含__GLIBC__那2行
 增加#if defined(__GLIBC__) && defined(SAFE_MUTEX)
 https://bugzilla.redhat.com/show_bug.cgi?id=1166603
+
+安装heat
+ENABLED_SERVICES+=,heat,h-api,h-api-cfn,h-api-cw,h-eng
+
+问题
+File "/opt/stack/ceilometer/ceilometer/utils.py", line 33, in <module>
+ImportError: No module named oslo_concurrency
+方法1：
+yum install python-pip
+
+pip install oslo.concurrency
+社区bug
+http://www.gossamer-threads.com/lists/openstack/dev/43030
+方法2：
+git clone https://github.com/openstack/oslo.concurrency
+git checkout branch juno stable/juno
+python setup.py install
+
+pip源异常导致命令不可用，通过yum安装
+yum install python-pip
+tools/install_pip.sh
+
+
+安装docker
+yum install docker
+No module named middleware
+git clone https://github.com/openstack/oslo.middleware
+
+ImportError: No module named tooz.coordination
+pip install tooz
+
+
+'ceilometer-api did not start'
+ceilometer-api -d -v --log-dir=/var/log/ceilometer-api --config-file /etc/ceilometer/ceilometer.conf' '
+
+
+Centos 7 安装 设置 IP地址,DNS,主机名,防火墙,端口 (实测+笔记)
+http://www.cnblogs.com/vicowong/p/3837786.html
+综上需要安装
+pip install pecan tooz
+
+yum install docker安装docker软件
+/opt/stack/heat/contrib/heat_docker下安装docker插件
+启服务service docker start
+
+heat resource-type-list
+heat stack-list
+
+https://wiki.openstack.org/wiki/Heat/GettingStartedUsingDevstack
