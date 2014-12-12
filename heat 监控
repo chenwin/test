@@ -6,3 +6,13 @@ http://www.choudan.net/2014/02/04/Openstack-Heat-%E5%AD%A6%E4%B9%A0.html
 
 heat autoscaling
 http://haodong.net.cn/2014/11/autoscaling/
+
+http://lingxiankong.github.io/blog/2014/03/27/heat-waitcondition/
+http://lingxiankong.github.io/blog/2014/05/07/heat-service/
+
+虚拟机HA（含将cfntools打包进镜像中的方）
+http://kiwik.github.io/openstack/2014/03/22/Heat-HA/
+http://docs.amazonaws.cn/en_us/AWSCloudFormation/latest/UserGuide/cfn-signal.html
+
+https://github.com/openstack/heat/blob/master/heat/tests/test_signal.py
+http://zenodo.org/record/7571/files/CERN_openlab_report_Michelino.pdf
