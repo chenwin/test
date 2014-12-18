@@ -1,0 +1,35 @@
+镜像
+OS版本:     docker info(最后一行)
+Docker版本: docker version
+启动参数:   
+cat /etc/default/docker
+cat /etc/default/docker-storage
+find / -name docker.service
+# ps -ef |grep docker
+root      2945     1  0 Dec11 ?        00:04:26 /usr/bin/docker -d --selinux-enabled
+
+仓库抓包 证书 ssh连接
+
+
+rpm -qa |grep docker
+
+whereis docker
+rpm -qf /usr/bin/docker
+
+Docker 命令行和后台参数
+http://blog.csdn.net/smallfish1983/article/details/40449837
+docker 网络详解
+http://blog.csdn.net/wsscy2004/article/details/25887785
+docker启动一个container时会会根据docker0的网段划分container的IP,docker0是每个container的网关
+
+ifconfig docker0
+tcpdump -i docker0 dst port 5000 -s 10000 -w /opt/test.cap
+tcpdump -i 对外网络 -s 10000 -w /opt/test.cap
+
+比如我们要分析一下eth0接口下跟192.168.7.188 这个目的IP地址22端口的发包情况
+tcpdump -i eth0 dst 192.168.7.188 and port 22
+
+http://help.aliyun.com/list/11117164.html?spm=5176.7189909.0.0.qnpIDi
+
+Building private Docker registry with basic authentication
+https://medium.com/@deeeet/building-private-docker-registry-with-basic-authentication-with-self-signed-certificate-using-it-e6329085e612
