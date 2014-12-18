@@ -1,3 +1,10 @@
+配置信息
+CPU： 1核	 内存： 1GB	 数据盘： 0G
+操作系统： Ubuntu 14.04 64位	 公网IP： 123.56.89.14	 内网IP： 10.170.194.214
+带宽计费方式： 固定带宽1Mbps	 实例规格： ecs.t1.small	 网络类型： 经典网络
+
+docker pull registry.mirrors.aliyuncs.com/library/hello-world
+
 GET /v1/repositories/library/hello-world/images HTTP/1.1
 Host: registry.mirrors.aliyuncs.com
 User-Agent: docker/1.2.0 go/go1.3.1 git-commit/fa7b24f kernel/3.13.0-30-generic os/linux arch/amd64
