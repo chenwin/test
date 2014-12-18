@@ -1,0 +1,56 @@
+root@iZ25diuy9amZ:~# docker info
+Containers: 0
+Images: 10
+Storage Driver: aufs
+ Root Dir: /var/lib/docker/aufs
+ Dirs: 10
+Execution Driver: native-0.2
+Kernel Version: 3.13.0-30-generic
+Operating System: Ubuntu 14.04 LTS
+WARNING: No swap limit support
+root@iZ25diuy9amZ:~# docker version
+Client version: 1.2.0
+Client API version: 1.14
+Go version (client): go1.3.1
+Git commit (client): fa7b24f
+OS/Arch (client): linux/amd64
+Server version: 1.2.0
+Server API version: 1.14
+Go version (server): go1.3.1
+Git commit (server): fa7b24f
+
+=============================================================================
+root@iZ25diuy9amZ:~# cat /etc/default/docker
+# Docker Upstart and SysVinit configuration file
+
+# Customize location of Docker binary (especially for development testing).
+#DOCKER="/usr/local/bin/docker"
+
+# Use DOCKER_OPTS to modify the daemon startup options.
+#DOCKER_OPTS="--dns 8.8.8.8 --dns 8.8.4.4"
+
+# If you need Docker to use an HTTP proxy, it can also be specified here.
+#export http_proxy="http://127.0.0.1:3128/"
+
+# This is also a handy place to tweak where Docker's temporary files go.
+#export TMPDIR="/mnt/bigdrive/docker-tmp"
+
+=============================================================================
+root@iZ25diuy9amZ:~# cat /lib/systemd/system/docker.service
+[Unit]
+Description=Docker Application Container Engine
+Documentation=http://docs.docker.com
+After=network.target docker.socket
+Requires=docker.socket
+
+[Service]
+ExecStart=/usr/bin/docker -d -H fd://
+LimitNOFILE=1048576
+LimitNPROC=1048576
+
+[Install]
+Also=docker.socket
+
+=============================================================================
+root@iZ25diuy9amZ:~# ps -ef |grep docker
+root      1349     1  0 14:56 ?        00:00:00 /usr/bin/docker -d
