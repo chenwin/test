@@ -100,3 +100,12 @@ default         123.56.91.247   0.0.0.0         UG    0      0        0 eth1
 123.56.88.0     *               255.255.252.0   U     0      0        0 eth1
 172.16.0.0      10.170.199.247  255.240.0.0     UG    0      0        0 eth0
 192.168.42.0    *               255.255.255.0   U     0      0        0 docker0
+
+
+root@iZ25diuy9amZ:~# iptables -S
+-P INPUT ACCEPT
+-P FORWARD ACCEPT
+-P OUTPUT ACCEPT
+-A FORWARD -o docker0 -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+-A FORWARD -i docker0 ! -o docker0 -j ACCEPT
+-A FORWARD -i docker0 -o docker0 -j ACCEPT
