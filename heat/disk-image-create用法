@@ -1,0 +1,80 @@
+pip install git+http://github.com/openstack/diskimage-builder.git
+或者
+git clone http://github.com/openstack/diskimage-builder.git
+python ./diskimage-builder/setup.py install
+
+git clone http://github.com/openstack/tripleo-image-elements.git
+(切换到tripleo-image-elements代码的上一层目录)
+export ELEMENTS_PATH=tripleo-image-elements/elements
+
+(http://cloud.centos.org/centos/7/images/CentOS-7-x86_64-GenericCloud-20140929_01.qcow2)
+disk-image-create vm centos7 -a amd64 -o centos7-adm64.qcow2
+disk-image-create vm centos7 heat-cfntools -a amd64 -o centos7-adm64.qcow2
+disk-image-create vm centos7 pip-and-virtualenv heat-cfntools -a amd64 -o centos7-adm64.qcow2
+
+镜像存放路径/root/.cache/image-create/
+
+
+如下跳过，无法打入heat-cfntools
+==============================
+qemu-img create -f qcow2 /tmp/centos-7.0.qcow2 10G
+
+virt-install --virt-type kvm --name centos-7.0 --ram 4096 --vcpus=4 \
+--disk /tmp/centos-7.0.qcow2,format=qcow2 \
+--network network=default \
+--graphics vnc,listen=0.0.0.0 --noautoconsole \
+--os-type=linux --os-variant=rhel6 \
+--cdrom /home/CentOS-7.0-1406-x86_64-Minimal.iso \
+--boot cdrom
+
+
+允许VNC登陆
+firewall-cmd --add-port=5901/tcp
+
+virsh edit centos-7.0 boot为hd
+
+virsh destroy centos-7.0
+virsh start centos-7.0
+
+安装ACPI service
+yum install acpid
+systemctl enable acpid.service
+
+yum install http://mirrors.aliyun.com/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
+yum install cloud-init
+
+Disable the zeroconf route
+echo "NOZEROCONF=yes" >> /etc/sysconfig/network
+
+
+/boot/grub2/grub.cfg
+
+
+清理镜像的mac和ip信息
+关机shutdown -h now
+virt-sysprep -d centos-7.0
+================================
+
+
+参考
+【普通方法】
+http://docs.openstack.org/image-guide/content/centos-image.html
+https://github.com/openstack/diskimage-builder
+http://docs.openstack.org/developer/heat/getting_started/jeos_building.html（多组件参数）
+【disk-image-create】
+https://github.com/openstack/sahara-image-elements/blob/master/diskimage-create/README.rst
+https://wiki.openstack.org/wiki/Heat/BotoCompatibility
+【使用Diskimage-builder工具生成Heat可用的vm镜像】
+http://blog.csdn.net/xuanlangjian/article/details/23258487
+
+https://pypi.python.org/pypi/tripleo-image-elements/0.7.10
+http://blog.apporc.org/?p=600（博客good）
+【disk-image-builder制作虚拟机镜像 组件介绍】
+http://www.lnmpy.com/disk-image-builder/
+【参考里面手工安装heat-cfntools】
+http://longgeek.com/2014/05/19/openstack-trove-dedicated-mirror-making/
+
+环境变量
+OVERWRITE_OLD_IMAGE overwrite to any value that isn't 0.
+参数
+--offline not refresh cached resources.
