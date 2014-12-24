@@ -4,7 +4,8 @@ git clone http://github.com/openstack/diskimage-builder.git
 python ./diskimage-builder/setup.py install
 (pip source path:https://pypi.python.org/packages/source/p/pip/)
 wget https://pypi.python.org/packages/source/p/pip/pip-1.5.6.tar.gz
-wget https://pypi.python.org/packages/source/s/setuptools/setuptools-3.8.tar.gz
+wget https://pypi.python.org/packages/source/s/setuptools/setuptools-3.7.1.tar.gz
+(notes:must this version 3.7.1 or 4.0.1,otherwise TypeError: 'unicode' does not have the buffer interface)
 装完setuptools可以使用easy_install
 http://rpm.pbone.net/index.php3/stat/4/idpl/26646460/dir/centos_7/com/python-setuptools-0.9.8-3.el7.noarch.rpm.html
 easy_install pip
@@ -12,7 +13,6 @@ easy_install setuptools
 (setup pip:http://blog.csdn.net/cnyyx/article/details/25614669)
 (install depend module:pip install r requirements.txt)
 (wget获取https的时候要加上：--no-check-certificate)
-problem while install:TypeError: 'unicode' does not have the buffer interface
 
 git clone http://github.com/openstack/tripleo-image-elements.git
 (切换到tripleo-image-elements代码的上一层目录)
