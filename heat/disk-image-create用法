@@ -1,4 +1,4 @@
-yum install -y wget sudo git
+yum install -y wget sudo git tar
 
 pip install git+http://github.com/openstack/diskimage-builder.git
 或者
