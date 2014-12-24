@@ -30,7 +30,7 @@ git clone http://github.com/openstack/tripleo-image-elements.git
 (切换到tripleo-image-elements代码的上一层目录)
 export ELEMENTS_PATH=tripleo-image-elements/elements
 
-(http://cloud.centos.org/centos/7/images/CentOS-7-x86_64-GenericCloud-20140929_01.qcow2)
+(镜像地址http://cloud.centos.org/centos/7/images/CentOS-7-x86_64-GenericCloud-20140929_01.qcow2)
 disk-image-create vm centos7 -a amd64 -o centos7-adm64.qcow2
 disk-image-create vm centos7 heat-cfntools -a amd64 -o centos7-adm64.qcow2
 disk-image-create --no-tmpfs vm centos7 heat-cfntools -a amd64 -o centos7-adm64.qcow2
