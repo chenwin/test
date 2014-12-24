@@ -3,6 +3,8 @@ pip install git+http://github.com/openstack/diskimage-builder.git
 git clone http://github.com/openstack/diskimage-builder.git
 python ./diskimage-builder/setup.py install
 (pip source path:https://pypi.python.org/packages/source/p/pip/)
+wget https://pypi.python.org/packages/source/p/pip/pip-1.5.6.tar.gz
+wget https://pypi.python.org/packages/source/s/setuptools/setuptools-3.8.tar.gz
 (setup pip:http://blog.csdn.net/cnyyx/article/details/25614669)
 (install depend module:pip install r requirements.txt)
 (wget获取https的时候要加上：--no-check-certificate)
