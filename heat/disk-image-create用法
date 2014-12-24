@@ -24,6 +24,15 @@ disk-image-create vm centos7 heat-cfntools -a amd64 -o centos7-adm64.qcow2
 disk-image-create vm centos7 pip-and-virtualenv heat-cfntools -a amd64 -o centos7-adm64.qcow2
 
 镜像存放路径/root/.cache/image-create/
+内存必须大于4G
+bash-4.2# export ELEMENTS_PATH=tripleo-image-elements/elements
+bash-4.2# disk-image-create vm centos7 heat-cfntools -a amd64 -o centos7-adm64.qcow2
+/usr/bin/disk-image-create: line 146: [: too many arguments
+Building elements: base  vm centos7 heat-cfntools
+Expanded element dependencies to: centos7 rpm-distro redhat-common dib-run-parts vm manifests pip-and-virtualenv base pkg-map heat-cfntools cache-url yum source-repositories package-installs
+Not enough RAM to use tmpfs for build. (3746176 < 4G)
+/usr/bin/../share/diskimage-builder/lib/common-functions: line 38: sudo: command not found
+
 
 
 如下跳过，无法打入heat-cfntools
