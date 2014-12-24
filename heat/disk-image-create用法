@@ -93,6 +93,8 @@ virt-sysprep -d centos-7.0
 参考
 【普通方法】
 http://docs.openstack.org/image-guide/content/centos-image.html
+http://demo.netfoucs.com/yanheven1/article/details/40041849
+【制作openstack用的centos6.5镜像】
 https://github.com/openstack/diskimage-builder
 http://docs.openstack.org/developer/heat/getting_started/jeos_building.html（多组件参数）
 【disk-image-create】
