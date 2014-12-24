@@ -18,6 +18,7 @@ easy_install setuptools
 (install depend module:pip install r requirements.txt)
 (wget获取https的时候要加上：--no-check-certificate)
 
+docker run -i -t --net='host' -v /home/chendocker/ centos:latest /bin/bash
 容器停止后，启动再连接 --sig-proxy可以保证Ctrl+D、Ctrl+C不会退出
 docker attach --sig-proxy=false cab3c6d59863
 --privileged
