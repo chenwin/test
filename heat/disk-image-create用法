@@ -20,6 +20,7 @@ easy_install setuptools
 
 容器停止后，启动再连接 --sig-proxy可以保证Ctrl+D、Ctrl+C不会退出
 docker attach --sig-proxy=false cab3c6d59863
+--privileged
 
 git clone http://github.com/openstack/tripleo-image-elements.git
 (切换到tripleo-image-elements代码的上一层目录)
