@@ -26,7 +26,7 @@ disk-image-create vm centos7 heat-cfntools -a amd64 -o centos7-adm64.qcow2
 disk-image-create vm centos7 pip-and-virtualenv heat-cfntools -a amd64 -o centos7-adm64.qcow2
 
 镜像存放路径/root/.cache/image-create/
-内存必须大于4G
+内存必须大于4G (内存不足的，可以增加--no-tmpfs参数，不使用tmpfs)
 bash-4.2# export ELEMENTS_PATH=tripleo-image-elements/elements
 bash-4.2# disk-image-create vm centos7 heat-cfntools -a amd64 -o centos7-adm64.qcow2
 /usr/bin/disk-image-create: line 146: [: too many arguments
@@ -90,6 +90,7 @@ https://wiki.openstack.org/wiki/Heat/BotoCompatibility
 http://blog.csdn.net/xuanlangjian/article/details/23258487
 
 https://pypi.python.org/pypi/tripleo-image-elements/0.7.10
+https://pypi.python.org/pypi/diskimage-builder/0.0.1 (参数详解)
 http://blog.apporc.org/?p=600（博客good）
 【disk-image-builder制作虚拟机镜像 组件介绍】
 http://www.lnmpy.com/disk-image-builder/
