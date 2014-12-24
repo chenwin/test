@@ -2,6 +2,7 @@ pip install git+http://github.com/openstack/diskimage-builder.git
 或者
 git clone http://github.com/openstack/diskimage-builder.git
 python ./diskimage-builder/setup.py install
+(setup pip:http://blog.csdn.net/cnyyx/article/details/25614669)
 (install depend module:pip install r requirements.txt)
 (wget获取https的时候要加上：--no-check-certificate)
 
