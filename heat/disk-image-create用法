@@ -3,7 +3,7 @@ yum install -y wget sudo git tar
 pip install git+http://github.com/openstack/diskimage-builder.git
 或者
 git clone http://github.com/openstack/diskimage-builder.git
-python ./diskimage-builder/setup.py install
+cd diskimage-builder & python setup.py install
 wget https://pypi.python.org/packages/source/s/setuptools/setuptools-3.7.1.tar.gz
 (notes:must this version 3.7.1 or 4.0.1,otherwise TypeError: 'unicode' does not have the buffer interface)
 参考bug:
