@@ -2,6 +2,7 @@ pip install git+http://github.com/openstack/diskimage-builder.git
 或者
 git clone http://github.com/openstack/diskimage-builder.git
 python ./diskimage-builder/setup.py install
+(install depend module:pip install r requirements.txt)
 
 git clone http://github.com/openstack/tripleo-image-elements.git
 (切换到tripleo-image-elements代码的上一层目录)
