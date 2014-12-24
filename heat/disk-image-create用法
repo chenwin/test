@@ -1,3 +1,5 @@
+yum install sudo
+
 pip install git+http://github.com/openstack/diskimage-builder.git
 或者
 git clone http://github.com/openstack/diskimage-builder.git
@@ -15,6 +17,9 @@ easy_install setuptools
 (setup pip:http://blog.csdn.net/cnyyx/article/details/25614669)
 (install depend module:pip install r requirements.txt)
 (wget获取https的时候要加上：--no-check-certificate)
+
+容器停止后
+docker attach --sig-proxy=false cab3c6d59863
 
 git clone http://github.com/openstack/tripleo-image-elements.git
 (切换到tripleo-image-elements代码的上一层目录)
