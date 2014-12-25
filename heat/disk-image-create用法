@@ -1,4 +1,4 @@
-yum install -y wget sudo git tar
+yum install -y wget sudo git qemu-img kpartx
 
 pip install git+http://github.com/openstack/diskimage-builder.git
 或者
