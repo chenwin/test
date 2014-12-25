@@ -118,3 +118,38 @@ OVERWRITE_OLD_IMAGE overwrite to any value that isn't 0.
 
 【Docker 网络配置good】
 http://www.oschina.net/translate/docker-network-configuration
+
+
+最有的异常
+dib-run-parts Thu Dec 25 15:29:35 GMT 2014 Running /tmp/image.sQEHmomI/hooks/block-device.d/10-partition
+Checking that no-one is using this disk right now ...
+BLKRRPART: Invalid argument
+OK
+sfdisk: Disk /dev/loop3: cannot get geometry
+
+sfdisk:  /dev/loop3: unrecognized partition table type
+
+sfdisk: No partitions found
+
+BLKRRPART: Invalid argument
+If you created or changed a DOS partition, /dev/foo7, say, then use dd(1)
+to zero the first 512 bytes:  dd if=/dev/zero of=/dev/foo7 bs=512 count=1
+(See fdisk(8).)
+
+Disk /dev/loop3: 279 cylinders, 255 heads, 63 sectors/track
+Old situation:
+New situation:
+Units: cylinders of 8225280 bytes, blocks of 1024 bytes, counting from 0
+
+   Device Boot Start     End   #cyls    #blocks   Id  System
+/dev/loop3p1   *      1     278     278    2233035   83  Linux
+/dev/loop3p2          0       -       0          0    0  Empty
+/dev/loop3p3          0       -       0          0    0  Empty
+/dev/loop3p4          0       -       0          0    0  Empty
+Successfully wrote the new partition table
+
+Re-reading the partition table ...
+mkfs.ext2: No such file or directory
+/dev/loop3: [64773]:534318 (/tmp/image.25BIPyP9/image.raw)
+umount: /tmp/image.sQEHmomI: not mounted
+umount: /tmp/image.25BIPyP9: not mounted
