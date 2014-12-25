@@ -115,3 +115,6 @@ http://longgeek.com/2014/05/19/openstack-trove-dedicated-mirror-making/
 OVERWRITE_OLD_IMAGE overwrite to any value that isn't 0.
 参数
 --offline not refresh cached resources.
+
+【Docker 网络配置good】
+http://www.oschina.net/translate/docker-network-configuration
