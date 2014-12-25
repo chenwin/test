@@ -120,7 +120,7 @@ OVERWRITE_OLD_IMAGE overwrite to any value that isn't 0.
 http://www.oschina.net/translate/docker-network-configuration
 
 
-最有的异常
+最后的异常
 dib-run-parts Thu Dec 25 15:29:35 GMT 2014 Running /tmp/image.sQEHmomI/hooks/block-device.d/10-partition
 Checking that no-one is using this disk right now ...
 BLKRRPART: Invalid argument
@@ -153,3 +153,10 @@ mkfs.ext2: No such file or directory
 /dev/loop3: [64773]:534318 (/tmp/image.25BIPyP9/image.raw)
 umount: /tmp/image.sQEHmomI: not mounted
 umount: /tmp/image.25BIPyP9: not mounted
+
+
+环境上没有mkfs.ext2？？？！！！
+bash-4.2# ls -la /sbin/mkfs*
+-rwxr-xr-x. 1 root root 11504 Jun 17  2014 /sbin/mkfs
+-rwxr-xr-x. 1 root root 32760 Jun 17  2014 /sbin/mkfs.cramfs
+-rwxr-xr-x. 1 root root 32856 Jun 17  2014 /sbin/mkfs.minix
