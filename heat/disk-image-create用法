@@ -160,3 +160,6 @@ bash-4.2# ls -la /sbin/mkfs*
 -rwxr-xr-x. 1 root root 11504 Jun 17  2014 /sbin/mkfs
 -rwxr-xr-x. 1 root root 32760 Jun 17  2014 /sbin/mkfs.cramfs
 -rwxr-xr-x. 1 root root 32856 Jun 17  2014 /sbin/mkfs.minix
+
+上面的问题参考
+https://bugs.launchpad.net/diskimage-builder/+bug/1316241
