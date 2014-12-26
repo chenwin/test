@@ -32,3 +32,22 @@ Traceback (most recent call last):.1 57% [==============-           ]  0.0 B/s |
 KeyboardInterrupt
   
   
+disk-image-create环境变量
+export DIB_LOCAL_IMAGE=/home/XXX.qcow2.tgz
+export DIB_YUM_REPO_CONF=/etc/yum.repos.d/Centos-7.repo
+
+disk-image-create vm centos7 heat-cfntools -a amd64 -o centos7-adm64.qcow2
+
+错误
+dib-run-parts Fri Dec 26 03:23:39 UTC 2014 Running /tmp/in_target.d/install.d/01-install-pip
++ python /tmp/get-pip.py
+Collecting pip
+  Could not find any downloads that satisfy the requirement pip
+  No distributions at all found for pip
+
+解决
+修改01-install-pip增加
+mkdir -p /root/.pip
+echo "[global]" > /root/.pip/pip.conf
+echo "index-url=http://mirrors.aliyun.com/pypi/simple/" >> /root/.pip/pip.conf
+  
