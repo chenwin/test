@@ -74,6 +74,7 @@ virsh start centos-7.0
 yum install acpid
 systemctl enable acpid.service
 
+安装EPEL源，必须的
 yum install http://mirrors.aliyun.com/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
 yum install cloud-init
 
