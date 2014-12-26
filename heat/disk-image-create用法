@@ -110,6 +110,8 @@ http://blog.apporc.org/?p=600（博客good）
 http://www.lnmpy.com/disk-image-builder/
 【参考里面手工安装heat-cfntools】
 http://longgeek.com/2014/05/19/openstack-trove-dedicated-mirror-making/
+【镜像制作列表地址和方法】
+https://openstack.redhat.com/Image_resources
 
 环境变量
 OVERWRITE_OLD_IMAGE overwrite to any value that isn't 0.
