@@ -13,5 +13,22 @@ Installing for i386-pc platform.
 umount: /tmp/image.VwAa2stF: not mounted
 umount: /tmp/image.tttQ9BK1: not mounted
 
+3)
+http://mirrors.hust.edu.cn/centos/7.0.1406/updates/x86_64/Packages/linux-firmware-20140804-0.1.git6bce2b0.el7_0.noarch.rpm: [Errno 12] Timeout on http://mirrors.hust.edu.cn/centos/7.0.1406/updates/x86_64/Packages/linux-firmware-20140804-0.1.git6bce2b0.el7_0.noarch.rpm: (28, 'Operation too slow. Less than 1000 bytes/sec transferred the last 30 seconds')
+Trying other mirror.
+Traceback (most recent call last):.1 57% [==============-           ]  0.0 B/s |  37 MB  --:--:-- ETA 
+  File "/usr/libexec/urlgrabber-ext-down", line 75, in <module>
+    main()
+  File "/usr/libexec/urlgrabber-ext-down", line 61, in main
+    fo = PyCurlFileObject(opts.url, opts.filename, opts)
+  File "/usr/lib/python2.7/site-packages/urlgrabber/grabber.py", line 1258, in __init__
+    self._do_open()
+  File "/usr/lib/python2.7/site-packages/urlgrabber/grabber.py", line 1589, in _do_open
+    self._do_grab()
+  File "/usr/lib/python2.7/site-packages/urlgrabber/grabber.py", line 1723, in _do_grab
+    self._do_perform()
+  File "/usr/lib/python2.7/site-packages/urlgrabber/grabber.py", line 1517, in _do_perform
+    raise KeyboardInterrupt
+KeyboardInterrupt
   
   
