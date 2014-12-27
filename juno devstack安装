@@ -214,3 +214,16 @@ heat resource-type-list
 heat stack-list
 
 https://wiki.openstack.org/wiki/Heat/GettingStartedUsingDevstack
+
+
+stack.sh错误
+No package Django available.
+functions-common:1155 Missing packages detected
+
+easy_install Django
+Searching for Django
+Best match: Django 1.6.8
+修改方法
+vi /etc/yum.repos.d/epel.repo
+[epel]
+baseurl=http://mirrors.aliyun.com/epel/7/x86_64/
