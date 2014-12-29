@@ -1,0 +1,1 @@
+cd .; git clone https://go.googlesource.com/tools /go/src/golang.org/x/tools
