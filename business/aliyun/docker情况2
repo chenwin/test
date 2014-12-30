@@ -1,0 +1,53 @@
+配置信息
+CPU： 1核	 内存： 1GB	 数据盘： 0G
+操作系统： Ubuntu 14.04 64位	 公网IP： 123.56.89.14	 内网IP： 10.170.194.214
+带宽计费方式： 固定带宽1Mbps	 实例规格： ecs.t1.small	 网络类型： 经典网络
+
+docker pull registry.mirrors.aliyuncs.com/library/hello-world
+
+GET /v1/repositories/library/hello-world/images HTTP/1.1
+Host: registry.mirrors.aliyuncs.com
+User-Agent: docker/1.2.0 go/go1.3.1 git-commit/fa7b24f kernel/3.13.0-30-generic os/linux arch/amd64
+X-Docker-Token: true
+Accept-Encoding: gzip
+
+HTTP/1.1 200 OK
+Server: nginx/1.6.0
+Date: Thu, 18 Dec 2014 07:31:02 GMT
+Content-Type: application/json
+Content-Length: 828
+Connection: keep-alive
+strict-transport-security: max-age=31536000
+x-docker-token: signature=4659f63b1dada0f8340678591cceb61c8a4cc623,repository="library/hello-world",access=read
+Expires: -1
+Vary: Origin, Cookie
+x-docker-endpoints: registry.mirrors.aliyuncs.com
+Pragma: no-cache
+Cache-Control: no-cache
+x-frame-options: SAMEORIGIN
+Access-Control-Allow-Origin: null
+Access-Control-Allow-Headers: Content-Type
+X-Docker-Registry-Version: 0.9.0
+X-Docker-Registry-Config: dev
+
+[{"checksum": "", "id": "ef872312fe1bbc5e05aae626791a47ee9b032efa8f3bda39cc0be7b56bfe59b9"}, {"checksum": "", "id": "7fa0dcdc88de9c8a856f648c1f8e0cf8141a505bbddb7ecc0c61f1ed5e086852"}, {"checksum": "", "id": "bf16b6e27882c0790071c95326e0186eccd2b8ac2bd5ef34fecdbb332a90926e"}, {"checksum": "", "id": "8f5550346e6173730dca712d1fc87e671ae04d5899d6c4290f7897c054b2318e"}, {"checksum": "", "id": "f86750113cd23609d504342d39015d5c7f218935b8420dd43b79cd99f4f93960"}, {"checksum": "", "id": "0a1b1cfaa9a2153fdabe163d562fe1321a5c1d1db3a59e0fac7c65f966bc38a9"}, {"checksum": "", "id": "511136ea3c5a64f264b78b5433614aec563103b4d4702f3ba7d4d2698e22c158"}, {"checksum": "", "id": "2505d942a91db2045278f9d5c58067414d367c02506bbba96f0769a6ac6ad47b"}, {"checksum": "", "id": "565a9d68a73f6706862bfe8409a7f659776d4d60a8d096eb4a3cbce6999cc2a1"}]
+
+
+================================================================================
+Hello from Docker.
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (Assuming it was not already locally available.)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+For more examples and ideas, visit:
+ http://docs.docker.com/userguide/
