@@ -1,0 +1,111 @@
+root@iZ25diuy9amZ:~# docker info
+Containers: 0
+Images: 10
+Storage Driver: aufs
+ Root Dir: /var/lib/docker/aufs
+ Dirs: 10
+Execution Driver: native-0.2
+Kernel Version: 3.13.0-30-generic
+Operating System: Ubuntu 14.04 LTS
+WARNING: No swap limit support
+root@iZ25diuy9amZ:~# docker version
+Client version: 1.2.0
+Client API version: 1.14
+Go version (client): go1.3.1
+Git commit (client): fa7b24f
+OS/Arch (client): linux/amd64
+Server version: 1.2.0
+Server API version: 1.14
+Go version (server): go1.3.1
+Git commit (server): fa7b24f
+
+=============================================================================
+root@iZ25diuy9amZ:~# cat /etc/default/docker
+# Docker Upstart and SysVinit configuration file
+
+# Customize location of Docker binary (especially for development testing).
+#DOCKER="/usr/local/bin/docker"
+
+# Use DOCKER_OPTS to modify the daemon startup options.
+#DOCKER_OPTS="--dns 8.8.8.8 --dns 8.8.4.4"
+
+# If you need Docker to use an HTTP proxy, it can also be specified here.
+#export http_proxy="http://127.0.0.1:3128/"
+
+# This is also a handy place to tweak where Docker's temporary files go.
+#export TMPDIR="/mnt/bigdrive/docker-tmp"
+
+=============================================================================
+root@iZ25diuy9amZ:~# cat /lib/systemd/system/docker.service
+[Unit]
+Description=Docker Application Container Engine
+Documentation=http://docs.docker.com
+After=network.target docker.socket
+Requires=docker.socket
+
+[Service]
+ExecStart=/usr/bin/docker -d -H fd://
+LimitNOFILE=1048576
+LimitNPROC=1048576
+
+[Install]
+Also=docker.socket
+
+=============================================================================
+root@iZ25diuy9amZ:~# ps -ef |grep docker
+root      1349     1  0 14:56 ?        00:00:00 /usr/bin/docker -d
+
+
+网络
+root@iZ25diuy9amZ:~# ifconfig
+docker0   Link encap:Ethernet  HWaddr 56:84:7a:fe:97:99  
+          inet addr:192.168.42.1  Bcast:0.0.0.0  Mask:255.255.255.0
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+eth0      Link encap:Ethernet  HWaddr 00:16:3e:00:2a:8d  
+          inet addr:10.170.194.214  Bcast:10.170.199.255  Mask:255.255.248.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:2164 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:372 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:114502 (114.5 KB)  TX bytes:32506 (32.5 KB)
+
+eth1      Link encap:Ethernet  HWaddr 00:16:3e:00:2d:a5  
+          inet addr:123.56.89.14  Bcast:123.56.91.255  Mask:255.255.252.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:1113958 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:2718 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:46936240 (46.9 MB)  TX bytes:498500 (498.5 KB)
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+          
+ root@iZ25diuy9amZ:~# route
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+default         123.56.91.247   0.0.0.0         UG    0      0        0 eth1
+10.0.0.0        10.170.199.247  255.0.0.0       UG    0      0        0 eth0
+10.170.192.0    *               255.255.248.0   U     0      0        0 eth0
+100.64.0.0      10.170.199.247  255.192.0.0     UG    0      0        0 eth0
+123.56.88.0     *               255.255.252.0   U     0      0        0 eth1
+172.16.0.0      10.170.199.247  255.240.0.0     UG    0      0        0 eth0
+192.168.42.0    *               255.255.255.0   U     0      0        0 docker0
+
+
+root@iZ25diuy9amZ:~# iptables -S
+-P INPUT ACCEPT
+-P FORWARD ACCEPT
+-P OUTPUT ACCEPT
+-A FORWARD -o docker0 -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+-A FORWARD -i docker0 ! -o docker0 -j ACCEPT
+-A FORWARD -i docker0 -o docker0 -j ACCEPT
