@@ -1,1 +1,9 @@
-1
+【Wget for Windows】
+http://gnuwin32.sourceforge.net/packages/wget.htm
+
+http://wiki.qcloud.com/wiki/Ubuntu%e7%8e%af%e5%a2%83%e9%85%8d%e7%bd%ae
+
+wget -c -r -np --mirror -p --convert-links -P /home/mirror http://mirror.fuel-infra.org/fwm/6.0/
+
+
+http://mirror.yandex.ru/mirrors/docker/
