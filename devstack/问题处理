@@ -1,0 +1,66 @@
+1.
+No package Django available.
+functions-common:1155 Missing packages detected
+
+easy_install Django
+Searching for Django
+Best match: Django 1.6.8
+
+vi /etc/yum.repos.d/epel.repo
+[epel]
+baseurl=http://mirrors.aliyun.com/epel/7/x86_64/
+enabled=1
+gpgcheck=0
+
+
+2.No distributions matching the version for prettytable>0.7
+
+参考https://bugs.launchpad.net/devstack/+bug/1405019
+vi /home/devstack/functions-common
+local sudo_pip="sudo -H"
+vi /home/devstack/tools/fixup_stuff.sh
+pip_install 'prettytable>=0.7'
+
+3.
+Downloading/unpacking SQLAlchemy<=0.8.99,<=0.9.99,>=0.8.4,>=0.9.7 (from keystone==2014.2.1)
+No distributions matching the version for SQLAlchemy<
+
+参考https://bugs.launchpad.net/tripleo/+bug/1405187
+vi /opt/stack/keystone/requirements-py3.txt
+vi /opt/stack/ceilometer/requirements-py3.txt
+SQLAlchemy>=0.9.7,<=0.9.99
+
+都需要修改
+/opt/stack/keystone/requirements.txt
+/opt/stack/glance/requirements.txt
+/opt/stack/cinder/requirements.txt
+/opt/stack/neutron/requirements.txt
+/opt/stack/nova/requirements.txt
+/opt/stack/heat/requirements.txt
+
+4.
+ERROR: openstack Forbidden (HTTP 403)
+配置no_proxy
+export no_proxy=127.0.0.1,186.100.41.110
+
+
+5.
+sudo vgcreate stack-volumes-lvmdriver-1 /dev/loop0
+A volume group called stack-volumes-lvmdriver-1 already exists.
+
+使用pvs查看卷组，然后移除卷组
+vgremove stack-volumes-lvmdriver-1
+
+6.neutron启动异常
+pkg_resources.VersionConflict: SQLAlchemy 0.9.8 is installed but SQLAlchemy<=0.8.99,<=0.9.99,>=0.8.4,>=0.9.7 is required by [\'oslo.db\']
+
+参考https://bugs.launchpad.net/oslo.db/+bug/1402312
+删除之前的版本
+cd /usr/lib/python2.7/site-packages/
+rm -f -r oslo.db*
+
+重装
+git clone http://github.com/openstack/oslo.db
+git checkout -b juno origin/stable/juno
+
+
