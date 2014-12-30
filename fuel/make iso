@@ -1,0 +1,42 @@
+make clean;
+make iso USE_MIRROR=ext MIRROR_CENTOS?=http://download.mirantis.com/fuelweb-repo/3.2/centos MIRROR_UBUNTU?=http://archive.ubuntu.com/ubuntu MIRROR_FUEL_UBUNTU?=http://download.mirantis.com/fuelweb-repo/4.0/ubuntu/
+And the make process have been gone through
+
+参见https://bugs.launchpad.net/fuel/+bug/1255088
+
+修改\fuel-main\config.mk
+MIRROR_BASE?=http://mirror.fuel-infra.org/fwm/$(PRODUCT_VERSION)
+MIRROR_CENTOS?=$(MIRROR_BASE)/centos
+MIRROR_UBUNTU?=$(MIRROR_BASE)/ubuntu
+MIRROR_DOCKER?=$(MIRROR_BASE)/docker
+
+会把其它几个模块的代码下载至/fuel-main/build/repos目录下
+fuel-library   对应fuellib
+fuel-astute    对应astute
+fuel-ostf      对应ostf
+fuel-web       对应nailgun
+
+\fuel-main\repos.mk控制删除和下载最新的其它模块，可以临时屏蔽掉,使用本地已经下好的
+	#git clone $2 $(BUILD_DIR)/repos/$1 && (cd $(BUILD_DIR)/repos/$1 && git checkout -q $3)
+	rsync -rp $(TOP_DIR)/local_mirror/repos $(BUILD_DIR)/
+
+
+\fuel-main\iso\module.mk
+
+chmod 755 /home/fuel/my/fuel-main/iso/pkg-versions.awk
+
+
+\fuel-main\mirror\ubuntu\files\mkrepo.sh
+里面
+cat /downloads_*.list | sort | uniq > /repo/download/download_urls.list
+rm /downloads_*.list
+(cat /repo/download/download_urls.list | xargs -n1 -P4 wget -nv -P /repo/download/) || exit 1
+mv /var/cache/apt/archives/*deb /repo/download/
+
+每次都会去下载，有毛病啊
+
+/fuel-main/local_mirror/ubuntu/chroot/repo/download/和
+/fuel-main/local_mirror/ubuntu/pool/main/下的包是一样的
+
+nat地址转换
+http://www.51cto.com/html/2005/0813/1388.htm
