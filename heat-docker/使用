@@ -1,0 +1,48 @@
+host上
+systemctl start docker
+vi /etc/sysconfig/docker配置代理（不能带export）
+https_proxy="http://186.100.4.135:808"
+no_proxy="http://186.100.41.110"
+docker pull fedora:20
+
+不采用这种直接安装私有registry的方式
+yum install docker-registry
+systemctl start docker-registry
+vi /etc/sysconfig/docker-registry修改端口
+REGISTRY_PORT 5000为9988
+参考
+http://segmentfault.com/blog/seanlook/1190000000801162
+http://blog.oddbit.com/2014/08/30/docker-plugin-for-openstack-he/
+报错
+Failed to start Registry server for Docker.
+
+采用启用私有registry容器
+docker search samalba/docker-registry
+docker pull samalba/docker-registry
+docker run -d -p 9988:5000 samalba/docker-registry
+或
+docker run -d -e SETTINGS_FLAVOR=dev -e STORAGE_PATH=/tmp/registry -v /opt/data/registry:/tmp/registry -p 9988:5000 registry
+
+
+下面使用127.0.0.1，不要用其它的IP,上传镜像到私有registry
+docker tag fedora:20 127.0.0.1:9988/fedora
+docker push 127.0.0.1:9988/fedora:latest
+
+
+VM内
+http://mirrors.aliyun.com/fedora/updates/20/x86_64/docker-io-1.3.2-4.fc20.x86_64.rpm
+sudo rpm -ivh docker-io-1.3.2-4.fc20.x86_64.rpm --nodeps
+sudo docker -d -H tcp://0.0.0.0:1234 --insecure-registry 172.24.4.1:9988
+
+
+docker -H tcp://0.0.0.0:1234 pull fedora:latest
+docker -H tcp://0.0.0.0:1234 images
+docker -H tcp://0.0.0.0:1234 run -t -i fedora:latest /bin/bash
+
+
+查找包的来源
+[root@localhost ~]# whereis route
+route: /usr/sbin/route /usr/share/man/man8/route.8.gz
+[root@localhost ~]# rpm -qf /usr/sbin/route
+net-tools-2.0-0.17.20131004git.el7.x86_64
+[root@localhost ~]# 
