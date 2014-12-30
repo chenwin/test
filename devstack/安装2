@@ -1,0 +1,61 @@
+允许访问页面
+firewall-cmd --add-service=http
+firewall-cmd --add-port=6080/tcp
+firewall-cmd --add-port=6081/tcp
+
+8. 服务随主机启动
+chkconfig rabbitmq-server on
+service rabbitmq-server start
+chkconfig httpd on
+service httpd start
+chkconfig mysqld on
+service mysqld start
+chkconfig openvswitch on
+service openvswitch start
+
+service mariadb start
+chkconfig mariadb on
+
+9. 重启后处理
+恢复卷组和准备cinder-volume： 
+losetup -f /opt/stack/data/stack-volumes-backing-file 
+删除残留的sock文件：  
+rm -rf /var/lib/mysql/mysql.sock
+重新启动：
+rejoin-stack.sh
+关闭防火墙：
+systemctl stop firewalld.service  #fedora   
+setenforce 0  
+service iptables stop
+chkconfig iptables off
+
+
+
+
+AH00558: httpd: Could not reliably determine the server's fully
+这无所谓，没有绑定域名，反正是本机运行的
+vi /etc/httpd/conf/httpd.conf
+将 apache 的配置文件httpd.conf中的 ServerName 改成可用域名或如下配置
+ServerName localhost:80
+
+Dec 09 23:04:30 localhost.localdomain httpd[9805]: (13)Permission denied: AH00072: make_sock: could not bind t...5000
+Dec 09 23:04:30 localhost.localdomain httpd[9805]: (13)Permission denied: AH00072: make_sock: could not bind t...5000
+
+
+ssh -i newkey.pem fedora@10.0.0.9
+chmod 400 newkey.pem
+
+ssh ec2-user@10.0.0.11 -i newkey.pem 
+
+http://unix.stackexchange.com/questions/115838/what-is-the-right-file-permission-for-a-pem-file-to-ssh-and-scp
+
+
+又是TM的SELinux惹的祸，关闭SELinux解决问题： 
+暂时关闭（重启后恢复）： 
+Shell代码  收藏代码
+setenforce 0  
+
+永久关闭（需要重启）： 
+Shell代码  收藏代码
+vi /etc/selinux/config  
+SELINUX=disabled  
