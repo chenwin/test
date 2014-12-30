@@ -1,0 +1,75 @@
+1.fuel-web
+nailgun\nailgun\fixtures\openstack.yaml 最后
+
+2.fuel-main
+config.mk
+iso\ks.template
+mirror\目录下增加litevirt的pxe img
+
+3.fuel-library
+deployment\puppet\nailgun\manifests\cobbler.pp
+vmlinuz和initrd.img
+
+4.fuel-astute
+lib\astute\deployment_engine.rb
+关键字ubuntu_1204_x86_64
+
+Git行结束符CRLF转换成LF
+https://help.github.com/articles/dealing-with-line-endings
+$ git config --global core.autocrlf false
+git config --global --unset core.autocrlf
+git config [--local|--global|--system] -e
+
+ubuntu配置本地光驱源
+http://kazake.blog.51cto.com/2155462/1416393
+
+ovirt-node镜像
+http://resources.ovirt.org/releases/3.4/iso/
+http://mirrors.aliyun.com/fedora/releases/20/Live/x86_64/
+
+apt-get源/etc/apt/sources.list
+
+vi字符串替换
+：g/str1/s//str2/g 用字符串 str2 替换正文中所有出现的字符串 str1
+
+vnc下复制行，光标移至某行，先yy再10p表示复制10行，p表示仅1行
+
+vi中选中多行shift+v，在方向键↑↓
+
+允许ubuntu root login
+sudo passwd root
+
+配置静态ip (http://www.linuxidc.com/Linux/2012-07/65266.htm)
+vi /etc/network/interfaces
+重启网络： /etc/init.d/networking restart 
+
+镜像地址http://mirrors.163.com/ubuntu-releases/14.04/
+
+ubuntu 12.04国内源163,aliyun (http://mirrors.163.com/.help/ubuntu.html)
+deb http://mirrors.163.com/ubuntu/ precise main restricted universe multiverse
+deb http://mirrors.163.com/ubuntu/ precise-security main restricted universe multiverse
+deb http://mirrors.163.com/ubuntu/ precise-updates main restricted universe multiverse
+deb http://mirrors.163.com/ubuntu/ precise-proposed main restricted universe multiverse
+deb http://mirrors.163.com/ubuntu/ precise-backports main restricted universe multiverse
+deb-src http://mirrors.163.com/ubuntu/ precise main restricted universe multiverse
+deb-src http://mirrors.163.com/ubuntu/ precise-security main restricted universe multiverse
+deb-src http://mirrors.163.com/ubuntu/ precise-updates main restricted universe multiverse
+deb-src http://mirrors.163.com/ubuntu/ precise-proposed main restricted universe multiverse
+deb-src http://mirrors.163.com/ubuntu/ precise-backports main restricted universe multiverse
+
+设置代理，修改/etc/apt/apt.conf无效
+export http_proxy=http://186.100.4.72:808
+有时候需要配置dns才能访问外网，同本地连接里的DNS.
+"[Errno 14] PYCURL ERROR 6"重启配置丢失
+vi /etc/resolv.conf
+nameserver 202.96.134.133 202.96.134.134
+
+在/etc/resolvconf/resolv.conf.d/head文件中添加一行，这样重启不会丢失，重启会拷贝覆盖到/etc/resolv.conf
+nameserver 202.96.134.133
+
+ubuntu ISO地址
+http://releases.ubuntu.com/12.04.5/
+fuel ISO操作指导
+http://docs.mirantis.com/fuel-dev/develop/env.html
+git 操作指导
+http://www.yiibai.com/git/git_push_operation.html
