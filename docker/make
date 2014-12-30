@@ -1,1 +1,5 @@
 cd .; git clone https://go.googlesource.com/tools /go/src/golang.org/x/tools
+
+git clone http://github.com/docker/docker.git
+http://docs.docker.com/contributing/devenvironment/
+http://docs.docker.com/reference/builder/
