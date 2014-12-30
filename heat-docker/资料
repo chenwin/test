@@ -1,0 +1,25 @@
+http://blog.sina.com.cn/s/blog_8ed33db40101hact.html
+
+里面的地址变更为https://github.com/openstack/heat/tree/master/contrib/heat_docker
+
+http://openstack.10931.n7.nabble.com/OpenStack-Docker-HEAT-Cloud-init-and-docker-container-td48851.html
+
+http://techs.enovance.com/7104/multi-tenant-docker-with-openstack-heat
+http://blog.scottlowe.org/2014/08/22/a-heat-template-for-docker-containers/
+http://blog.scottlowe.org/2014/07/31/installing-the-docker-plugin-for-heat/
+good
+http://blog.oddbit.com/2014/08/30/docker-plugin-for-openstack-he/
+
+git clone https://github.com/larsks/heat-docker-example下载模板
+heat resource-type-list |grep DockerInc::Docker::Container
+heat resource-template DockerInc::Docker::Container
+heat stack-create -f docker-server.yml -e local.env docker
+heat stack-list
+
+docker-heat的bp
+https://review.openstack.org/#/c/114044/4/specs/kilo/containers-service.rst
+
+https://ask.openstack.org/en/question/33963/running-docker-on-devstack/
+https://wiki.openstack.org/wiki/Heat/GettingStartedUsingDevstack
+
+http://haodong.net.cn/2014/11/autoscaling/
