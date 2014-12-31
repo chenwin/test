@@ -1,0 +1,47 @@
+参考资料
+http://docs.openstack.org/developer/heat/template_guide/index.html
+http://docs.openstack.org/developer/heat/template_guide/hot_guide.html
+
+配置DockerInc::Docker::Container，制作镜像，创建VM和在VM部署容器流程图,这一篇足够了
+https://github.com/MarouenMechtri/Docker-containers-deployment-with-OpenStack-Heat
+配置keypair和安全组
+http://docs.openstack.org/user-guide/content/cli_configure_instances.html
+
+source /home/devstack/openrc admin admin
+glance image-create --name="centos7" --disk-format=qcow2 --container-format=bare --is-public=true \
+< /home/centos7-adm64_new.qcow2
+镜像存放路径/opt/stack/data/glance/images
+
+ssh-keygen
+nova keypair-add --pub-key ~/.ssh/id_rsa.pub key1
+或
+nova keypair-add key1 > key1.pem
+chmod 400 key1.pem
+查看确认
+nova keypair-list
+nova boot --flavor m1.small --image "centos7" --key-name key1 chen
+
+进入vm内部
+ssh -i key1.pem centos@10.0.0.2
+sudo docker ps
+
+======================================================================
+配置物理网络允许登录
+vi plugins/ml2/ml2_conf.ini 
+[ml2]
+tenant_network_types = vxlan,flat
+
+flat_networks = physnet1,
+
+[ovs]
+bridge_mappings = physnet1:br-ex
+
+(ovs-vsctl add-br br-ex)
+ovs-vsctl add-port br-ex enp1s0f0
+ifconfig enp1s0f0 0
+ifconfig br-ex 186.100.41.110/24
+route add default gw 186.100.41.1
+
+neutron net-create public2 --provider:network_type flat --provider:physical_network physnet1  --router:external True
+neutron subnet-create public2 --name public-subnet --allocation-pool start=186.100.41.150,end=186.100.40.250 --gateway 186.100.41.1 
+186.100.40.1/24
