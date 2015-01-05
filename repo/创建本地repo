@@ -1,0 +1,16 @@
+yum install lftp
+
+#!/bin/bash
+set -x
+HOST="https://repos.fedorapeople.org/repos/openstack/openstack-juno/epel-7/"
+SOURCEFOLDER="/home/repo/openstack/openstack-juno/epel-7/"
+
+lftp -f "
+open $HOST
+lcd $SOURCEFOLDER
+mirror  --delete --verbose --ignore-time 
+bye
+"
+
+http://mirrors.aliyun.com/centos/7/
+http://mirrors.aliyun.com/epel/7/
