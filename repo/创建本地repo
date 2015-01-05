@@ -14,3 +14,7 @@ bye
 
 http://mirrors.aliyun.com/centos/7/
 http://mirrors.aliyun.com/epel/7/
+
+CentOS7国内源
+http://mirrors.aliyun.com/repo/Centos-7.repo
+http://mirrors.aliyun.com/repo/epel-7.repo
