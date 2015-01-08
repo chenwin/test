@@ -23,3 +23,6 @@ https://ask.openstack.org/en/question/33963/running-docker-on-devstack/
 https://wiki.openstack.org/wiki/Heat/GettingStartedUsingDevstack
 
 http://haodong.net.cn/2014/11/autoscaling/
+
+heat docker plug安装方法和模板good
+https://github.com/MarouenMechtri/Docker-containers-deployment-with-OpenStack-Heat
