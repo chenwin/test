@@ -1,0 +1,86 @@
+yum install -y wget git
+
+yum update -y
+
+wget https://repos.fedorapeople.org/repos/openstack/openstack-juno/rdo-release-juno-1.noarch.rpm
+yum install -y rdo-release-juno-1.noarch.rpm
+
+yum install -y openstack-packstack
+packstack --allinone
+
+packstack --answer-file=openstack-config.txt
+
+仅仅生成应答文件
+packstack --gen-answer-file=chen.txt -y
+
+参考
+https://openstack.redhat.com/Quickstart
+https://openstack.redhat.com/forum/discussion/992/rdo-juno-packages-available/p1
+http://therandomsecurityguy.com/openstack-juno/
+
+
+
+应答文件里面的CONFIG_MARIADB_PW是DB密码
+
+https://bugzilla.redhat.com/show_bug.cgi?id=1049597,否则epel源不可用
+CONFIG_USE_EPEL=y
+
+CONFIG_NAGIOS_INSTALL=n
+CONFIG_DEBUG_MODE=y
+应答文件里需要grep HEAT，把HEAT的都装上
+CONFIG_HEAT_INSTALL=y
+CONFIG_HEAT_CLOUDWATCH_INSTALL=y
+CONFIG_HEAT_CFN_INSTALL=y
+
+查看服务
+openstack-service list
+查看服务状态
+openstack-service status
+openstack-status
+
+chkconfig openstack-heat-api-cloudwatch on
+nova boot --flavor m1.small --image "centos7" --key-name=key1 --nic net-id=c3ba799c-7f04-43b2-87c6-bf61195b40a3 chen
+cat /etc/nova/nova.conf | grep -v ^$ | grep -v ^#
+
+
+异常
+Unexpected vif_type=binding_faile
+
+service neutron-server restart
+service neutron-openvswitch-agent restart
+service neutron-dhcp-agent restart
+service neutron-l3-agent restart
+vi /usr/lib/python2.7/site-packages/nova/virt/libvirt/vif.py
+
+去掉如下过滤，允许在选择失败节点
+scheduler_default_filters=RetryFilter
+
+stack参数详解
+http://docs.openstack.org/developer/heat/template_guide/openstack.html
+
+
+service neutron-server restart
+service neutron-l3-agent restart
+service openstack-swift-proxy restart
+service openstack-swift-account restart
+service openstack-swift-container restart
+service openstack-swift-object restart
+service openstack-heat-engine restart
+
+
+heat-docker安装
+yum install docker python-pip
+pip install -r requirements.txt
+ln -sf /opt/stack/heat/contrib/heat_docker/heat_docker /usr/lib/heat/docker
+
+service openstack-heat-api restart
+service openstack-heat-api-cfn restart
+service openstack-heat-engine restart
+
+heat resource-type-list | grep Docker
+
+
+内有Floating_IP_range
+https://openstack.redhat.com/Running_an_instance
+内有规格配置界面图good
+http://jackkozik.com/tag/packstack/
