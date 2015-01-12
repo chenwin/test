@@ -26,3 +26,6 @@ nova boot --flavor m1.small --image "centos7" --key-name key1 chen
 ssh -i key1.pem centos@10.0.0.2
 
 sudo docker ps
+
+异常
+curl -i -X GET http://186.100.40.152:5000/roles?name=heat_stack_user -H "User-Agent: python-keystoneclient" -H "X-Auth-Token: TOKEN_REDACTED"
