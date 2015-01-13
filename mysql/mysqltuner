@@ -1,0 +1,17 @@
+mysql内存和CPU性能优化
+perl /usr/share/openstack-puppet/modules/mysql/files/mysqltuner.pl
+查看诊断结果，根据结果中的建议进行优化
+/etc/my.cnf.d/server.cnf修改[mysqld]段落之后的值
+find / -name my.cnf
+比如
+Variables to adjust:
+    query_cache_type (=1)
+    join_buffer_size (> 128.0K, or always use indexes with joins)
+    thread_cache_size (> 8)
+wait_timeout = 2280
+interactive_timeout = 2280
+log_slow_queries = /var/log/mariadb/mysql-slow.log
+另外需要注意的是 MySQL 需要启动 24 小时候再运行 MySQLTuner ，不然有些内容会不准。
+参考
+http://www.hardwaresecrets.com/article/How-to-Optimize-a-MySQL-Server/1747/6
+http://www.webhostingtalk.com/showthread.php?t=953358
