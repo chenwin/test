@@ -1,3 +1,5 @@
+bug反馈https://bugs.launchpad.net/diskimage-builder
+
 yum install -y wget sudo git qemu-img kpartx parted e2fsprogs
 
 pip install git+http://github.com/openstack/diskimage-builder.git
