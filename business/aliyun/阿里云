@@ -26,3 +26,21 @@
  没有VM内部重启状态，VM重启不会自动拉起iamges
  
  退款https://workorder.aliyun.com/scene.htm?spm=5176.7395559.1998038736.1.w0EKYv&productId=1193
+
+
+
+
+auto lo
+iface lo inet loopback
+auto eth1
+iface eth1 inet static
+address 123.56.89.14
+netmask 255.255.252.0
+up route add -net 0.0.0.0 netmask 0.0.0.0 gw 123.56.91.247 dev eth1
+auto eth0
+iface eth0 inet static
+address 10.170.194.214
+netmask 255.255.248.0
+up route add -net 172.16.0.0 netmask 255.240.0.0 gw 10.170.199.247 dev eth0
+up route add -net 100.64.0.0 netmask 255.192.0.0 gw 10.170.199.247 dev eth0
+up route add -net 10.0.0.0 netmask 255.0.0.0 gw 10.170.199.247 dev eth0
