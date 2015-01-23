@@ -1,5 +1,7 @@
 bug反馈https://bugs.launchpad.net/diskimage-builder
-root passwd https://stackops.zendesk.com/hc/en-us/articles/201923327-Centos-6-4-and-6-5-default-username-and-password
+设置root密码，用virt-sysprep
+https://stackops.zendesk.com/hc/en-us/articles/201923327-Centos-6-4-and-6-5-default-username-and-password
+https://rwmj.wordpress.com/2013/08/02/new-in-virt-sysprep-set-root-and-user-passwords/
 
 yum install -y wget sudo git qemu-img kpartx parted e2fsprogs
 
