@@ -1,5 +1,9 @@
 bug反馈https://bugs.launchpad.net/diskimage-builder
 设置root密码，用virt-sysprep
+virt-sysprep ≥ 1.23.13,目前最新的centos7不支持，只能用Fedora 20/21
+yum install libguestfs-tools
+virt-sysprep --root-password password:xxx -a opensuse.qcow2
+
 https://stackops.zendesk.com/hc/en-us/articles/201923327-Centos-6-4-and-6-5-default-username-and-password
 https://rwmj.wordpress.com/2013/08/02/new-in-virt-sysprep-set-root-and-user-passwords/
 
