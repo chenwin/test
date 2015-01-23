@@ -1,4 +1,5 @@
 bug反馈https://bugs.launchpad.net/diskimage-builder
+root passwd https://stackops.zendesk.com/hc/en-us/articles/201923327-Centos-6-4-and-6-5-default-username-and-password
 
 yum install -y wget sudo git qemu-img kpartx parted e2fsprogs
 
