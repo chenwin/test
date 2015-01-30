@@ -1,4 +1,4 @@
-有剩余可用的LVM的场景
+使用现用的LVM分区，扩展到已有卷组
 1.查看剩余的空间
 # pvs
   PV         VG    Fmt  Attr PSize   PFree  
@@ -13,3 +13,11 @@ lvm> lvextend -L +100G /dev/mapper/myVG-data
   Logical volume image successfully resized
 4.更新文件系统
 # resize2fs /dev/mapper/myVG-data
+
+创建新的LVM分区，扩展到已有卷组
+lvm　　进入lvm管理 
+lvm>pvcreate /dev/sda3　　这是初始化刚才的分区，必须的 
+lvm>vgextend VolGroup00 /dev/sda3　将初始化过的分区加入到虚拟卷组VolGroup00 (使用pvdisplay查看卷组名称)
+lvm>lvextend -L +29.3G? /dev/VolGroup00/LogVol00　扩展已有卷的容量
+lvm>pvdisplay　　查看卷容量 
+lvm>quit　　　　　 
