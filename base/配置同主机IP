@@ -1,0 +1,9 @@
+brctl addbr br0
+brctl addif br0 eth1
+ifconfig eth1 0
+ifconfig br0 186.100.41.110/24
+route add default gw 186.100.41.1
+
+xml里写br0
+
+创建的虚拟机可以指定和主机同网段IP
