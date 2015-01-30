@@ -2,14 +2,14 @@
 1.查看剩余的空间
 # pvs
   PV         VG    Fmt  Attr PSize   PFree  
-  /dev/sda3  cpsVG lvm2 a--  931.03g 746.03g
+  /dev/sda3  myVG lvm2 a--  931.03g 746.03g
 2.查看LV
 # lvs
-data         VG -wi-ao---- 20.00g
+data         myVG -wi-ao---- 20.00g
 3.扩展+100G
 # lvm
-lvm> lvextend -L +100G /dev/mapper/VG-data
+lvm> lvextend -L +100G /dev/mapper/myVG-data
   Extending logical volume image to 105.00 GiB
   Logical volume image successfully resized
 4.更新文件系统
-# resize2fs /dev/mapper/VG-data
+# resize2fs /dev/mapper/myVG-data
