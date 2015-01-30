@@ -20,3 +20,10 @@ t　　 修改分区类型
 w　　写分区表 
 
 q　　完成，退出fdisk命令 
+
+2.
+不重启生效
+partprobe 
+
+格式化：
+mkfs.ext3 /dev/sda3 
