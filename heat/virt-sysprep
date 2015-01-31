@@ -1,0 +1,22 @@
+virt-sysprep ≥ 1.23.13,目前最新的centos7不支持，只能用Fedora 20/21
+安装Fedora21
+cd /etc/yum.repos.d/
+wget http://mirrors.aliyun.com/repo/fedora.repo
+yum clean all
+yum makecache
+
+yum install libguestfs-tools
+
+fedora-21报错
+Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-x86_64
+通过以下方法可以解决此问题：
+rpmkeys --import /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-21-x86_64
+(参考http://yanue.net/post-144.html)
+
+virt-sysprep --root-password password:chen-123 -a opensuse.qcow2
+
+报错Failed to connect socket to '/var/run/libvirt/libvirt-sock'
+是服务没有启动，启动服务service libvirtd start即可
+
+云镜像设置密码
+http://frederik.orellana.dk/booting-fedora-20-cloud-images-without-a-cloud/
