@@ -1,0 +1,14 @@
+yum install docker
+vi /etc/sysconfig/docker
+http_proxy="http://186.100.4.135:808"
+no_proxy="http://186.100.21.172"
+
+docker search centos
+docker pull centos:latest
+
+镜像导入/导出构建的镜像
+导出docker save centos:7 | bzip2 -9 -c>centos7.tar.bz2
+导入bzip2 -d -c <centos7.tar.bz2 | docker load
+
+使用直通网卡，能共享主机网络出去
+docker run -i -t --net='host' centos:7 /bin/bash
