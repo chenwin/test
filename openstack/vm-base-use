@@ -1,0 +1,13 @@
+neutron net-create chen_net
+neutron subnet-create chen_net 15.16.17.0/24 --gateway 15.16.17.1
+
+创建keypair
+nova keypair-add key1 > key1.pem
+chmod 400 key1.pem
+nova keypair-list
+
+glance image-create --name="centos7" --disk-format=qcow2 --container-format=bare --is-public=true \
+< /home/centos7-docker.qcow2
+
+nova boot --flavor 2 --image centos7 --key-name key1 --nic net-id=4f1d5c77-f571-4efc-ab6b-1c0d45f35380 --availability-zone 
+manage-az:509FECA2-0CFE-D811-8567-000000821800 chen60
