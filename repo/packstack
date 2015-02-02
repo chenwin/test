@@ -13,15 +13,23 @@ packstack --answer-file=openstack-config.txt
 仅仅生成应答文件
 packstack --gen-answer-file=chen.txt -y
 
-多节点注意，如下2个计算节点
+多节点注意，需要修改主机名，如下2个计算节点
 CONFIG_COMPUTE_HOSTS=186.100.21.172,186.100.21.168
+CONFIG_NETWORK_HOSTS只能有1个
 ssh能登陆的前提，配置的eth1必须存在
 CONFIG_NOVA_NETWORK_PRIVIF=eth1
+
+登陆虚拟机
+neutron net-list
+ip netns
+ip netns exec qdhcp-45577666-657d-4f75-a3ab-9bc232f15203 ping -c 3 50.0.0.12
+ip netns exec qdhcp-45577666-657d-4f75-a3ab-9bc232f15203 ssh -i oskey57.pem fedora@50.0.0.12
 
 参考
 https://openstack.redhat.com/Quickstart
 https://openstack.redhat.com/forum/discussion/992/rdo-juno-packages-available/p1
 http://therandomsecurityguy.com/openstack-juno/
+https://openstack.redhat.com/Adding_a_compute_node
 
 
 
