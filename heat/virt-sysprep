@@ -18,5 +18,12 @@ virt-sysprep --root-password password:chen-123 -a opensuse.qcow2
 报错Failed to connect socket to '/var/run/libvirt/libvirt-sock'
 是服务没有启动，启动服务service libvirtd start即可
 
+镜像导入/导出构建的镜像
+导出docker save centos:7 | bzip2 -9 -c>centos7.tar.bz2
+导入bzip2 -d -c <centos7.tar.bz2 | docker load
+
+加入新文件
+virt-sysprep --upload centos7.tar.bz2:/home/ -a centos7-docker.qcow2
+
 云镜像设置密码
 http://frederik.orellana.dk/booting-fedora-20-cloud-images-without-a-cloud/
