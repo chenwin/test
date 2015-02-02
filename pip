@@ -6,3 +6,8 @@ $ vi ~/.pip/pip.conf
 --------pip.conf--------
 [global]
 index-url=http://mirrors.aliyun.com/pypi/simple/
+
+安装最新版本
+pip install docker-py
+安装指定版本，参数ignore-installed防止之前版本影响
+pip install --ignore-installed docker-py==0.7.0
