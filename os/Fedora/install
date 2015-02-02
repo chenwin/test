@@ -1,0 +1,4 @@
+cd /etc/yum.repos.d/
+wget http://mirrors.aliyun.com/repo/fedora.repo
+yum clean all
+yum makecache
