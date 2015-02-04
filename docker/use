@@ -12,3 +12,6 @@ docker pull centos:latest
 
 使用直通网卡，能共享主机网络出去
 docker run -i -t --net='host' centos:7 /bin/bash
+
+登陆容器
+docker exec -i -t 14ba68a1b88d bash
