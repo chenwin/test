@@ -15,3 +15,6 @@ docker run -i -t --net='host' centos:7 /bin/bash
 
 登陆容器
 docker exec -i -t 14ba68a1b88d bash
+
+端口映射
+docker -H 127.0.0.1:2375 run -d -p 5000:5000 registry:latest 
