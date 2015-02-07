@@ -11,3 +11,39 @@ http://panpei.net.cn/2014/05/22/openstack-neutron-analyse/
 安全组（这个人的博客可以都看看）
 https://wiki.openstack.org/wiki/Neutron/SecurityGroups
 http://blog.csdn.net/yeasy/article/details/21612151
+
+网络监控
+ceilometer sample-list --meter network.outgoing.bytes
+可监控的网络指标
+network.incoming.bytes
+network.incoming.packets
+network.outgoing.bytes
+network.outgoing.packets
+network.incoming.bytes.rate
+network.outgoing.bytes.rate
+指标通过调用Hypervisor的API来获取
+参考
+http://blog.csdn.net/gaoxingnengjisuan/article/details/41839703
+http://www.openstack.cn/p1817.html
+https://openstackr.wordpress.com/2014/05/23/bandwidth-monitoring-with-neutron-and-ceilometer/
+http://docs.openstack.org/cli-reference/content/ceilometerclient_commands.html
+
+
+网络隔离
+http://www.cnblogs.com/azyet/p/3639077.html
+
+
+网络QOS
+nova flavor-key m1.small set quota:vif_inbound_average=10240
+nova flavor-key m1.small set quota:vif_outbound_average=10240
+网络QOS指标
+vif_inbound_average
+vif_outbound_average
+vif_inbound_peak
+vif_outbound_peak
+vif_inbound_burst
+vif_outbound_burst
+实现通过LibvirtConfigGuestInterface构造xml
+参考
+https://wiki.openstack.org/wiki/InstanceResourceQuota#Network
+http://www.cnblogs.com/feisky/p/3858389.html
