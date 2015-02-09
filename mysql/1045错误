@@ -1,0 +1,4 @@
+1045-Access denied for user 'root'@'186.100.4.135'(using password:YES)
+grant all privileges on *.* to root@'%' identified by 'd17dbb6902fb4c9d';
+上面的root为用户名
+d17dbb6902fb4c9d为密码，为packstack应答文件里的CONFIG_MARIADB_PW
