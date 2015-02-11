@@ -1,9 +1,17 @@
 https://github.com/stackforge/nova-docker
+https://wiki.openstack.org/wiki/Docker
 http://blog.oddbit.com/2015/02/06/installing-nova-docker-on-fedora-21/
 http://technodrone.blogspot.com/2014/10/nova-docker-on-juno.html
 https://ycnote.wordpress.com/2015/01/20/the-best-way-of-openstack-integrate-docker-with-nova-docker/
-https://wiki.openstack.org/wiki/Docker
+
 同一个节点支持2种hypervisors
 http://blog.oddbit.com/2015/01/17/running-novalibvirt-and-novadocker-on-the-same-host/
 
 https://bugs.launchpad.net/nova-docker
+
+docker IRC日志
+https://botbot.me/freenode/docker/
+IRC
+http://en.irc2go.com/webchat/?net=freenode&room=nova-docker&app=1
+core成员
+https://review.openstack.org/#/admin/groups/304,members
