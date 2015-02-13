@@ -1,3 +1,23 @@
+nova-docker
+代码路径（没有pull requests）
+https://github.com/stackforge/nova-docker
+docker IRC日志
+https://botbot.me/freenode/docker/
+IRC
+http://en.irc2go.com/webchat/?net=freenode&room=nova-docker&app=1
+core成员
+https://review.openstack.org/#/admin/groups/304,members
+代码提交review
+https://review.openstack.org/#/q/nova-docker,n,z
+
+
+heat-docker
+http://www.slideshare.net/Docker/openstackheatdocker-131022214649phpapp02-37589033
+代码路径（没有pull requests）
+https://github.com/openstack/heat/tree/master/contrib/heat_docker
+heat IRC日志
+http://eavesdrop.openstack.org/irclogs/%23heat/
+
 XEN新技术、新特性、关注release，与版本差异
 http://www.xenproject.org/
 邮件列表归档
@@ -6,7 +26,7 @@ http://lists.xenproject.org/archives/html/xen-devel/
 coreOS
 https://coreos.com/
 邮件列表
-https://coreos.com/lists/etcd-dev/
+https://groups.google.com/forum/#!forum/coreos-dev
 
 atomic
 http://www.projectatomic.io/
