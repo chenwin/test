@@ -16,7 +16,8 @@ packstack --answer-file=openstack-config.txt
 仅仅生成应答文件
 packstack --gen-answer-file=chen.txt -y
 
-多节点注意，需要修改主机名，如下2个计算节点
+多节点注意，需要修改主机名，hostnamectl --static set-hostname A-118
+如下2个计算节点
 CONFIG_COMPUTE_HOSTS=186.100.21.172,186.100.21.168
 CONFIG_NETWORK_HOSTS只能有1个
 ssh能登陆的前提，配置的eth1必须存在
