@@ -1,6 +1,7 @@
 yum clean all
 yum makecache
 
+安装前关闭防火墙setenforce 0
 yum install -y wget git
 
 yum update -y
