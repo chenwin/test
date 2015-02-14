@@ -22,3 +22,6 @@ http://mirrors.aliyun.com/repo/epel-7.repo
 创建本地file格式repo
 http://wiki.centos.org/HowTos/CreateLocalRepos
 http://wiki.centos.org/HowTos/CreateLocalMirror
+
+yum install createrepo
+createrepo /home/mirror/openstack-juno
