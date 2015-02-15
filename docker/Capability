@@ -1,0 +1,5 @@
+http://hustcat.github.io/docker-config-capabilities/
+http://man7.org/linux/man-pages/man7/capabilities.7.html
+
+To allow all capabilities except `mknod`:
+docker run --cap-add=ALL --cap-drop=MKNOD ...
