@@ -10,6 +10,10 @@ http://blog.oddbit.com/2015/01/17/running-novalibvirt-and-novadocker-on-the-same
 当前VIF实现
 http://niusmallnan.github.io/_build/html/_templates/openstack/nova_vif.html
 安全组，社区BP。https://blueprints.launchpad.net/nova-docker/+spec/container-security-group-support
+
+关键部分
+\nova\nova\virt\libvirt\vif.py:plug_ovs_hybrid
+
 VM的安全组
 brctl show查看qbr、qvb,tap设备
 ovs-vsctl show查看Bridge br-int下的qvo
