@@ -7,6 +7,17 @@ https://ycnote.wordpress.com/2015/01/20/the-best-way-of-openstack-integrate-dock
 同一个节点支持2种hypervisors
 http://blog.oddbit.com/2015/01/17/running-novalibvirt-and-novadocker-on-the-same-host/
 
+安全组，社区有bp
+VM的安全组
+brctl show查看qbr、qvb,tap设备
+ovs-vsctl show查看Bridge br-int下的qvo
+如下VM生成了tap设备
+ifconfig |grep tapf4be2102-75
+体现在VM的xml上
+virsh dumpxml 4 |grep tapf4be2102-75
+      <target dev='tapf4be2102-75'/>
+目前容器的节点也能生成tap设备
+
 https://bugs.launchpad.net/nova-docker
 
 docker IRC日志
