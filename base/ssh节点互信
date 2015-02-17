@@ -1,3 +1,5 @@
+http://shfelix.blog.51cto.com/539699/1194156
+
 1. 开启免密码策略
 vi /etc/ssh/sshd_config
 RSAAuthentication yes     (关闭注释)
