@@ -1,0 +1,24 @@
+1. 开启免密码策略
+vi /etc/ssh/sshd_config
+RSAAuthentication yes     (关闭注释)
+PubkeyAuthentication yes  (关闭注释)
+AuthorizedKeysFile .ssh/authorized_keys (保持不变)
+PasswordAuthentication no (修改为no)
+
+重启sshd服务生效
+service sshd restart
+
+2. 生成公钥私钥
+ssh-keygen -t rsa
+一路回车
+
+3. 公钥输出到本机指定文件，同AuthorizedKeysFile里配置的路径
+cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys
+
+4.公钥拷贝到各服务器
+把上面的id_rsa.pub内容写入到authorized_keys
+touch ~/.ssh/authorized_keys
+
+
+A---->B
+则在A生成公钥私钥，B里面配置A的公钥
