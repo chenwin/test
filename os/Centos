@@ -11,3 +11,6 @@ vi /boot/grub2/grub.cfg在quiet LANG=en_US.UTF-8后面增加
 net.ifnames=0 biosdevname=0
 重启主机生效或执行：grub2-mkconfig -o /boot/grub2/grub.cfg
 
+关闭selinx 
+/etc/sysconfig/selinux 中 追加 SELINUX=disabled
+
