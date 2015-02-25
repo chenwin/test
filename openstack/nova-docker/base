@@ -1,0 +1,34 @@
+https://github.com/stackforge/nova-docker
+https://wiki.openstack.org/wiki/Docker
+http://blog.oddbit.com/2015/02/06/installing-nova-docker-on-fedora-21/
+http://technodrone.blogspot.com/2014/10/nova-docker-on-juno.html
+https://ycnote.wordpress.com/2015/01/20/the-best-way-of-openstack-integrate-docker-with-nova-docker/
+
+同一个节点支持2种hypervisors
+http://blog.oddbit.com/2015/01/17/running-novalibvirt-and-novadocker-on-the-same-host/
+
+当前VIF实现
+http://niusmallnan.github.io/_build/html/_templates/openstack/nova_vif.html
+安全组，社区BP。https://blueprints.launchpad.net/nova-docker/+spec/container-security-group-support
+
+关键部分
+\nova\nova\virt\libvirt\vif.py:plug_ovs_hybrid
+
+VM的安全组
+brctl show查看qbr、qvb,tap设备
+ovs-vsctl show查看Bridge br-int下的qvo
+如下VM生成了tap设备
+ifconfig |grep tapf4be2102-75
+体现在VM的xml上
+virsh dumpxml 4 |grep tapf4be2102-75
+      <target dev='tapf4be2102-75'/>
+目前容器的节点也能生成tap设备
+
+https://bugs.launchpad.net/nova-docker
+
+docker IRC日志
+https://botbot.me/freenode/docker/
+IRC
+http://en.irc2go.com/webchat/?net=freenode&room=nova-docker&app=1
+core成员
+https://review.openstack.org/#/admin/groups/304,members
