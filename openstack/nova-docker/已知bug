@@ -1,0 +1,24 @@
+容器分配不到10网段的私有IP，报错Invalid "netns" value
+2015-02-04 02:59:59.150 8822 ERROR novadocker.virt.docker.vifs [-] Failed to attach vif
+2015-02-04 02:59:59.150 8822 TRACE novadocker.virt.docker.vifs Traceback (most recent call last):
+2015-02-04 02:59:59.150 8822 TRACE novadocker.virt.docker.vifs   File "/usr/lib/python2.7/site-packages/novadocker/vi
+rt/docker/vifs.py", line 201, in attach
+2015-02-04 02:59:59.150 8822 TRACE novadocker.virt.docker.vifs     container_id, run_as_root=True)
+2015-02-04 02:59:59.150 8822 TRACE novadocker.virt.docker.vifs   File "/usr/lib/python2.7/site-packages/nova/utils.py
+", line 163, in execute
+2015-02-04 02:59:59.150 8822 TRACE novadocker.virt.docker.vifs     return processutils.execute(*cmd, **kwargs)
+2015-02-04 02:59:59.150 8822 TRACE novadocker.virt.docker.vifs   File "/usr/lib/python2.7/site-packages/nova/openstac
+k/common/processutils.py", line 203, in execute
+2015-02-04 02:59:59.150 8822 TRACE novadocker.virt.docker.vifs     cmd=sanitized_cmd)
+2015-02-04 02:59:59.150 8822 TRACE novadocker.virt.docker.vifs ProcessExecutionError: Unexpected error while running
+command.
+2015-02-04 02:59:59.150 8822 TRACE novadocker.virt.docker.vifs Command: sudo nova-rootwrap /etc/nova/rootwrap.conf ip
+ link set nsab49b794-ea netns d2a2e19c9805a01725cab7e0c6c2e5f21ac0334175af097a10a682394672e020
+2015-02-04 02:59:59.150 8822 TRACE novadocker.virt.docker.vifs Exit code: 255
+2015-02-04 02:59:59.150 8822 TRACE novadocker.virt.docker.vifs Stdout: u''
+2015-02-04 02:59:59.150 8822 TRACE novadocker.virt.docker.vifs Stderr: u'Error: argument "d2a2e19c9805a01725cab7e0c6c
+2e5f21ac0334175af097a10a682394672e020" is wrong: Invalid "netns" value\n\n'
+2015-02-04 02:59:59.150 8822 TRACE novadocker.virt.docker.vifs
+
+disable selinux即可setenforce 0
+https://bugs.launchpad.net/nova-docker/+bug/1365565
