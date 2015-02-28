@@ -1,0 +1,12 @@
+sh XXX.sh -A tap04f7303-25
+
+#-A -D
+ACTION=$1
+#tap04f7303-25
+DEVICE=$2
+
+iptables $ACTION neutron-openvswi-FORWARD -m physdev --physdev-out $DEVICE --physdev-is-bridged -j neutron-openvswi-sg-chain
+iptables $ACTION neutron-openvswi-FORWARD -m physdev --physdev-in $DEVICE --physdev-is-bridged -j neutron-openvswi-sg-chain
+iptables $ACTION neutron-openvswi-INPUT -m physdev --physdev-in $DEVICE --physdev-is-bridged -j neutron-openvswi-oa04f7303-2
+iptables $ACTION neutron-openvswi-sg-chain -m physdev --physdev-out $DEVICE --physdev-is-bridged -j neutron-openvswi-ia04f7303-2
+iptables $ACTION neutron-openvswi-sg-chain -m physdev --physdev-in $DEVICE --physdev-is-bridged -j neutron-openvswi-oa04f7303-2
