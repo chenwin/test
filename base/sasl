@@ -1,0 +1,26 @@
+sasl
+# service saslauthd start
+# yum install postfix （可不需要）
+
+# saslpasswd2 -c chen-test
+Password: 
+Again (for verification): 
+
+vi /etc/sysconfig/saslauthd
+MECH=pam修改为shadow
+
+如果是MECH=shadow
+# testsaslauthd -u chen-test -p chen-123
+如果是MECH=pam，需要指定-s smtp
+# testsaslauthd -u chen-test -p chen-123 -s smtp
+如果用户名为test@domain，需要指定-r
+testsaslauthd -u test -p chen-123 -r domain
+
+# cat /etc/sasl2/smtpd.conf
+pwcheck_method: saslauthd
+mech_list: plain login
+
+参考
+http://www.postfix.org/SASL_README.html
+https://lists.andrew.cmu.edu/pipermail/info-cyrus/2012-March/036034.html
+http://ju.outofmemory.cn/entry/12533
