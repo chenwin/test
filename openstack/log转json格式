@@ -1,0 +1,7 @@
+使用JsonView工具或在线工具（http://json.28im.com/）转成JSON格式, 注意值要在一行上（JsonView工具中的remove new line）
+先要进行如下字符串替换工作
+
+u' 替换为'
+None 替换为null
+False 替换为false
+True  替换为true
