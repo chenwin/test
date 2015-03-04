@@ -1,4 +1,6 @@
 https://wiki.openstack.org/wiki/How_To_Contribute#Bug_fixing
+http://www.cloudcraft.cn/openstack-code-submit/
+
 \nova\scheduler\filter_scheduler.py:_schedule()
         container_format = request_spec.get("image", None).get("container_format", None)
         tmp_hosts = self._get_all_host_states(elevated)
