@@ -1,0 +1,12 @@
+https://wiki.openstack.org/wiki/How_To_Contribute#Bug_fixing
+\nova\scheduler\filter_scheduler.py:_schedule()
+        container_format = request_spec.get("image", None).get("container_format", None)
+        tmp_hosts = self._get_all_host_states(elevated)
+        for host in tmp_hosts:
+            if container_format == "docker" and \
+               host.hypervisor_type != "docker":
+                ignore_hosts = filter_properties.get('ignore_hosts', [])
+                LOG.info("hypervisor not match container_format")
+                LOG.debug("ignore_hosts %(hosts)s", {'hosts': ignore_hosts})
+                ignore_hosts.append(host.hypervisor_hostname)
+                filter_properties.update({'ignore_hosts': ignore_hosts})
