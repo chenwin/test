@@ -12,3 +12,6 @@ http://www.cloudcraft.cn/openstack-code-submit/
                 LOG.debug("ignore_hosts %(hosts)s", {'hosts': ignore_hosts})
                 ignore_hosts.append(host.hypervisor_hostname)
                 filter_properties.update({'ignore_hosts': ignore_hosts})
+                
+gate-nova-python26、gate-nova-python27关键字为修改的文件路径名scheduler/filter_scheduler.py
+Traceback
