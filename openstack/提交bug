@@ -33,6 +33,10 @@ create a container server which has the container image can be active on the QEM
 使git支持review
 pip install git-review
 
+由于ssh方式被封，修改使用http方式
+vi /home/nova/.git/config
+修改使用https://review.openstack.org/#/settings/http-password里的Username:Password方式登录
+url = https://Username:Password@@review.openstack.org 注意和ssh相比没有端口号了
 
 发起
 git review
