@@ -35,7 +35,7 @@ Fixes Bug1427098
 运行 ctrl+o 命令，按下 Enter 键，然后运行 ctrl+x
 
 二次提交
-git commit -a –amend
+git commit -a --amend
 
 使git支持review
 pip install git-review
