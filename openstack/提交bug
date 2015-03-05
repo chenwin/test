@@ -30,7 +30,7 @@ create container servers ignore container_format whether match hypervisor
 
 In a environment with different hypervisor, such as QEMU, docker and Xen etc,
 create a container server which has the container image can be active on the QEMU hypervisor.
-Fixes Bug1427098
+Fixes Bug 1427098
 
 运行 ctrl+o 命令，按下 Enter 键，然后运行 ctrl+x
 
