@@ -1,0 +1,4 @@
+git clone http://github.com/stackforge/nova-docker.git
+
+https://bugs.launchpad.net/nova-docker/+bug/1420692
+                self._attach_vifs(instance, network_info)
