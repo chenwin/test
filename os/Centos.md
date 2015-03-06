@@ -14,3 +14,7 @@ net.ifnames=0 biosdevname=0
 关闭selinx 
 /etc/sysconfig/selinux 中 追加 SELINUX=disabled
 
+配置本地dns
+nameserver 8.8.8.8
+nameserver 8.8.4.4
+
