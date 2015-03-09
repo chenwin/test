@@ -3,6 +3,8 @@ https://wiki.openstack.org/wiki/Docker
 http://blog.oddbit.com/2015/02/06/installing-nova-docker-on-fedora-21/
 http://technodrone.blogspot.com/2014/10/nova-docker-on-juno.html
 https://ycnote.wordpress.com/2015/01/20/the-best-way-of-openstack-integrate-docker-with-nova-docker/
+内含配置过程
+https://bugs.launchpad.net/nova-docker/+bug/1429062
 
 同一个节点支持2种hypervisors
 http://blog.oddbit.com/2015/01/17/running-novalibvirt-and-novadocker-on-the-same-host/
