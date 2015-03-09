@@ -1,3 +1,6 @@
+官方WIKI配置过程
+https://wiki.openstack.org/wiki/Docker#Configure_OpenStack_to_enable_Docker
+
 https://github.com/stackforge/nova-docker
 https://wiki.openstack.org/wiki/Docker
 http://blog.oddbit.com/2015/02/06/installing-nova-docker-on-fedora-21/
