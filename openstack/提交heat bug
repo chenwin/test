@@ -36,3 +36,11 @@ https://bugs.launchpad.net/heat/+bug/1430197
             start_args['cap_add'] = self.properties[self.CAP_ADD]
         if self.properties[self.CAP_DROP]:
             start_args['cap_drop'] = self.properties[self.CAP_DROP]
+
+test
+                "restart_policy": {
+                    "Name": "",
+                    "MaximumRetryCount": 0
+                }
+                "cap_add": ["NET_ADMIN"]
+                "cap_drop": ["MKNOD"]
