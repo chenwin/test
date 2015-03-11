@@ -1,0 +1,35 @@
+git clone http://github.com/openstack/heat.git
+
+https://bugs.launchpad.net/heat/+bug/1430197
+
+        RESTART_POLICY, CAP_ADD, CAP_DROP,
+        
+        'image', 'volumes', 'volumes_from', 'port_bindings', 'links', 'name',
+        'restart_policy', 'cap_add', 'cap_drop'
+
+        RESTART_POLICY: properties.Schema(
+            properties.Schema.MAP,
+            _('restart policies.'),
+            default='no'
+        ),
+        CAPS_ADD: properties.Schema(
+            properties.Schema.LIST,
+            _('capability add.'),
+            default=[]
+        ),
+        CAPS_DROP: properties.Schema(
+            properties.Schema.LIST,
+            _('capability drop.'),
+            default=[]
+        ),
+
+            'restart_policy': self.properties[self.RESTART_POLICY],
+            'cap_add': self.properties[self.CAP_ADD],
+            'cap_drop': self.properties[self.CAP_DROP]
+            
+        if self.properties[self.RESTART_POLICY]:
+            start_args['restart_policy'] = self.properties[self.RESTART_POLICY]
+        if self.properties[self.CAP_ADD]:
+            start_args['cap_add'] = self.properties[self.CAP_ADD]
+        if self.properties[self.CAP_DROP]:
+            start_args['cap_drop'] = self.properties[self.CAP_DROP]
