@@ -13,14 +13,14 @@ https://bugs.launchpad.net/heat/+bug/1430197
         RESTART_POLICY: properties.Schema(
             properties.Schema.MAP,
             _('restart policies.'),
-            default='no'
+            default={}
         ),
-        CAPS_ADD: properties.Schema(
+        CAP_ADD: properties.Schema(
             properties.Schema.LIST,
             _('capability add.'),
             default=[]
         ),
-        CAPS_DROP: properties.Schema(
+        CAP_DROP: properties.Schema(
             properties.Schema.LIST,
             _('capability drop.'),
             default=[]
