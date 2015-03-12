@@ -1,0 +1,37 @@
+from heat.engine import constraints
+
+    _RESTART_POLICY_KEYS = (
+        POLICY_NAME, POLICY_MAXIMUM_RETRY_COUNT,
+    ) = (
+        'Name', 'MaximumRetryCount',
+    )
+    
+
+        RESTART_POLICY: properties.Schema(
+            properties.Schema.MAP,
+            _('Restart policies.'),
+            schema=properties.Schema(
+                properties.Schema.MAP,
+                schema={
+                    POLICY_NAME: properties.Schema(
+                    properties.Schema.STRING,
+                    _('The behavior to apply when the container exits.'),
+                    default='no',
+                    constraints=[
+                        constraints.AllowedValues(['no', 'on-failure',
+                                                   'always']),
+                    ],
+                    update_allowed=True
+                    ),
+                    POLICY_MAXIMUM_RETRY_COUNT: properties.Schema(
+                        properties.Schema.INTEGER,
+                        _('A maximum restart count for the '
+                          'on-failure policy.'),
+                    default=0,
+                    update_allowed=True
+                    )
+                },
+            ),
+            default={},
+            update_allowed=True
+        ),
