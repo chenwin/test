@@ -12,24 +12,25 @@ from heat.engine import constraints
             _('Restart policies.'),
             schema={
                 POLICY_NAME: properties.Schema(
-                properties.Schema.STRING,
-                _('The behavior to apply when the container exits.'),
-                default='no',
-                constraints=[
-                    constraints.AllowedValues(['no', 'on-failure',
-                                               'always']),
-                ],
-                update_allowed=True
+                    properties.Schema.STRING,
+                    _('The behavior to apply when the container exits.'),
+                    default='no',
+                    constraints=[
+                        constraints.AllowedValues(['no', 'on-failure',
+                                                   'always']),
+                    ],
+                    update_allowed=True
                 ),
                 POLICY_MAXIMUM_RETRY_COUNT: properties.Schema(
                     properties.Schema.INTEGER,
                     _('A maximum restart count for the '
                       'on-failure policy.'),
-                default=0,
-                update_allowed=True
+                    default=0,
+                    update_allowed=True
                 )
             },
             default={},
             update_allowed=True
         ),
+
 
