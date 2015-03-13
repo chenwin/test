@@ -4,4 +4,8 @@ schema = properties.Schema
 =号左右两边的空格去掉
 
 
+        get_client_mock = self.patchobject(resource, 'get_client')
+        get_client_mock.return_value = fakeclient.FakeDockerClient()
+
+
 
