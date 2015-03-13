@@ -1,3 +1,8 @@
 git代理
 git config --global http.proxy http://186.100.4.135:808 
 git config --global https.proxy http://186.100.4.135:808 
+
+切换分支
+git checkout master
+
+http://www.mediawiki.org/wiki/Gerrit/git-review
