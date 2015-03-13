@@ -3,7 +3,9 @@ Closes-bug: #1430197
 schema = properties.Schema
 =号左右两边的空格去掉
 
-
+        self.m.StubOutWithMock(resource, 'get_client')
+        self.m.ReplayAll()
+        替换成
         get_client_mock = self.patchobject(resource, 'get_client')
         get_client_mock.return_value = fakeclient.FakeDockerClient()
 
