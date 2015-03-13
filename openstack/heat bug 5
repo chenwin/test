@@ -1,2 +1,39 @@
 Closes-bug: #1430197
 
+    _CAPABILITIES = ['SETPCAP', 'SYS_MODULE', 'SYS_RAWIO', 'SYS_PACCT',
+                     'SYS_ADMIN', 'SYS_NICE', 'SYS_RESOURCE', 'SYS_TIME',
+                     'SYS_TTY_CONFIG', 'MKNOD', 'AUDIT_WRITE',
+                     'AUDIT_CONTROL', 'MAC_OVERRIDE', 'MAC_ADMIN',
+                     'NET_ADMIN', 'SYSLOG', 'CHOWN', 'NET_RAW',
+                     'DAC_OVERRIDE', 'FOWNER', 'DAC_READ_SEARCH', 'FSETID',
+                     'KILL', 'SETGID', 'SETUID', 'LINUX_IMMUTABLE',
+                     'NET_BIND_SERVICE', 'NET_BROADCAST', 'IPC_LOCK',
+                     'IPC_OWNER', 'SYS_CHROOT', 'SYS_PTRACE', 'SYS_BOOT',
+                     'LEASE', 'SETFCAP', 'WAKE_ALARM', 'BLOCK_SUSPEND']
+                     
+
+        CAP_ADD: properties.Schema(
+            properties.Schema.LIST,
+            _('Be used to add kernel capabilities.'),
+            schema = properties.Schema(
+                properties.Schema.STRING,
+                _('The security features provided by Linux kernels.'),
+                constraints=[
+                    constraints.AllowedValues(_CAPABILITIES),
+                ]
+            ),
+            default=[]
+        ),
+        CAP_DROP: properties.Schema(
+            properties.Schema.LIST,
+            _('Be used to drop kernel capabilities.'),
+            schema = properties.Schema(
+                properties.Schema.STRING,
+                _('The security features provided by Linux kernels.'),
+                constraints=[
+                    constraints.AllowedValues(_CAPABILITIES),
+                ]
+            ),
+            default=[]
+        )
+
