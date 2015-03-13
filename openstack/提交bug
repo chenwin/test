@@ -49,3 +49,8 @@ url = https://Username:Password@@review.openstack.org 注意和ssh相比没有�
 
 发起
 git review
+
+下载review分支里的代码，需要先下载其所属的Branch，如下下载Patch Set 8
+https://review.openstack.org/#/c/163277/
+
+先下载master, 在执行Patch Set 8下提供的Download路径，匿名下载Anonymous HTTP
