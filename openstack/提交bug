@@ -32,7 +32,7 @@ In an environment with more than one hypervisor type including QEMU and
 docker, when creating a container server, the request can be wrongly
 scheduled to a QEMU hypervisor.
 
-Fixes Bug 1427098
+Closes-bug: #1430197
 
 运行 ctrl+o 命令，按下 Enter 键，然后运行 ctrl+x
 
