@@ -1,5 +1,10 @@
 Closes-bug: #1430197
 
+Thank you for your reviews and detailed comments.
+There keys are from Docker API(https://github.com/docker/docker-py/blob/master/docs/hostconfig.md).
+If we convert them to small case, we need to convert to Docker API format again.
+Therefore, I remain unchanged.
+
     _CAPABILITIES = ['SETPCAP', 'SYS_MODULE', 'SYS_RAWIO', 'SYS_PACCT',
                      'SYS_ADMIN', 'SYS_NICE', 'SYS_RESOURCE', 'SYS_TIME',
                      'SYS_TTY_CONFIG', 'MKNOD', 'AUDIT_WRITE',
