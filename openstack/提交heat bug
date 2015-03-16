@@ -17,7 +17,7 @@ https://bugs.launchpad.net/heat/+bug/1430211
         READ_ONLY: properties.Schema(
             properties.Schema.BOOLEAN,
             _('If true, mount the container''s root filesystem '
-              'as read only (only supported for API version >= 1.5.0).'),
+              'as read only (only supported for API version >= 1.17).'),
             default=False
         ),
         
