@@ -3,12 +3,43 @@ git clone http://github.com/openstack/heat.git
 https://github.com/docker/docker-py/blob/master/docs/api.md
 https://github.com/docker/docker-py/blob/master/docs/change_log.md
 
-
+http://www.infoq.com/news/2015/02/docker-v1.5-released
 
 接口文档
 http://webcache.googleusercontent.com/search?q=cache:z2W_1Hh712MJ:https://docs.docker.com/reference/api/docker_remote_api_v1.15/+&cd=4&hl=zh-CN&ct=clnk&gl=cn
 
 https://bugs.launchpad.net/heat/+bug/1430197
 https://bugs.launchpad.net/heat/+bug/1430211
+
+        RESTART_POLICY, CAP_ADD, CAP_DROP, READ_ONLY,
+        'restart_policy', 'cap_add', 'cap_drop', 'read_only',
+        READ_ONLY: properties.Schema(
+            properties.Schema.BOOLEAN,
+            _('If true, mount the container''s root filesystem '
+              'as read only (only supported for API version >= 1.5.0).'),
+            default=False
+        ),
+        
+        if self.properties[self.READ_ONLY]:
+            start_args['read_only'] = True
+            
+  test
+  
+      def test_start_with_read_only(self):
+        t = template_format.parse(template)
+        stack = utils.parse_stack(t)
+        definition = stack.t.resource_definitions(stack)['Blog']
+        definition['Properties']['read_only'] = True
+        resource = docker_container.DockerContainer(
+            'Blog', definition, stack)
+        get_client_mock = self.patchobject(resource, 'get_client')
+        get_client_mock.return_value = fakeclient.FakeDockerClient()
+        self.assertIsNone(resource.validate())
+        scheduler.TaskRunner(resource.create)()
+        self.assertEqual((resource.CREATE, resource.COMPLETE),
+                         resource.state)
+        client = resource.get_client()
+        self.assertEqual(['samalba/wordpress'], client.pulled_images)
+        self.assertIs(True, client.container_start[0]['read_only'])
 
 
