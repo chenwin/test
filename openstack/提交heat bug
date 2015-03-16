@@ -2,6 +2,7 @@ git clone http://github.com/openstack/heat.git
 
 https://github.com/docker/docker-py/blob/master/docs/api.md
 https://github.com/docker/docker-py/blob/master/docs/change_log.md
+https://docs.docker.com/reference/api/docker_remote_api/
 
 http://www.infoq.com/news/2015/02/docker-v1.5-released
 
