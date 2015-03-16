@@ -9,5 +9,8 @@ schema = properties.Schema
         get_client_mock = self.patchobject(resource, 'get_client')
         get_client_mock.return_value = fakeclient.FakeDockerClient()
 
+only supported for API version >= 1.2.0
+https://github.com/docker/docker-py/blob/master/docs/api.md
+
 
 
