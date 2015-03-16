@@ -1,46 +1,14 @@
 git clone http://github.com/openstack/heat.git
 
+https://github.com/docker/docker-py/blob/master/docs/api.md
+https://github.com/docker/docker-py/blob/master/docs/change_log.md
+
+
+
 接口文档
 http://webcache.googleusercontent.com/search?q=cache:z2W_1Hh712MJ:https://docs.docker.com/reference/api/docker_remote_api_v1.15/+&cd=4&hl=zh-CN&ct=clnk&gl=cn
 
 https://bugs.launchpad.net/heat/+bug/1430197
+https://bugs.launchpad.net/heat/+bug/1430211
 
-        RESTART_POLICY, CAP_ADD, CAP_DROP,
-        
-        'image', 'volumes', 'volumes_from', 'port_bindings', 'links', 'name',
-        'restart_policy', 'cap_add', 'cap_drop'
 
-        RESTART_POLICY: properties.Schema(
-            properties.Schema.MAP,
-            _('restart policies.'),
-            default={}
-        ),
-        CAP_ADD: properties.Schema(
-            properties.Schema.LIST,
-            _('capability add.'),
-            default=[]
-        ),
-        CAP_DROP: properties.Schema(
-            properties.Schema.LIST,
-            _('capability drop.'),
-            default=[]
-        ),
-
-            'restart_policy': self.properties[self.RESTART_POLICY],
-            'cap_add': self.properties[self.CAP_ADD],
-            'cap_drop': self.properties[self.CAP_DROP]
-            
-        if self.properties[self.RESTART_POLICY]:
-            start_args['restart_policy'] = self.properties[self.RESTART_POLICY]
-        if self.properties[self.CAP_ADD]:
-            start_args['cap_add'] = self.properties[self.CAP_ADD]
-        if self.properties[self.CAP_DROP]:
-            start_args['cap_drop'] = self.properties[self.CAP_DROP]
-
-test
-                "restart_policy": {
-                    "Name": "",
-                    "MaximumRetryCount": 0
-                }
-                "cap_add": ["NET_ADMIN"]
-                "cap_drop": ["MKNOD"]
