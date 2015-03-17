@@ -1,0 +1,2 @@
+Names are the same as the Docker API coordinating user for consistency.
+Please refer to https://github.com/docker/docker-py/blob/master/docs/api.md.
