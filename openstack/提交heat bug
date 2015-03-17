@@ -22,7 +22,7 @@ https://bugs.launchpad.net/heat/+bug/1430211
         ),
         
         if self.properties[self.READ_ONLY]:
-            start_args['read_only'] = True
+            start_args[self.READ_ONLY] = True
             
   test
   
