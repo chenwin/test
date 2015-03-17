@@ -1,6 +1,9 @@
 docker的文章可参考
 https://github.com/yeasy/docker_practice
 
+基本用法
+http://dockerone.com/article/133
+
 yum install docker
 vi /etc/sysconfig/docker
 http_proxy="http://186.100.4.135:808"
