@@ -1,4 +1,5 @@
 git clone http://github.com/openstack/heat.git
+https://github.com/docker/docker-py
 
 https://github.com/docker/docker-py/blob/master/docs/api.md
 https://github.com/docker/docker-py/blob/master/docs/change_log.md
