@@ -1,0 +1,6 @@
+卸载
+yum remove kernel
+
+安装指定版本，先查看再安装即可
+yum list kernel
+yum install kernel
