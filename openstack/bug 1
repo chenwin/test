@@ -1,2 +1,12 @@
 Names are the same as the Docker API coordinating user for consistency.
 Please refer to https://github.com/docker/docker-py/blob/master/docs/api.md.
+
+It is not only depend on the version of server API(docker), but also depend on the version of client API(docker-py).
+
+If the docker-py version is 0.0.2, the start properties(such as volumes_from and volumes) are break the resource regardless of the docker version.
+
+If the docker-py version is larger than the docker version,  the docker
+will raise the following error:
+docker.errors.APIError: 404 Client Error: Not Found ("client and server don't have same version)
+
+It is hard to check version perfectly.
