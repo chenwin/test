@@ -2,5 +2,12 @@
 yum remove kernel
 
 安装指定版本，先查看再安装即可
-yum list kernel
-yum install kernel
+yum list docker
+有时候只显示一个，但实际上有多个（http://mirrors.aliyun.com/centos/7/extras/x86_64/Packages/）
+docker-0.11.1-19.el7.centos.x86_64.rpm             06-Jul-2014 00:36             4656560
+docker-0.11.1-22.el7.centos.x86_64.rpm             06-Jul-2014 00:36             4656632
+docker-1.1.2-13.el7.centos.x86_64.rpm              23-Oct-2014 13:59             4421220
+docker-1.2.0-1.8.el7.centos.x86_64.rpm             06-Nov-2014 21:52             5767068
+docker-1.3.2-4.el7.centos.x86_64.rpm               10-Dec-2014 19:21             5883624
+
+yum install docker-1.1.2-13.el7.centos.x86_64
