@@ -1,0 +1,10 @@
+
+https://review.openstack.org
+search左边输入框中输入
+project:stackforge/nova-docker
+
+可以按分类搜索
+Subject	Status	Owner	Project	Branch
+
+如按人owner:XXXX
+按项目project:XXXX
