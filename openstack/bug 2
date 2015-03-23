@@ -9,6 +9,21 @@ READ_ONLY_MIN_API_VERSION = '1.17'
                          " < %s, it is ignored"), READ_ONLY_MIN_API_VERSION)
                          
 
+
+        if hasattr(self.properties, self.READ_ONLY):
+            if compare_version(version, READ_ONLY_MIN_API_VERSION):
+                start_args[self.READ_ONLY] = self.properties[self.READ_ONLY]
+            else:
+                raise InvalidArgForVersion(arg=self.READ_ONLY,
+                    min_version=READ_ONLY_MIN_API_VERSION)
+                    
+                    
+
+class InvalidArgForVersion(exception.HeatException):
+    msg_fmt = _('"%(arg)s" is not supported for API version '
+                '< "%(min_version)s"')
+                         
+
 fake_docker_client.py
         self.version = {}
         
