@@ -1,9 +1,10 @@
-        if self.properties[self.READ_ONLY]:
-            if compare_version(client.version, '1.0.0'):
-                start_args[self.READ_ONLY] = True
-            else:
-                LOG.warn(_LW("Read-only is not supported in"
-                             " docker-py < 1.0.0, it is ignored"))
+        version = client.version()['ApiVersion']
+        
+        if compare_version(version, '1.1.7'):
+            start_args[self.READ_ONLY] = self.properties[self.READ_ONLY]
+        else:
+            LOG.warn(_LW("Read-only is not supported for"
+                         " API version < 1.17, it is ignored"))
                              
 
 from distutils.version import StrictVersion                          
