@@ -6,3 +6,12 @@ version.StrictVersion()
 
             raise InvalidArgForVersion(arg=self.READ_ONLY,
                                        min_version=READ_ONLY_MIN_API_VERSION)
+                                       
+                                      
+        READ_ONLY: properties.Schema(
+            properties.Schema.BOOLEAN,
+            _('If true, mount the container\'s root filesystem '
+              'as read only (only supported for API version >= %s).') %
+            READ_ONLY_MIN_API_VERSION,
+            default=False
+        )
