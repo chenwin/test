@@ -1,10 +1,12 @@
+READ_ONLY_MIN_API_VERSION = '1.17'
+
         version = client.version()['ApiVersion']
         
-        if compare_version(version, '1.1.7'):
+        if compare_version(version, READ_ONLY_MIN_API_VERSION):
             start_args[self.READ_ONLY] = self.properties[self.READ_ONLY]
         else:
-            LOG.warn(_LW("Read-only is not supported for"
-                         " API version < 1.17, it is ignored"))
+            LOG.warn(_LW("Read-only is not supported for API version"
+                         " < %s, it is ignored"), READ_ONLY_MIN_API_VERSION)
                              
 
 from distutils.version import StrictVersion                          
