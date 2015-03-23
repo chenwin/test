@@ -1,26 +1,8 @@
-Names are the same as the Docker API coordinating user for consistency.
-Please refer to https://github.com/docker/docker-py/blob/master/docs/api.md.
+from distutils import version
+from heat.common import exception
 
-It is not only depend on the version of server API(docker), but also depend on the version of client API(docker-py).
-
-If the docker-py version is 0.0.2, the start properties(such as volumes_from and volumes) are break the resource regardless of the docker version.
-
-If the docker-py version is larger than the docker version,  the docker
-will raise the following error:
-docker.errors.APIError: 404 Client Error: Not Found ("client and server don't have same version)
-
-It is hard to check version perfectly.
+version.StrictVersion()
 
 
-docker run --cap-add=NET_ADMIN --cap-drop=NET_ADMIN cirros
-    "Created": "2015-03-18T11:25:48.257869498Z",
-    "Driver": "devicemapper",
-    "ExecDriver": "native-0.2",
-    "HostConfig": {
-        "Binds": null,
-        "CapAdd": [
-            "NET_ADMIN"
-        ],
-        "CapDrop": [
-            "NET_ADMIN"
-        ],
+            raise InvalidArgForVersion(arg=self.READ_ONLY,
+                                       min_version=READ_ONLY_MIN_API_VERSION)
