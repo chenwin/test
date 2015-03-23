@@ -1,3 +1,5 @@
+from heat.common import exception
+
 READ_ONLY_MIN_API_VERSION = '1.17'
 
         version = client.version()['ApiVersion']
