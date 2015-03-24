@@ -1,3 +1,12 @@
+
+import distutils
+
+from oslo_log import log as logging
+import six
+
+from heat.common import exception
+
+
 if compare_version(READ_ONLY_MIN_API_VERSION, version) >=0 :
                           
 异常的参考
