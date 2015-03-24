@@ -1,90 +1,10 @@
-from heat.common import exception
-
-READ_ONLY_MIN_API_VERSION = '1.17'
-
-        version = client.version()['ApiVersion']
-        
-        if compare_version(version, READ_ONLY_MIN_API_VERSION):
-            start_args[self.READ_ONLY] = self.properties[self.READ_ONLY]
-        else:
-            LOG.warn(_LW("Read-only is not supported for API version"
-                         " < %s, it is ignored"), READ_ONLY_MIN_API_VERSION)
-                         
+import distutils.version
 
 
-        if hasattr(self.properties, self.READ_ONLY):
-            if compare_version(version, READ_ONLY_MIN_API_VERSION):
-                start_args[self.READ_ONLY] = self.properties[self.READ_ONLY]
-            else:
-                raise InvalidArgForVersion(arg=self.READ_ONLY,
-                    min_version=READ_ONLY_MIN_API_VERSION)
-                    
-                    
 
-class InvalidArgForVersion(exception.HeatException):
-    msg_fmt = _('"%(arg)s" is not supported for API version '
-                '< "%(min_version)s"')
-                         
 
-fake_docker_client.py
-        self.version = {}
-        
-    def version(self, api_version=True):
-        if self.version is None:
-            self.version['ApiVersion'] = '1.15'
-        return self.version
-
-    def set_api_version(self, version):
-        self.version['ApiVersion'] = version
-        
-test
-        
-    def test_start_with_read_only(self):
-        t = template_format.parse(template)
-        stack = utils.parse_stack(t)
-        definition = stack.t.resource_definitions(stack)['Blog']
-        definition['Properties']['read_only'] = True
-        resource = docker_container.DockerContainer(
-            'Blog', definition, stack)
-        get_client_mock = self.patchobject(resource, 'get_client')
-        get_client_mock.return_value = fakeclient.FakeDockerClient()
-        get_client_mock.return_value.set_api_version('1.17')
-        self.assertIsNone(resource.validate())
-        scheduler.TaskRunner(resource.create)()
-        self.assertEqual((resource.CREATE, resource.COMPLETE),
-                         resource.state)
-        client = resource.get_client()
-        self.assertEqual(['samalba/wordpress'], client.pulled_images)
-        self.assertIs(True, client.container_start[0]['read_only'])
-
-    def test_start_with_read_only_for_low_api_version(self):
-        t = template_format.parse(template)
-        stack = utils.parse_stack(t)
-        definition = stack.t.resource_definitions(stack)['Blog']
-        definition['Properties']['read_only'] = True
-        resource = docker_container.DockerContainer(
-            'Blog', definition, stack)
-        get_client_mock = self.patchobject(resource, 'get_client')
-        get_client_mock.return_value = fakeclient.FakeDockerClient()
-        self.assertIsNone(resource.validate())
-        try:
-            scheduler.TaskRunner(resource.create)()
-        except docker_container.InvalidArgForVersion:
-            self.assertIs(True, True)
-        else:
-            self.assertIs(True, False)
-            
-
-    def test_start_with_read_only_for_low_api_version(self):
-        t = template_format.parse(template)
-        stack = utils.parse_stack(t)
-        definition = stack.t.resource_definitions(stack)['Blog']
-        definition['Properties']['read_only'] = True
-        my_resource = docker_container.DockerContainer(
-            'Blog', definition, stack)
-        get_client_mock = self.patchobject(my_resource, 'get_client')
-        get_client_mock.return_value = fakeclient.FakeDockerClient()
-        self.assertIsNone(my_resource.validate())
-        scheduler.TaskRunner(my_resource.create)()
-        exc = self.assertRaises(docker_container.InvalidArgForVersion)
+    def test_compare_version(self):
+        self.assertEqual(compare_version('1.17', '1.17'), 0)
+        self.assertEqual(compare_version('1.17', '1.16'), -1)
+        self.assertEqual(compare_version('1.17', '1.18'), 1)
 
