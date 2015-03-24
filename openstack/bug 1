@@ -3,8 +3,14 @@
 3.属性有无判断错误
 4.TypeError: 'dict' object is not callable
 再次
-版本号比较顺序错误
+顺序
+from heat.common import exception
+fack
         if not self.version_info:
+
+test
+        self.assertRaises(exception.ResourceFailure,
+                          scheduler.TaskRunner(my_resource.create)())
         
 
 
