@@ -4,7 +4,7 @@ import distutils.version
 
 
     def test_compare_version(self):
-        self.assertEqual(compare_version('1.17', '1.17'), 0)
-        self.assertEqual(compare_version('1.17', '1.16'), -1)
-        self.assertEqual(compare_version('1.17', '1.18'), 1)
+        self.assertEqual(docker_container.compare_version('1.17', '1.17'), 0)
+        self.assertEqual(docker_container.compare_version('1.17', '1.16'), -1)
+        self.assertEqual(docker_container.compare_version('1.17', '1.18'), 1)
 
