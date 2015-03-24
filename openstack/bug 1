@@ -19,3 +19,6 @@ version.StrictVersion()
         
         self.assertRaises(docker_container.InvalidArgForVersion,
                           scheduler.TaskRunner(my_resource.create)())
+                          
+异常的参考
+test_handle_delete_raises_resource_failure_on_error
