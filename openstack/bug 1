@@ -1,3 +1,8 @@
+1.版本号比较顺序错误
+2.引入distutils类修改
+3.属性有无判断错误
+
+
 from distutils import version
 from heat.common import exception
 
