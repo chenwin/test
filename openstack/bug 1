@@ -1,40 +1,4 @@
-1.版本号比较顺序错误
-2.引入distutils类修改
-3.属性有无判断错误
-4.TypeError: 'dict' object is not callable
-再次
-顺序
-from heat.common import exception
-fack
-        if not self.version_info:
-
-test
-        self.assertRaises(exception.ResourceFailure,
-                          scheduler.TaskRunner(my_resource.create)())
-        
-
-
-from distutils import version
-from heat.common import exception
-
-version.StrictVersion()
-
-
-            raise InvalidArgForVersion(arg=self.READ_ONLY,
-                                       min_version=READ_ONLY_MIN_API_VERSION)
-                                       
-                                      
-        READ_ONLY: properties.Schema(
-            properties.Schema.BOOLEAN,
-            _('If true, mount the container\'s root filesystem '
-              'as read only (only supported for API version >= %s).') %
-            READ_ONLY_MIN_API_VERSION,
-            default=False
-        )
-        
-        
-        self.assertRaises(docker_container.InvalidArgForVersion,
-                          scheduler.TaskRunner(my_resource.create)())
+if compare_version(READ_ONLY_MIN_API_VERSION, version) >=0 :
                           
 异常的参考
 test_handle_delete_raises_resource_failure_on_error
