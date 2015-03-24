@@ -1,0 +1,22 @@
+import unittest
+import random
+
+
+def fail():
+    raise ValueError('Misspellled errrorr messageee')
+    pass
+
+
+class TestFailureModule(unittest.TestCase):
+    def testFail(self):
+        #self.assertRaises(ValueError, random.shuffle, (1, 2, 3))
+        try:
+            fail()
+        except ValueError:
+            self.assertEqual(True, True)
+        else:
+            self.assertEqual(True, False)
+
+
+if __name__ == '__main__':
+    unittest.main()
