@@ -11,3 +11,32 @@ if compare_version(READ_ONLY_MIN_API_VERSION, version) >=0 :
                           
 异常的参考
 test_handle_delete_raises_resource_failure_on_error
+
+
+24 08:38:47.919 |   warnings.warn(six.text_type(info.value.support_status.message))
+2015-03-24 08:38:47.927 | heat/engine/environment.py:261: UserWarning: RouterGateway resource is deprecated and should not be used. Instead use the `external_gateway_info` property in the router resource to set up the gateway.
+2015-03-24 08:38:47.928 |   warnings.warn(six.text_type(info.value.support_status.message))
+2015-03-24 08:39:05.770 | ):
+2015-03-24 08:39:05.770 |   File "/home/jenkins/workspace/gate-heat-python27/contrib/heat_docker/heat_docker/tests/test_docker_container.py", line 328, in test_start_with_read_only_for_low_api_version
+2015-03-24 08:39:05.770 |     scheduler.TaskRunner(my_resource.create)())
+2015-03-24 08:39:05.770 |   File "/home/jenkins/workspace/gate-heat-python27/.tox/py27/local/lib/python2.7/site-packages/testtools/testcase.py", line 422, in assertRaises
+2015-03-24 08:39:05.770 |     self.assertThat(our_callable, matcher)
+2015-03-24 08:39:05.770 |   File "/home/jenkins/workspace/gate-heat-python27/.tox/py27/local/lib/python2.7/site-packages/testtools/testcase.py", line 433, in assertThat
+2015-03-24 08:39:05.770 |     mismatch_error = self._matchHelper(matchee, matcher, message, verbose)
+2015-03-24 08:39:05.770 |   File "/home/jenkins/workspace/gate-heat-python27/.tox/py27/local/lib/python2.7/site-packages/testtools/testcase.py", line 483, in _matchHelper
+2015-03-24 08:39:05.770 |     mismatch = matcher.match(matchee)
+2015-03-24 08:39:05.771 |   File "/home/jenkins/workspace/gate-heat-python27/.tox/py27/local/lib/python2.7/site-packages/testtools/matchers/_exception.py", line 108, in match
+2015-03-24 08:39:05.771 |     mismatch = self.exception_matcher.match(exc_info)
+2015-03-24 08:39:05.771 |   File "/home/jenkins/workspace/gate-heat-python27/.tox/py27/local/lib/python2.7/site-packages/testtools/matchers/_higherorder.py", line 62, in match
+2015-03-24 08:39:05.771 |     mismatch = matcher.match(matchee)
+2015-03-24 08:39:05.771 |   File "/home/jenkins/workspace/gate-heat-python27/.tox/py27/local/lib/python2.7/site-packages/testtools/testcase.py", line 414, in match
+2015-03-24 08:39:05.771 |     reraise(*matchee)
+2015-03-24 08:39:05.771 |   File "/home/jenkins/workspace/gate-heat-python27/.tox/py27/local/lib/python2.7/site-packages/testtools/matchers/_exception.py", line 101, in match
+2015-03-24 08:39:05.771 |     result = matchee()
+2015-03-24 08:39:05.771 |   File "/home/jenkins/workspace/gate-heat-python27/.tox/py27/local/lib/python2.7/site-packages/testtools/testcase.py", line 969, in __call__
+2015-03-24 08:39:05.771 |     return self._callable_object(*self._args, **self._kwargs)
+2015-03-24 08:39:05.771 | TypeError: 'NoneType' object is not callable
+2015-03-24 08:39:05.772 | Ran 4100 tests in 99.570s
+2015-03-24 08:39:05.772 | FAILED (id=0, failures=2, skips=2)
+2015-03-24 08:39:05.772 | error: testr failed (1)
+2015-03-24 08:39:06.371 | ERROR: InvocationError: '/home/jenkins/workspace/gate-heat-python27/.tox/py27/bin/python setup.py testr --slowest --testr-args=^(?!heat_integrationtests)'
