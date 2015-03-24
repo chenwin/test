@@ -15,3 +15,7 @@ version.StrictVersion()
             READ_ONLY_MIN_API_VERSION,
             default=False
         )
+        
+        
+        self.assertRaises(docker_container.InvalidArgForVersion,
+                          scheduler.TaskRunner(my_resource.create)())
