@@ -54,3 +54,7 @@ git review
 https://review.openstack.org/#/c/163277/
 
 先下载master, 在执行Patch Set 8下提供的Download路径，匿名下载Anonymous HTTP
+
+冲突问题，如果代码和主干merge冲突，先下载代码
+git review -d review号
+git rebase master
