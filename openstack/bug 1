@@ -3,3 +3,5 @@
       "MinLength": "1",
       "MaxLength": "64",
       "AllowedPattern" : "[a-zA-Z][a-zA-Z0-9]*",
+      
+constraints.AllowedPattern()
