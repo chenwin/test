@@ -4,9 +4,12 @@
                     'for API version < "1.17"')
         self.assertEqual(expected, six.text_type(msg))
         
-            description=(_("It is available since API 1.17")),
-            
-            description=(_("It is available since API 1.17")),
+from heat.engine import support
+        
+            default=False,
+            support_status=support.SupportStatus(message='It is available '
+                                                         'since API 1.17',
+                                                 version='2015.1'),
                           
 异常的参考
 test_handle_delete_raises_resource_failure_on_error
