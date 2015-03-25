@@ -14,3 +14,5 @@ http://s3.amazonaws.com/cloudformation-templates-us-east-1/LAMP_Single_Instance.
                                                        r'[a-zA-Z0-9_@?#\s]*'
                                                        r'[a-zA-Z0-9_]+'),
                         ]
+                        
+http://www.tuicool.com/articles/aqaIzeA
