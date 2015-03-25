@@ -5,6 +5,9 @@
         self.assertEqual(expected, six.text_type(msg))
         
 from heat.engine import support
+
+            default=False,
+            support_status=support.SupportStatus(version='2015.1'),
         
             default=False,
             support_status=support.SupportStatus(message='It is available '
