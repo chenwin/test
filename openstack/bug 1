@@ -6,6 +6,9 @@
       
 constraints.AllowedPattern()
 
+ --device=[]                添加一个主机设备到容器(例如 
+--device=/dev/sdc:/dev/xvdc)
+
 http://s3.amazonaws.com/cloudformation-templates-us-east-1/LAMP_Single_Instance.template
 
                         constraints=[
