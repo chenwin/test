@@ -5,3 +5,5 @@
       "AllowedPattern" : "[a-zA-Z][a-zA-Z0-9]*",
       
 constraints.AllowedPattern()
+
+http://s3.amazonaws.com/cloudformation-templates-us-east-1/LAMP_Single_Instance.template
