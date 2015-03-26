@@ -1,0 +1,55 @@
+DEVICES,
+
+'devices'
+
+    _DEVICES_KEYS = (
+        DEVICE, PATH_ON_HOST, PATH_IN_CONTAINER, PERMISSIONS
+    ) = (
+        'device', 'path_on_host', 'path_on_container', 'permissions'
+    )
+    
+
+        DEVICES: properties.Schema(
+            properties.Schema.LIST,
+            _('Device mappings (only supported for API version >= 1.2.0).'),
+            schema={
+                DEVICE: properties.Schema(
+                    properties.Schema.MAP,
+                    schema={
+                        PATH_ON_HOST: properties.Schema(
+                            properties.Schema.STRING,
+                            _('The device path on the host.'),
+                            constraints.Length(min=7, max=64)
+                        ),
+                        PATH_IN_CONTAINER: properties.Schema(
+                            properties.Schema.STRING,
+                            _('The device path of the container'
+                              ' mappings to the host.'),
+                            constraints.Length(min=7, max=64)
+                        ),
+                        PERMISSIONS: properties.Schema(
+                            properties.Schema.STRING,
+                            _('The permissions of the container to'
+                              ' read/write/create the devices.'),
+                            constraints=[
+                                constraints.AllowedValues(['r', 'w', 'm',
+                                                           'rw', 'rm', 'wm',
+                                                           'rwm']),
+                                ],
+                            default='rwm'
+                        )
+                    },
+                ),
+            },
+            default=[],
+            support_status=support.SupportStatus(version='2015.1'),
+        ),
+        
+          if self.properties[self.DEVICES]:
+            start_args['devices'] = self._get_devices(self.properties[self.DEVICES])
+            
+      def _get_devices(self, devices):
+        actual_devices = []
+        for device in devices:
+            actual_devices.append(device[self.PATH_ON_HOST])
+        return actual_devices
