@@ -1,6 +1,9 @@
 官方WIKI配置过程
 https://wiki.openstack.org/wiki/Docker#Configure_OpenStack_to_enable_Docker
 
+glance image-create --is-public=True --container-format=docker --disk-format=raw --name centos:7
+nova boot --flavor 2 --image centos:7 --key-name key1 --nic net-id=2510a249-1665-4184-afc8-62a2eccf6c3b a172
+
 https://github.com/stackforge/nova-docker
 https://wiki.openstack.org/wiki/Docker
 http://blog.oddbit.com/2015/02/06/installing-nova-docker-on-fedora-21/
