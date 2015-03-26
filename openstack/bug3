@@ -49,7 +49,7 @@ DEVICES,
             start_args['devices'] = self._get_devices(
                 self.properties[self.DEVICES])
             
-      def _get_devices(self, devices):
+    def _get_devices(self, devices):
         actual_devices = []
         for device in devices:
             actual_devices.append(device[self.PATH_ON_HOST])
