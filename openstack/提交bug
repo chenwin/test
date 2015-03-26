@@ -1,5 +1,8 @@
 git clone http://github.com/openstack/nova.git -b stable/juno
 
+贡献度查询
+http://stackalytics.com/?metric=loc&company=IBM
+
 https://launchpad.net/
 https://bugs.launchpad.net/nova/+bug/1427098
 http://www.mediawiki.org/wiki/Gerrit/git-review
