@@ -45,8 +45,9 @@ DEVICES,
             support_status=support.SupportStatus(version='2015.1'),
         ),
         
-          if self.properties[self.DEVICES]:
-            start_args['devices'] = self._get_devices(self.properties[self.DEVICES])
+        if self.properties[self.DEVICES]:
+            start_args['devices'] = self._get_devices(
+                self.properties[self.DEVICES])
             
       def _get_devices(self, devices):
         actual_devices = []
