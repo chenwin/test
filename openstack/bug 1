@@ -4,7 +4,8 @@
       "MaxLength": "64",
       "AllowedPattern" : "[a-zA-Z][a-zA-Z0-9]*",
       
-constraints.AllowedPattern()
+constraints.Length(min=8, max=64),
+constraints.AllowedPattern(r"^/dev/[a-zA-Z0-9]*")
 
  --device=[]                添加一个主机设备到容器(例如 
 --device=/dev/sdc:/dev/xvdc)
