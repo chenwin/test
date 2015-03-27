@@ -59,3 +59,28 @@ DEVICES,
                                   device[self.PATH_IN_CONTAINER] + ':' +
                                   device[self.PERMISSIONS])
         return actual_devices
+
+
+    def test_start_with_mapping_devices(self):
+        t = template_format.parse(template)
+        stack = utils.parse_stack(t)
+        definition = stack.t.resource_definitions(stack)['Blog']
+        definition['Properties']['devices'] = \
+            [{'path_on_host': '/dev/sda',
+              'path_on_container': '/dev/xvdc',
+              'permissions': 'r'},
+             {'path_on_host': '/dev/mapper/a_bc-d',
+              'path_on_container': '/dev/xvdd',
+              'permissions': 'rw'}]
+        my_resource = docker_container.DockerContainer(
+            'Blog', definition, stack)
+        get_client_mock = self.patchobject(my_resource, 'get_client')
+        get_client_mock.return_value = fakeclient.FakeDockerClient()
+        self.assertIsNone(my_resource.validate())
+        scheduler.TaskRunner(my_resource.create)()
+        self.assertEqual((my_resource.CREATE, my_resource.COMPLETE),
+                         my_resource.state)
+        client = my_resource.get_client()
+        self.assertEqual(['samalba/wordpress'], client.pulled_images)
+        self.assertIs(definition['Properties']['devices'],
+                      client.container_start[0]['devices'])
