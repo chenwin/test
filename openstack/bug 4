@@ -8,5 +8,6 @@ Note:":" is used to split the full device path.
 https://github.com/docker/docker-py/blob/master/docker/utils/utils.py#L259 (parse_devices)
 
 https://github.com/docker/docker-py/blob/master/docs/change_log.md
+https://docs.docker.com/reference/api/docker_remote_api/
 
 Closes-bug: #1434427
