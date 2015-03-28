@@ -9,5 +9,6 @@ https://github.com/docker/docker-py/blob/master/docker/utils/utils.py#L259 (pars
 
 https://github.com/docker/docker-py/blob/master/docs/change_log.md
 https://docs.docker.com/reference/api/docker_remote_api/
+https://docs.docker.com/reference/commandline/cli/
 
 Closes-bug: #1434427
