@@ -19,16 +19,18 @@ DEVICE_REVERSED_CHAR = ':'
     def _get_mapping_devices(self, devices):
         actual_devices = []
         for device in devices:
-            if DEVICE_REVERSED_CHAR in device[self.PATH_ON_HOST]\
+            if DEVICE_REVERSED_CHAR in device[self.PATH_ON_HOST] \
                     or DEVICE_REVERSED_CHAR in device[self.PATH_IN_CONTAINER]:
-                detail_reason = '":" is reserved characters in %s or %s' % \
-                                (self.PATH_ON_HOST, self.PATH_IN_CONTAINER)
-                raise exception.Invalid(reason=None)
+                detail_reason = '%s is reserved characters in %s or %s' % \
+                                (DEVICE_REVERSED_CHAR,
+                                 self.PATH_ON_HOST, self.PATH_IN_CONTAINER)
+                raise exception.Invalid(reason=detail_reason)
 
             actual_devices.append(device[self.PATH_ON_HOST] +
                                   DEVICE_REVERSED_CHAR +
                                   device[self.PATH_IN_CONTAINER] +
                                   DEVICE_REVERSED_CHAR +
                                   device[self.PERMISSIONS])
+        return actual_devices
 
 
