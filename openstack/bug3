@@ -119,3 +119,19 @@ DEVICES,
                     % (definition['Properties']['devices'],
                        self.pattern))
         self.assertEqual(expected, six.text_type(msg))
+
+
+    def test_start_with_mapping_devices_invalid_path(self):
+        t = template_format.parse(template)
+        stack = utils.parse_stack(t)
+        definition = stack.t.resource_definitions(stack)['Blog']
+        definition['Properties']['devices'] = \
+            [{'path_on_host': '/dev/sdb:',
+              'path_on_container': '/dev/xvdc',
+              'permissions': 'r'}]
+        msg = self.assertRaises(exception.ResourceFailure,
+                                docker_container.DockerContainer(
+                                    'Blog', definition, stack))
+        expected = ('Invalid: Data supplied was not valid: ":" is reserved '
+                    'characters in path_on_host or path_on_container')
+        self.assertEqual(expected, six.text_type(msg))
