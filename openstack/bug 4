@@ -14,4 +14,21 @@ https://github.com/docker/docker-py/blob/master/docs/change_log.md
 https://docs.docker.com/reference/api/docker_remote_api/
 https://docs.docker.com/reference/commandline/cli/
 
+DEVICE_REVERSED_CHAR = ':'
+
+    def _get_mapping_devices(self, devices):
+        actual_devices = []
+        for device in devices:
+            if DEVICE_REVERSED_CHAR in device[self.PATH_ON_HOST]\
+                    or DEVICE_REVERSED_CHAR in device[self.PATH_IN_CONTAINER]:
+                detail_reason = '":" is reserved characters in %s or %s' % \
+                                (self.PATH_ON_HOST, self.PATH_IN_CONTAINER)
+                raise exception.Invalid(reason=None)
+
+            actual_devices.append(device[self.PATH_ON_HOST] +
+                                  DEVICE_REVERSED_CHAR +
+                                  device[self.PATH_IN_CONTAINER] +
+                                  DEVICE_REVERSED_CHAR +
+                                  device[self.PERMISSIONS])
+
 
