@@ -1,0 +1,12 @@
+https://bugs.launchpad.net/heat/+bug/1434427
+
+Docker 1.5 and docker-py 0.6.0 support the device parameter when
+starting containers(docker run --device[]).
+
+You can adding a host device to the container (e.g. --device=/dev/sdc:/dev/xvdc)
+Note:":" is used to split the full device path.
+https://github.com/docker/docker-py/blob/master/docker/utils/utils.py#L259 (parse_devices)
+
+https://github.com/docker/docker-py/blob/master/docs/change_log.md
+
+Closes-bug: #1434427
