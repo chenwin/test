@@ -1,3 +1,5 @@
+xen特性里的Memory sharing、memory paging、CPUpool
+
 "AllowedPattern" : "[-_ a-zA-Z0-9]*"
 
       "MinLength": "1",
