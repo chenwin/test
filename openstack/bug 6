@@ -1,3 +1,6 @@
+DEVICE_PATH_REGEX = r"^/dev/[/_\-a-zA-Z0-9]+$"
+
+
         DEVICES: properties.Schema(
             properties.Schema.LIST,
             _('Device mappings (only supported for API version >= %s).') %
@@ -10,7 +13,7 @@
                         _('The device path on the host.'),
                         constraints=[
                             constraints.Length(max=255),
-                            constraints.AllowedPattern(r"^/dev/[/_\-a-zA-Z0-9]+$"),
+                            constraints.AllowedPattern(DEVICE_PATH_REGEX),
                         ],
                         required=True
                     ),
@@ -20,7 +23,7 @@
                           ' mappings to the host.'),
                         constraints=[
                             constraints.Length(max=255),
-                            constraints.AllowedPattern(r"^/dev/[/_\-a-zA-Z0-9]+$"),
+                            constraints.AllowedPattern(DEVICE_PATH_REGEX),
                         ],
                         required=True
                     ),
