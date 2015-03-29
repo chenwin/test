@@ -36,8 +36,7 @@
                         default='rwm',
                         required=True
                     )
-                },
-                required=True
+                }
             ),
             default=[],
             support_status=support.SupportStatus(version='2015.1'),
