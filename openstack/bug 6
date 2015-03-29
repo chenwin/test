@@ -1,0 +1,44 @@
+        DEVICES: properties.Schema(
+            properties.Schema.LIST,
+            _('Device mappings (only supported for API version >= %s).') %
+            DEVICE_MIN_API_VERSION,
+            schema=properties.Schema(
+                properties.Schema.MAP,
+                schema={
+                    PATH_ON_HOST: properties.Schema(
+                        properties.Schema.STRING,
+                        _('The device path on the host.'),
+                        constraints=[
+                            constraints.Length(max=255),
+                            constraints.AllowedPattern(r"^/dev/[/_\-a-zA-Z0-9]+$"),
+                        ],
+                        required=True
+                    ),
+                    PATH_IN_CONTAINER: properties.Schema(
+                        properties.Schema.STRING,
+                        _('The device path of the container'
+                          ' mappings to the host.'),
+                        constraints=[
+                            constraints.Length(max=255),
+                            constraints.AllowedPattern(r"^/dev/[/_\-a-zA-Z0-9]+$"),
+                        ],
+                        required=True
+                    ),
+                    PERMISSIONS: properties.Schema(
+                        properties.Schema.STRING,
+                        _('The permissions of the container to'
+                          ' read/write/create the devices.'),
+                        constraints=[
+                            constraints.AllowedValues(['r', 'w', 'm',
+                                                       'rw', 'rm', 'wm',
+                                                       'rwm']),
+                        ],
+                        default='rwm',
+                        required=True
+                    )
+                },
+                required=True
+            ),
+            default=[],
+            support_status=support.SupportStatus(version='2015.1'),
+        ),
