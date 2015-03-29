@@ -14,6 +14,9 @@ https://github.com/docker/docker-py/blob/master/docs/change_log.md
 https://docs.docker.com/reference/api/docker_remote_api/
 https://docs.docker.com/reference/commandline/cli/
 
+http://www.open-open.com/lib/view/open1422492851548.html
+http://www.d1net.com/cloud/tech/328470.html
+
 DEVICE_REVERSED_CHAR = ':'
 
     def _get_mapping_devices(self, devices):
