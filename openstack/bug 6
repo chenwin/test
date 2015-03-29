@@ -1,3 +1,6 @@
+Using --device you can add a host device to the container without the
+--privileged flag.
+
 DEVICE_PATH_REGEX = r"^/dev/[/_\-a-zA-Z0-9]+$"
 
 
