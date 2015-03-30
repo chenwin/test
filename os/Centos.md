@@ -18,3 +18,5 @@ net.ifnames=0 biosdevname=0
 nameserver 8.8.8.8
 nameserver 8.8.4.4
 
+端口规则
+firewall-cmd --add-port=5900-5910/tcp
