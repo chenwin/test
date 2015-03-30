@@ -7,5 +7,15 @@ route add default gw 186.100.41.1
 xml里写br0
 <interface type='bridge'>
   <source bridge='br0'/>
+  
+vm内
+BOOTPROTO=static
+IPADDR0=186.100.41.111
+NETMASK0=255.255.255.0
+GATEWAY0=186.100.41.1
+NM_CONTROLLED=no
+DEFROUTE=yes
+route add default gw 186.100.41.1
+
 
 创建的虚拟机可以指定和主机同网段IP
