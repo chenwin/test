@@ -1,5 +1,12 @@
 http://docs.openstack.org/developer/devstack/
 
+清理旧版本
+rm -rf /opt/stack
+rm -rf /usr/local/bin/下和openstack关联的软链接
+
+./clean.sh
+./unstack.sh
+
 版本juno
 
 sudo passwd root
