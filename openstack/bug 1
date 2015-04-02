@@ -1,27 +1,4 @@
 xen特性里的Memory sharing、memory paging、CPUpool
 
-"AllowedPattern" : "[-_ a-zA-Z0-9]*"
 
-      "MinLength": "1",
-      "MaxLength": "64",
-      "AllowedPattern" : "[a-zA-Z][a-zA-Z0-9]*",
-      
-constraints.Length(min=8, max=64),
-constraints.AllowedPattern(r"^/dev/[a-zA-Z0-9]*")
 
- --device=[]                添加一个主机设备到容器(例如 
---device=/dev/sdc:/dev/xvdc)
-
-http://s3.amazonaws.com/cloudformation-templates-us-east-1/LAMP_Single_Instance.template
-
-                        constraints=[
-                            constraints.Length(max=64),
-                            constraints.AllowedPattern(r'[a-zA-Z0-9_]+'
-                                                       r'[a-zA-Z0-9_@?#\s]*'
-                                                       r'[a-zA-Z0-9_]+'),
-                        ]
-                        
-http://www.tuicool.com/articles/aqaIzeA
-http://www.open-open.com/lib/view/open1420939586656.html
-
-https://bugs.launchpad.net/heat/+bug/1217194
