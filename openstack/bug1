@@ -1,0 +1,36 @@
+https://bugs.launchpad.net/heat/+bug/1439033
+
+CPU_SHARES_MIN_API_VERSION = '1.8'
+
+, CPU_SHARES
+, 'cpu_shares'
+
+
+        CPU_SHARES: properties.Schema(
+            properties.Schema.INTEGER,
+            _('CPU shares determines the allocation of processing power'
+              '(relative weight, only supported for API version >= %s).') %
+            CPU_SHARES_MIN_API_VERSION,
+            default=0,
+            support_status=support.SupportStatus(version='2015.1'),
+        )
+
+
+            'cpu_shares': self.properties[self.CPU_SHARES]
+            
+    def test_create_with_cpu_shares(self):
+        t = template_format.parse(template)
+        stack = utils.parse_stack(t)
+        definition = stack.t.resource_definitions(stack)['Blog']
+        definition['Properties']['cpu_shares'] = 512
+        my_resource = docker_container.DockerContainer(
+            'Blog', definition, stack)
+        get_client_mock = self.patchobject(my_resource, 'get_client')
+        get_client_mock.return_value = fakeclient.FakeDockerClient()
+        self.assertIsNone(my_resource.validate())
+        scheduler.TaskRunner(my_resource.create)()
+        self.assertEqual((my_resource.CREATE, my_resource.COMPLETE),
+                         my_resource.state)
+        client = my_resource.get_client()
+        self.assertEqual(['samalba/wordpress'], client.pulled_images)
+        self.assertEqual(512, client.container_create[0]['cpu_shares'])
