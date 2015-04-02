@@ -7,8 +7,8 @@ https://bugs.launchpad.net/heat/+bug/1439033
 
         CPU_SHARES: properties.Schema(
             properties.Schema.INTEGER,
-            _('CPU shares determines the allocation of processing power'
-              '(relative weight, only supported for API version >= 1.8).'),
+            _('Relative weight which determines the allocation of the CPU '
+              'processing power(only supported for API version >= 1.8).'),
             default=0,
             support_status=support.SupportStatus(version='2015.1'),
         )
