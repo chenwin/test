@@ -1,6 +1,5 @@
 https://bugs.launchpad.net/heat/+bug/1439033
 
-CPU_SHARES_MIN_API_VERSION = '1.8'
 
 , CPU_SHARES
 , 'cpu_shares'
@@ -9,8 +8,7 @@ CPU_SHARES_MIN_API_VERSION = '1.8'
         CPU_SHARES: properties.Schema(
             properties.Schema.INTEGER,
             _('CPU shares determines the allocation of processing power'
-              '(relative weight, only supported for API version >= %s).') %
-            CPU_SHARES_MIN_API_VERSION,
+              '(relative weight, only supported for API version >= 1.8).'),
             default=0,
             support_status=support.SupportStatus(version='2015.1'),
         )
@@ -34,3 +32,14 @@ CPU_SHARES_MIN_API_VERSION = '1.8'
         client = my_resource.get_client()
         self.assertEqual(['samalba/wordpress'], client.pulled_images)
         self.assertEqual(512, client.container_create[0]['cpu_shares'])
+        
+Docker plugin add cpu share property
+
+Docker API 1.8 and docker-py 0.3.0 support the cpu-shares parameter when
+creating containers(docker run --cpu-shares=0).
+
+By default, all containers run at the same priority and get the same
+proportion of CPU cycles, but you can tell the kernel to give more shares of
+CPU time to one or more containers when you start them via Docker.
+
+Closes-bug: #1439033
