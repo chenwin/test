@@ -1,0 +1,17 @@
+xen特性里的Memory sharing、memory paging、CPUpool
+
+http://wiki.xenproject.org/wiki/Xen_Project_Release_Features
+
+
+Memory Sharing
+allow sharing of identical pages between HVM guests
+
+
+Memory Paging
+allow pages belonging to HVM guests to be paged to disk
+
+Cpupool
+advanced partitioning
+
+
+
