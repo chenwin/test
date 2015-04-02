@@ -4,7 +4,9 @@ http://wiki.xenproject.org/wiki/Xen_Project_Release_Features
 
 
 Memory Sharing
-allow sharing of identical pages between HVM guests
+allow sharing of identical pages between HVM guests.
+Xen's memory sharing mechanism, called the grant mechanism, is used to share I/O buffers in guest domains' memory with a driver domain.
+Previous studies have identified the grant mechanism as a significant source of network I/O overhead in Xen.
 
 
 Memory Paging
