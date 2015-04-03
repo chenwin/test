@@ -1,6 +1,20 @@
 https://bugs.launchpad.net/heat/+bug/1439033
 https://review.openstack.org/169973
 
+CPU_SHARES_MIN_API_VERSION = '1.8'
+
+        CPU_SHARES: properties.Schema(
+            properties.Schema.INTEGER,
+            _('Relative weight which determines the allocation of the CPU '
+              'processing power(only supported for API version >= %s).') %
+            CPU_SHARES_MIN_API_VERSION,
+            default=0,
+            support_status=support.SupportStatus(version='2015.1'),
+        )
+        
+        if compare_version(CPU_SHARES_MIN_API_VERSION, version) >= 0:
+            create_args['cpu_shares'] = self.properties[self.CPU_SHARES]
+
 
 , CPU_SHARES
 , 'cpu_shares'
