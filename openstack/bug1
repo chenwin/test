@@ -1,60 +1,16 @@
 https://bugs.launchpad.net/heat/+bug/1439033
 https://review.openstack.org/169973
 
-CPU_SHARES_MIN_API_VERSION = '1.8'
+MIN_API_VERSION_MAP = {'read_only': '1.17', 'cpu_shares': '1.8'}
 
-        CPU_SHARES: properties.Schema(
-            properties.Schema.INTEGER,
-            _('Relative weight which determines the allocation of the CPU '
-              'processing power(only supported for API version >= %s).') %
-            CPU_SHARES_MIN_API_VERSION,
-            default=0,
-            support_status=support.SupportStatus(version='2015.1'),
-        )
-        
-        if compare_version(CPU_SHARES_MIN_API_VERSION, version) >= 0:
-            create_args['cpu_shares'] = self.properties[self.CPU_SHARES]
+        validate_arg_for_api_version(create_args, self.properties,
+                                     MIN_API_VERSION_MAP[self.CPU_SHARES], version,
+                                     self.CPU_SHARES)
+                                     
 
-
-, CPU_SHARES
-, 'cpu_shares'
-
-
-        CPU_SHARES: properties.Schema(
-            properties.Schema.INTEGER,
-            _('Relative weight which determines the allocation of the CPU '
-              'processing power(only supported for API version >= 1.8).'),
-            default=0,
-            support_status=support.SupportStatus(version='2015.1'),
-        )
-
-
-            'cpu_shares': self.properties[self.CPU_SHARES]
-            
-    def test_create_with_cpu_shares(self):
-        t = template_format.parse(template)
-        stack = utils.parse_stack(t)
-        definition = stack.t.resource_definitions(stack)['Blog']
-        definition['Properties']['cpu_shares'] = 512
-        my_resource = docker_container.DockerContainer(
-            'Blog', definition, stack)
-        get_client_mock = self.patchobject(my_resource, 'get_client')
-        get_client_mock.return_value = fakeclient.FakeDockerClient()
-        self.assertIsNone(my_resource.validate())
-        scheduler.TaskRunner(my_resource.create)()
-        self.assertEqual((my_resource.CREATE, my_resource.COMPLETE),
-                         my_resource.state)
-        client = my_resource.get_client()
-        self.assertEqual(['samalba/wordpress'], client.pulled_images)
-        self.assertEqual(512, client.container_create[0]['cpu_shares'])
-        
-Docker plugin add cpu share property
-
-Docker API 1.8 and docker-py 0.3.0 support the cpu-shares parameter when
-creating containers(docker run --cpu-shares=0).
-
-By default, all containers run at the same priority and get the same
-proportion of CPU cycles, but you can tell the kernel to give more shares of
-CPU time to one or more containers when you start them via Docker.
-
-Closes-bug: #1439033
+def validate_arg_for_api_version(args, my_properties,
+                                 min_version, version, arg):
+    if compare_version(min_version, version) >= 0:
+        args[arg] = my_properties[arg]
+    else:
+        raise InvalidArgForVersion(arg=arg, min_version=min_version)
