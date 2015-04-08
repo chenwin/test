@@ -35,6 +35,7 @@ tenant_network_types = vxlan,flat
 flat_networks = physnet1
 
 vi /etc/neutron/plugins/openvswitch/ovs_neutron_plugin.ini
+注：RPO是在ovs_neutron_plugin.ini里面，devstack是在ml2_conf.ini里
 [ovs]
 bridge_mappings = physnet1:br-ex
 
@@ -46,6 +47,11 @@ ovs-vsctl add-port br-ex enp1s0f0
 ifconfig enp1s0f0 0
 ifconfig br-ex 186.100.41.110/24
 route add default gw 186.100.41.1
+
+service neutron-server restart
+service neutron-openvswitch-agent restart
+service neutron-dhcp-agent restart
+service neutron-l3-agent restart
 
 neutron net-create public2 --provider:network_type flat --provider:physical_network physnet1  --router:external True
 neutron subnet-create public2 --name public-subnet --allocation-pool start=186.100.41.150,end=186.100.40.250 --gateway 186.100.41.1 
