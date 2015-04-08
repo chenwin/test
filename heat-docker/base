@@ -27,15 +27,16 @@ sudo docker ps
 
 ======================================================================
 配置物理网络允许登录
-vi plugins/ml2/ml2_conf.ini 
+vi /etc/neutron/plugins/ml2/ml2_conf.ini
 [ml2]
 tenant_network_types = vxlan,flat
 
-flat_networks = physnet1,
+flat_networks = physnet1
 
 [ovs]
 bridge_mappings = physnet1:br-ex
 
+br-ex 为对外网络的br
 (ovs-vsctl add-br br-ex)
 ovs-vsctl add-port br-ex enp1s0f0
 ifconfig enp1s0f0 0
