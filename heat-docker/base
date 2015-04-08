@@ -57,4 +57,4 @@ service neutron-l3-agent restart
 
 neutron net-create public2 --provider:network_type flat --provider:physical_network physnet1  --router:external True
 neutron subnet-create public2 --name public-subnet --allocation-pool start=186.100.41.150,end=186.100.40.250 --gateway 186.100.41.1 
-186.100.40.1/24
+186.100.40.0/24
