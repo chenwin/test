@@ -29,6 +29,7 @@ sudo docker ps
 配置public网络，允许网络出去，使用flat
 vi /etc/neutron/plugins/ml2/ml2_conf.ini
 [ml2]
+type_drivers = vxlan,flat
 tenant_network_types = vxlan,flat
 
 [ml2_type_flat]
