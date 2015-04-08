@@ -26,7 +26,7 @@ ssh -i key1.pem centos@10.0.0.2
 sudo docker ps
 
 ======================================================================
-配置public网络，允许网络出去
+配置public网络，允许网络出去，使用flat
 vi /etc/neutron/plugins/ml2/ml2_conf.ini
 [ml2]
 tenant_network_types = vxlan,flat
@@ -37,6 +37,7 @@ flat_networks = physnet1
 vi /etc/neutron/plugins/openvswitch/ovs_neutron_plugin.ini
 注：RPO是在ovs_neutron_plugin.ini里面，devstack是在ml2_conf.ini里
 [ovs]
+tenant_network_type = local,flat
 bridge_mappings = physnet1:br-ex
 
 br-ex 为对外网络的br
