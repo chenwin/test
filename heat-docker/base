@@ -26,11 +26,12 @@ ssh -i key1.pem centos@10.0.0.2
 sudo docker ps
 
 ======================================================================
-配置物理网络允许登录
+配置public网络，允许网络出去
 vi /etc/neutron/plugins/ml2/ml2_conf.ini
 [ml2]
 tenant_network_types = vxlan,flat
 
+[ml2_type_flat]
 flat_networks = physnet1
 
 [ovs]
