@@ -34,10 +34,13 @@ tenant_network_types = vxlan,flat
 [ml2_type_flat]
 flat_networks = physnet1
 
+vi /etc/neutron/plugins/openvswitch/ovs_neutron_plugin.ini
 [ovs]
 bridge_mappings = physnet1:br-ex
 
 br-ex 为对外网络的br
+如果存在br-ex，则不需再建立。
+注意：enp1s0f0不能有IP，有的话必须清掉。
 (ovs-vsctl add-br br-ex)
 ovs-vsctl add-port br-ex enp1s0f0
 ifconfig enp1s0f0 0
