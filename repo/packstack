@@ -2,6 +2,8 @@ yum clean all
 yum makecache
 
 配置aliyun的源
+[使用阿里云镜像服务器]
+http://theo.im/blog/2014/05/20/use-aliyun-mirror-to-boost-up-download-speed/
 centos7源
 wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/Centos-7.repo
 epel源
