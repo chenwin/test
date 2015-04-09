@@ -7,9 +7,11 @@ http://docs.openstack.org/developer/devstack/
 rm -rf /opt/stack
 rm -rf /usr/local/bin/下和openstack关联的软链接
 
-2. 清理db，此步骤不需要，未经验证
+2. 清理db
 mysql -u root -p
 drop database keystone;
+查看
+SHOW DATABASES;
 
 3. 清除stack用户
 userdel -r stack
