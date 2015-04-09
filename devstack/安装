@@ -9,7 +9,7 @@ rm -rf /usr/local/bin/下和openstack关联的软链接
 
 2. 清理db，此步骤不需要，未经验证
 mysql -u root -p
-drop database
+drop database keystone;
 
 3. 清除stack用户
 userdel -r stack
