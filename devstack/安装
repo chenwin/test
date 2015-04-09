@@ -1,11 +1,18 @@
 http://docs.openstack.org/developer/devstack/
 
 清理旧版本
+1. 清楚目录
+./clean.sh
+./unstack.sh
 rm -rf /opt/stack
 rm -rf /usr/local/bin/下和openstack关联的软链接
 
-./clean.sh
-./unstack.sh
+2. 清理db，此步骤不需要，未经验证
+mysql -u root -p
+drop database
+
+3. 清除stack用户
+userdel -r stack
 
 版本juno
 
