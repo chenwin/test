@@ -1,6 +1,12 @@
 yum clean all
 yum makecache
 
+配置aliyun的源
+centos7源
+wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+epel源
+wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo
+
 安装前关闭防火墙setenforce 0
 yum install -y wget git
 
