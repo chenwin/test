@@ -84,6 +84,8 @@ cd /home/devstack
 git checkout -b juno origin/stable/juno
 
 
+开启heat
+ENABLED_SERVICES+=,heat,h-api,h-api-cfn,h-api-cw,h-eng
 6.需要开启安装ceilometer
 cp samples/local.conf ./
 修改local.conf
