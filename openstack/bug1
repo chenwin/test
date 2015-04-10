@@ -1,38 +1,22 @@
 https://bugs.launchpad.net/heat/+bug/1439033
 https://review.openstack.org/169973
 
-MIN_API_VERSION_MAP = {'read_only': '1.17', 'cpu_shares': '1.8'}
+        self.validate()
+        create_args[self.CPU_SHARES] = self.properties[self.CPU_SHARES]
+        
+        if self.properties[self.READ_ONLY]:
+            start_args[self.READ_ONLY] = True
+            
 
-        validate_arg_for_api_version(create_args, self.properties,
-                                     MIN_API_VERSION_MAP[self.CPU_SHARES], version,
-                                     self.CPU_SHARES)
-                                     
+    def validate(self):
+        super(DockerContainer, self).validate()
+        self._validate_arg_for_api_version()
 
-def validate_arg_for_api_version(args, my_properties,
-                                 min_version, version, arg):
-    if compare_version(min_version, version) >= 0:
-        args[arg] = my_properties[arg]
-    else:
-        raise InvalidArgForVersion(arg=arg, min_version=min_version)
-
-
-    def test_arg_for_low_api_version(self, arg, value,
-                                     low_version, min_version):
-        t = template_format.parse(template)
-        stack = utils.parse_stack(t)
-        definition = stack.t.resource_definitions(stack)['Blog']
-        definition['Properties'][arg] = value
-        my_resource = docker_container.DockerContainer(
-            'Blog', definition, stack)
-        get_client_mock = self.patchobject(my_resource, 'get_client')
-        get_client_mock.return_value = fakeclient.FakeDockerClient()
-        get_client_mock.return_value.set_api_version(low_version)
-        self.assertIsNone(my_resource.validate())
-        msg = self.assertRaises(exception.ResourceFailure,
-                                scheduler.TaskRunner(my_resource.create))
-        expected = ('InvalidArgForVersion: "%s" is not supported '
-                    'for API version < "%s"') % arg, min_version
-        self.assertEqual(expected, six.text_type(msg))
-
-    def test_start_with_read_only_for_low_api_version(self):
-        self.test_arg_for_low_api_version('read_only', True, '1.16', '1.17')
+    def _validate_arg_for_api_version(self):
+        client = self.get_client()
+        version = client.version()['ApiVersion']
+        for key in MIN_API_VERSION_MAP:
+            if self.properties[key]:
+                min_version = MIN_API_VERSION_MAP[key]
+                if compare_version(min_version, version) < 0:
+                    raise InvalidArgForVersion(arg=key, min_version=min_version)
