@@ -71,10 +71,10 @@ $ mkdir ~/.pip
 $ vi ~/.pip/pip.conf
 --------pip.conf--------
 [global]
-index-url=http://pypi.douban.com/simple/
+index-url=http://mirrors.aliyun.com/pypi/simple/
 
-或者
-http://mirrors.aliyun.com/pypi/simple/
+或者，豆瓣公司封掉了
+http://pypi.douban.com/simple/
 
 
 5.下载代码
