@@ -1,6 +1,10 @@
 https://bugs.launchpad.net/heat/+bug/1439033
 https://review.openstack.org/169973
 
+https://bugs.launchpad.net/heat/+bug/1442444
+            support_status=support.SupportStatus(version='2015.1'),
+
+
         self.validate()
         create_args[self.CPU_SHARES] = self.properties[self.CPU_SHARES]
         
