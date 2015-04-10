@@ -2,6 +2,9 @@ https://bugs.launchpad.net/heat/+bug/1439033
 https://review.openstack.org/169973
 
 https://bugs.launchpad.net/heat/+bug/1442444
+docker plugin add the 'support_status' for the properties of
+'RESTART_POLICY','CAP_ADD' and 'CAP_DROP'
+
             support_status=support.SupportStatus(version='2015.1'),
 
 
