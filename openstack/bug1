@@ -8,6 +8,7 @@ docker plugin add the 'support_status' for the properties of
 'RESTART_POLICY','CAP_ADD' and 'CAP_DROP'
 
 docker_container.py:445:5: E303 too many blank lines (2)
+docker_container.py:456:80: E501 line too long (80 > 79 characters)
 
     def _validate_arg_for_api_version(self):
         client = self.get_client()
