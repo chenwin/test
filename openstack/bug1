@@ -19,6 +19,15 @@ docker_container.py:456:80: E501 line too long (80 > 79 characters)
                 if compare_version(min_version, version) < 0:
                     raise InvalidArgForVersion(arg=key,
                                                min_version=min_version)
+                                               
+
+原有的测试用例
+        self.assertIsNone(my_resource.validate())替换为
+        
+        msg = self.assertRaises(docker_container.InvalidArgForVersion,
+                                my_resource.validate())
+        expected = ('"%s" is not supported for API version'
+                    ' < "%s"') % arg, min_version
             
 
 
