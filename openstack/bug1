@@ -7,19 +7,7 @@ https://review.openstack.org/172290
 docker plugin add the 'support_status' for the properties of
 'RESTART_POLICY','CAP_ADD' and 'CAP_DROP'
 
-            support_status=support.SupportStatus(version='2015.1'),
-
-
-        self.validate()
-        create_args[self.CPU_SHARES] = self.properties[self.CPU_SHARES]
-        
-        if self.properties[self.READ_ONLY]:
-            start_args[self.READ_ONLY] = True
-            
-
-    def validate(self):
-        super(DockerContainer, self).validate()
-        self._validate_arg_for_api_version()
+docker_container.py:445:5: E303 too many blank lines (2)
 
     def _validate_arg_for_api_version(self):
         client = self.get_client()
@@ -28,4 +16,8 @@ docker plugin add the 'support_status' for the properties of
             if self.properties[key]:
                 min_version = MIN_API_VERSION_MAP[key]
                 if compare_version(min_version, version) < 0:
-                    raise InvalidArgForVersion(arg=key, min_version=min_version)
+                    raise InvalidArgForVersion(arg=key,
+                                               min_version=min_version)
+            
+
+
