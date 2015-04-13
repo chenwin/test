@@ -4,31 +4,17 @@ https://review.openstack.org/169973
 https://bugs.launchpad.net/heat/+bug/1442444
 https://review.openstack.org/172290
 
-docker plugin add the 'support_status' for the properties of
-'RESTART_POLICY','CAP_ADD' and 'CAP_DROP'
-
-docker_container.py:445:5: E303 too many blank lines (2)
-docker_container.py:456:80: E501 line too long (80 > 79 characters)
-
     def _validate_arg_for_api_version(self):
-        client = self.get_client()
-        version = client.version()['ApiVersion']
+        version = None
         for key in MIN_API_VERSION_MAP:
             if self.properties[key]:
+                if not version:
+                    client = self.get_client()
+                    version = client.version()['ApiVersion']
                 min_version = MIN_API_VERSION_MAP[key]
                 if compare_version(min_version, version) < 0:
                     raise InvalidArgForVersion(arg=key,
                                                min_version=min_version)
-                                               
-
-原有的测试用例
-test_arg_for_low_api_version
-        self.assertIsNone(my_resource.validate())替换为
-        
-        msg = self.assertRaises(docker_container.InvalidArgForVersion,
-                                my_resource.validate())
-        expected = ('"%s" is not supported for API version'
-                    ' < "%s"') % arg, min_version
-            
-
-
+                                            
+                                            
+                                            
