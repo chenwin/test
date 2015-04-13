@@ -24,3 +24,25 @@ class TestFailureModule(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+安装测试模块
+pip install nose oslotest
+运行测试用例
+nosetests /opt/stack/heat/contrib/heat_docker/heat_docker/tests/test_docker_container.py
+
+卸载老包
+pip unstall heat-contrib-docker
+
+修改台面后，安装新包
+cd /opt/stack/heat/contrib/heat_docker
+python ./setup.py install
+
+
+在执行git review之前，应该确保review是最新的，使用如下命令更新当前代码到最新版本：
+git fetch origin master
+git rebase FETCH_HEAD
+git add .
+git commit --amend
+git review
+
+如果rebase的时候发生冲突，应该手工解决冲突之后执行git rebase --continue
