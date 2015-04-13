@@ -17,4 +17,8 @@ https://review.openstack.org/172290
                                                min_version=min_version)
                                             
                                             
-                                            
+ 
+        from heat.common.i18n import _
+        args = dict(arg=arg, min_version=min_version)
+        expected = _('"%(arg)s" is not supported for API version '
+                     '< "%(min_version)s"') % args                                           
