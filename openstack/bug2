@@ -61,11 +61,12 @@ MIN_API_VERSION_MAP = {'read_only': '1.17', 'cpu_shares': '1.8',
         self._validate_cpu_set()
         
         
-      def _validate_cpu_set(self):
+    def _validate_cpu_set(self):
         cpu_sets = self.properties[self.CPU_SET]
         if cpu_sets:
             for cpu_set in cpu_sets:
-                if (cpu_set[self.START_CPU_RANGE]
+                if (cpu_set[self.START_CPU_RANGE] and cpu_set[self.END_CPU_RANGE]
+                        and cpu_set[self.START_CPU_RANGE]
                         > cpu_set[self.END_CPU_RANGE]):
                     raise exception.Invalid(reason='The cpu_set starting is '
                                                    'larger than the ending')
@@ -78,7 +79,7 @@ MIN_API_VERSION_MAP = {'read_only': '1.17', 'cpu_shares': '1.8',
         stack = utils.parse_stack(t)
         definition = stack.t.resource_definitions(stack)['Blog']
         definition['Properties']['cpu_set'] = [
-            {'end': 8}, {'start': 16, 'end': 24}, {'start': 32, 'end': 32}]
+            {'start': 0, 'end': 8}, {'start': 16}, {'start': 24, 'end': 32}]
         my_resource = docker_container.DockerContainer(
             'Blog', definition, stack)
         get_client_mock = self.patchobject(my_resource, 'get_client')
@@ -89,7 +90,7 @@ MIN_API_VERSION_MAP = {'read_only': '1.17', 'cpu_shares': '1.8',
                          my_resource.state)
         client = my_resource.get_client()
         self.assertEqual(['samalba/wordpress'], client.pulled_images)
-        self.assertEqual('0-8,16-24,32',
+        self.assertEqual('0-8,16,24-32',
                          client.container_create[0]['cpuset'])
 
     def test_create_with_cpu_set_invalid_arg(self):
@@ -108,5 +109,7 @@ MIN_API_VERSION_MAP = {'read_only': '1.17', 'cpu_shares': '1.8',
         self.assertEqual(expected, six.text_type(msg))
 
     def test_create_with_cpu_set_for_low_api_version(self):
-        value = [{'end': 8}]
+        value = [{'start': 6, 'end': 8}]
         self.arg_for_low_api_version('cpu_set', value, '1.11')
+
+
