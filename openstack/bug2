@@ -70,3 +70,44 @@ MIN_API_VERSION_MAP = {'read_only': '1.17', 'cpu_shares': '1.8',
                         > cpu_set[self.END_CPU_RANGE]):
                     raise exception.Invalid(reason='The cpu_set starting is '
                                                    'larger than the ending')
+                                                   
+                                                   
+                                                   
+                                                   
+    def test_create_with_cpu_set(self):
+        t = template_format.parse(template)
+        stack = utils.parse_stack(t)
+        definition = stack.t.resource_definitions(stack)['Blog']
+        definition['Properties']['cpu_set'] = [
+            {'end': 8}, {'start': 16, 'end': 24}, {'start': 32, 'end': 32}]
+        my_resource = docker_container.DockerContainer(
+            'Blog', definition, stack)
+        get_client_mock = self.patchobject(my_resource, 'get_client')
+        get_client_mock.return_value = fakeclient.FakeDockerClient()
+        self.assertIsNone(my_resource.validate())
+        scheduler.TaskRunner(my_resource.create)()
+        self.assertEqual((my_resource.CREATE, my_resource.COMPLETE),
+                         my_resource.state)
+        client = my_resource.get_client()
+        self.assertEqual(['samalba/wordpress'], client.pulled_images)
+        self.assertEqual('0-8,16-24,32',
+                         client.container_create[0]['cpuset'])
+
+    def test_create_with_cpu_set_invalid_arg(self):
+        t = template_format.parse(template)
+        stack = utils.parse_stack(t)
+        definition = stack.t.resource_definitions(stack)['Blog']
+        definition['Properties']['cpu_set'] = [{'start': 24, 'end': 16}]
+        my_resource = docker_container.DockerContainer(
+            'Blog', definition, stack)
+        get_client_mock = self.patchobject(my_resource, 'get_client')
+        get_client_mock.return_value = fakeclient.FakeDockerClient()
+        msg = self.assertRaises(exception.Invalid,
+                                my_resource.validate)
+        expected = _("Data supplied was not valid: The cpu_set starting"
+                     " is larger than the ending")
+        self.assertEqual(expected, six.text_type(msg))
+
+    def test_create_with_cpu_set_for_low_api_version(self):
+        value = [{'end': 8}]
+        self.arg_for_low_api_version('cpu_set', value, '1.11')
