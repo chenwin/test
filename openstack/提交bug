@@ -61,3 +61,5 @@ https://review.openstack.org/#/c/163277/
 冲突问题，如果代码和主干merge冲突，先下载代码
 git review -d review号
 git rebase master
+参考
+http://stackoverflow.com/questions/7929369/how-to-rebase-local-branch-with-remote-master
