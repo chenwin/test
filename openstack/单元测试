@@ -46,3 +46,9 @@ git commit --amend
 git review
 
 如果rebase的时候发生冲突，应该手工解决冲突之后执行git rebase --continue
+
+
+pep8检查
+easy_install tox
+http://tox.readthedocs.org/en/latest/install.html
+http://docs.openstack.org/developer/nova/devref/unit_tests.html
