@@ -24,7 +24,7 @@ MIN_API_VERSION_MAP = {'read_only': '1.17', 'cpu_shares': '1.8',
                     START_CPU_RANGE: properties.Schema(
                         properties.Schema.INTEGER,
                         _('The starting range.'),
-                        default=0
+                        required=True
                     ),
                     END_CPU_RANGE: properties.Schema(
                         properties.Schema.INTEGER,
@@ -32,7 +32,6 @@ MIN_API_VERSION_MAP = {'read_only': '1.17', 'cpu_shares': '1.8',
                         constraints=[
                             constraints.Range(max=128),
                         ],
-                        required=True
                     )
                 }
             ),
@@ -47,7 +46,7 @@ MIN_API_VERSION_MAP = {'read_only': '1.17', 'cpu_shares': '1.8',
       def _get_cpu_set(self, cpu_sets):
         actual_cpu_sets = ''
         for cpu_set in cpu_sets:
-            if cpu_set[self.START_CPU_RANGE] != cpu_set[self.END_CPU_RANGE]:
+            if cpu_set[self.END_CPU_RANGE]:
                 actual_cpu_sets += '%s-%s,' % (
                     cpu_set[self.START_CPU_RANGE],
                     cpu_set[self.END_CPU_RANGE])
