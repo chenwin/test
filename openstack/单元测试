@@ -50,5 +50,7 @@ git review
 
 pep8检查
 easy_install tox
+在代码目录下执行
+tox -e pep8
 http://tox.readthedocs.org/en/latest/install.html
 http://docs.openstack.org/developer/nova/devref/unit_tests.html
