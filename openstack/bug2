@@ -1,0 +1,72 @@
+https://bugs.launchpad.net/heat/+bug/1439042
+
+MIN_API_VERSION_MAP = {'read_only': '1.17', 'cpu_shares': '1.8',
+                       'devices': '1.14', 'cpu_set': '1.12'}
+                       
+        DEVICES, CPU_SET
+        'devices', 'cpu_set'
+        
+        
+    _CPU_SET_KEYS = (
+        START_CPU_RANGE, END_CPU_RANGE
+    ) = (
+        'start', 'end'
+    )
+    
+        CPU_SET: properties.Schema(
+            properties.Schema.LIST,
+            _('the CPUs in which to allow execution '
+              '(only supported for API version >= %s).') %
+            MIN_API_VERSION_MAP['cpu_set'],
+            schema=properties.Schema(
+                properties.Schema.MAP,
+                schema={
+                    START_CPU_RANGE: properties.Schema(
+                        properties.Schema.INTEGER,
+                        _('The starting range.'),
+                        default=0
+                    ),
+                    END_CPU_RANGE: properties.Schema(
+                        properties.Schema.INTEGER,
+                        _('The ending range.'),
+                        constraints=[
+                            constraints.Range(max=128),
+                        ],
+                        required=True
+                    )
+                }
+            ),
+            default=[],
+            support_status=support.SupportStatus(version='2015.2'),
+        )
+        
+        
+  
+              'cpuset': self._get_cpu_set(self.properties[self.CPU_SET])
+              
+      def _get_cpu_set(self, cpu_sets):
+        actual_cpu_sets = ''
+        for cpu_set in cpu_sets:
+            if cpu_set[self.START_CPU_RANGE] != cpu_set[self.END_CPU_RANGE]:
+                actual_cpu_sets += '%s-%s,' % (
+                    cpu_set[self.START_CPU_RANGE],
+                    cpu_set[self.END_CPU_RANGE])
+            else:
+                actual_cpu_sets += '%s,' % (cpu_set[self.START_CPU_RANGE])
+        return actual_cpu_sets[:-1]
+        
+  
+      def validate(self):
+        super(DockerContainer, self).validate()
+        self._validate_arg_for_api_version()
+        self._validate_cpu_set()
+        
+        
+      def _validate_cpu_set(self):
+        cpu_sets = self.properties[self.CPU_SET]
+        if cpu_sets:
+            for cpu_set in cpu_sets:
+                if (cpu_set[self.START_CPU_RANGE]
+                        > cpu_set[self.END_CPU_RANGE]):
+                    raise exception.Invalid(reason='The cpu_set starting is '
+                                                   'larger than the ending')
