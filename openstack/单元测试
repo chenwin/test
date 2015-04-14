@@ -26,7 +26,7 @@ if __name__ == '__main__':
     unittest.main()
 
 安装测试模块
-pip install nose oslotest
+pip install nose oslotest mock
 运行测试用例
 nosetests /opt/stack/heat/contrib/heat_docker/heat_docker/tests/test_docker_container.py
 
