@@ -1,6 +1,10 @@
 yum clean all
 yum makecache
 
+kilo
+https://github.com/redhat-openstack/rdo-release/blob/master/rdo-release.repo
+https://repos.fedorapeople.org/repos/openstack/openstack-kilo/epel-7/
+
 https://www.rdoproject.org/Quickstart
 
 配置aliyun的源
