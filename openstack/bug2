@@ -1,4 +1,5 @@
 https://bugs.launchpad.net/heat/+bug/1439042
+https://review.openstack.org/173652
 
 MIN_API_VERSION_MAP = {'read_only': '1.17', 'cpu_shares': '1.8',
                        'devices': '1.14', 'cpu_set': '1.12'}
