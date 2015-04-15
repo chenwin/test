@@ -5,6 +5,10 @@ MIN_API_VERSION_MAP = {'read_only': '1.17', 'cpu_shares': '1.8',
                        'devices': '1.14', 'cpu_set': '1.12'}
                        
 
+                        constraints=[
+                            constraints.Range(min=0, max=128),
+                        ],
+
     def _validate_cpu_set(self):
         cpu_sets = self.properties[self.CPU_SET]
         if cpu_sets:
