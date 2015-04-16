@@ -1,5 +1,8 @@
 http://docs.openstack.org/developer/devstack/
 
+加快速度
+http://floss.zoomquiet.io/data/20140102230534/index.html
+
 清理旧版本
 1. 清楚目录
 ./clean.sh
