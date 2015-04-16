@@ -3,3 +3,5 @@ http://8721349.blog.51cto.com/8711349/1533295
 
 动态挂载卷
 http://jpetazzo.github.io/2015/01/13/docker-mount-dynamic-volumes/
+
+https://bugs.launchpad.net/nova-docker/+bug/1321817
