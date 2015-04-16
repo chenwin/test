@@ -7,6 +7,19 @@ https://github.com/MarouenMechtri/Docker-containers-deployment-with-OpenStack-He
 配置keypair和安全组
 http://docs.openstack.org/user-guide/content/cli_configure_instances.html
 
+heat-docker可以在host上部署容器也可以在VM内部署容器
+http://blog.scottlowe.org/2014/08/22/a-heat-template-for-docker-containers/
+
+heat_template_version: 2013-05-23
+description: >
+  Heat template to deploy Docker containers to an existing host
+resources:
+  nginx-01:
+    type: DockerInc::Docker::Container
+    properties:
+      image: nginx
+      docker_endpoint: 'tcp://192.168.1.207:2345'
+
 source /home/devstack/openrc admin admin
 glance image-create --name="centos7" --disk-format=qcow2 --container-format=bare --is-public=true \
 < /home/centos7-adm64_new.qcow2
