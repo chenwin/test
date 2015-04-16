@@ -8,3 +8,10 @@ https://www.snip2code.com/Snippet/273269/Develop-Magnum-with-Devstack
 
 magnum-core
 https://review.openstack.org/#/admin/groups/473,members
+
+heat-core
+https://review.openstack.org/#/admin/groups/114,members
+
+查找core的方法
+https://review.openstack.org/#/admin/groups
+搜索关键字即可如heat
