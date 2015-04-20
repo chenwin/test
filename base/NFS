@@ -1,6 +1,9 @@
 服务端
 yum install nfs-utils
 
+mkdir /var/nfsshare
+chmod -R 777 /var/nfsshare/
+
 systemctl enable rpcbind
 systemctl enable nfs-server
 systemctl start rpcbind
