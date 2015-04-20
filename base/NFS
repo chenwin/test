@@ -32,6 +32,9 @@ systemctl start nfs-server
 
 mount -t nfs 186.100.41.110:/var/nfsshare /mnt/nfs/var/nfsshare/
 
+持久化挂载，（此步骤可选）
+vi /etc/fstab
+186.100.41.110:/var/nfsshare    /mnt/nfs/var/nfsshare   nfs defaults 0 0
 
 
 Centos7搭建NFS，本地存储变共享存储
