@@ -10,7 +10,8 @@ systemctl start rpcbind
 systemctl start nfs-server
 
 vi /etc/exports
-/var/nfsshare    186.100.41.110(rw,sync,no_root_squash,no_all_squash)
+/var/nfsshare    186.100.21.172(rw,sync,no_root_squash,no_all_squash)
+注意IP地址为客户端的IP
 
 重启生效
 systemctl restart nfs-server
