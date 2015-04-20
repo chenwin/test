@@ -31,7 +31,7 @@ pip install nose oslotest mock oslo.utils
 nosetests /opt/stack/heat/contrib/heat_docker/heat_docker/tests/test_docker_container.py
 
 卸载老包
-pip unstall heat-contrib-docker
+pip uninstall heat-contrib-docker
 
 修改台面后，安装新包
 cd /opt/stack/heat/contrib/heat_docker
