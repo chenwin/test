@@ -17,7 +17,16 @@ firewall-cmd --permanent --zone=public --add-service=nfs
 firewall-cmd --reload
 
 客户端
+yum install nfs-utils
 
+mkdir -p /mnt/nfs/var/nfsshare
+
+systemctl enable rpcbind
+systemctl enable nfs-server
+systemctl start rpcbind
+systemctl start nfs-server
+
+mount -t nfs 186.100.41.110:/var/nfsshare /mnt/nfs/var/nfsshare/
 
 
 
