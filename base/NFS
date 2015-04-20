@@ -42,4 +42,5 @@ https://www.howtoforge.com/nfs-server-and-client-on-centos-7
 
 openstack配置NFS存储后端
 http://docs.openstack.org/havana/config-reference/content/nfs-driver-howto.html
+http://docs.openstack.org/juno/config-reference/content/nfs-driver-howto.html
 http://docs.openstack.org/admin-guide-cloud/content/nfs_backend.html
