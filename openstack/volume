@@ -36,6 +36,11 @@ losetup -a
 docker-py中volumes参数用法
 https://docker-py.readthedocs.org/en/latest/volumes/
 
+http://blog.csdn.net/u012557314/article/details/41443005
+http://docs.openstack.org/user-guide/content/boot_from_volume.html
+
+从镜像启动（创建一个新卷）
+http://docs.openstack.org/user-guide/content/attach_volume_to_instance.html
 从镜像启动                  不支持数据盘
 从快照启动                  不支持数据盘
 从云硬盘启动                不支持数据盘
