@@ -37,6 +37,14 @@ vi /etc/fstab
 186.100.41.110:/var/nfsshare    /mnt/nfs/var/nfsshare   nfs defaults 0 0
 
 
+RDO环境本身就支持cinder存储后端
+[lvm]
+iscsi_helper=lioadm
+volume_group=cinder-volumes
+iscsi_ip_address=186.100.21.172
+volume_driver=cinder.volume.drivers.lvm.LVMISCSIDriver
+volume_backend_name=lvm
+
 Centos7搭建NFS，本地存储变共享存储
 https://www.howtoforge.com/nfs-server-and-client-on-centos-7
 
