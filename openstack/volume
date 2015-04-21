@@ -51,6 +51,13 @@ volume_backend_name=LVM_iSCSI52
 devstack
 cinder type-list查看到的为cinder.conf默认的default_volume_type = lvmdriver-1
 
+cinder type-create lvms
+cinder type-key lvms set volume_backend_name=LVM_iSCSI52
+service target enable
+service target start
+service target status
+cinder list
+
 
 docker-py中volumes参数用法
 https://docker-py.readthedocs.org/en/latest/volumes/
