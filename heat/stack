@@ -1,4 +1,5 @@
 参考资料,语法
+http://docs.openstack.org/user-guide/content/user-data-boot-scripts-and-cloud-init.html
 http://docs.openstack.org/developer/heat/template_guide/index.html
 http://docs.openstack.org/developer/heat/template_guide/hot_guide.html
 
