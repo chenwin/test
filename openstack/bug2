@@ -4,58 +4,28 @@ https://review.openstack.org/173652
 MIN_API_VERSION_MAP = {'read_only': '1.17', 'cpu_shares': '1.8',
                        'devices': '1.14', 'cpu_set': '1.12'}
                        
+删除
 
-                        constraints=[
-                            constraints.Range(min=0, max=128),
-                        ],
+    _CPU_SET_KEYS = (
+        START_CPU_RANGE, END_CPU_RANGE
+    ) = (
+        'start', 'end'
+    )
+    
+    def _get_cpu_set(self, cpu_sets):
+        actual_cpu_sets = ''
+        for cpu_set in cpu_sets:
+            if cpu_set[self.END_CPU_RANGE]:
+                actual_cpu_sets += '%s-%s,' % (
+                    cpu_set[self.START_CPU_RANGE],
+                    cpu_set[self.END_CPU_RANGE])
+            else:
+                actual_cpu_sets += '%s,' % (cpu_set[self.START_CPU_RANGE])
+        return actual_cpu_sets[:-1]
 
     def _validate_cpu_set(self):
-        cpu_sets = self.properties[self.CPU_SET]
-        if cpu_sets:
-            for cpu_set in cpu_sets:
-                start = cpu_set[self.START_CPU_RANGE]
-                end = cpu_set[self.END_CPU_RANGE]
-                if end and start >= end:
-                    raise exception.Invalid(reason='The cpu_set ending is '
-                                                   'less than the starting')
-                                                   
+    
+ 
 
-    def test_create_with_cpu_set(self):
-        t = template_format.parse(template)
-        stack = utils.parse_stack(t)
-        definition = stack.t.resource_definitions(stack)['Blog']
-        definition['Properties']['cpu_set'] = [
-            {'start': 0}, {'start': 6, 'end': 12}, {'start': 24, 'end': 32}]
-        my_resource = docker_container.DockerContainer(
-            'Blog', definition, stack)
-        get_client_mock = self.patchobject(my_resource, 'get_client')
-        get_client_mock.return_value = fakeclient.FakeDockerClient()
-        self.assertIsNone(my_resource.validate())
-        scheduler.TaskRunner(my_resource.create)()
-        self.assertEqual((my_resource.CREATE, my_resource.COMPLETE),
-                         my_resource.state)
-        client = my_resource.get_client()
-        self.assertEqual(['samalba/wordpress'], client.pulled_images)
-        self.assertEqual('0,6-12,24-32',
-                         client.container_create[0]['cpuset'])
-
-    def test_create_with_cpu_set_invalid_arg(self):
-        t = template_format.parse(template)
-        stack = utils.parse_stack(t)
-        definition = stack.t.resource_definitions(stack)['Blog']
-        definition['Properties']['cpu_set'] = [{'start': 1, 'end': 1}]
-        my_resource = docker_container.DockerContainer(
-            'Blog', definition, stack)
-        get_client_mock = self.patchobject(my_resource, 'get_client')
-        get_client_mock.return_value = fakeclient.FakeDockerClient()
-        msg = self.assertRaises(exception.Invalid,
-                                my_resource.validate)
-        expected = _("Data supplied was not valid: The cpu_set ending"
-                     " is less than the starting")
-        self.assertEqual(expected, six.text_type(msg))
-
-    def test_create_with_cpu_set_for_low_api_version(self):
-        value = [{'start': 6, 'end': 8}]
-        self.arg_for_low_api_version('cpu_set', value, '1.11')
 
 
