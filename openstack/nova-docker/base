@@ -1,5 +1,6 @@
 官方WIKI配置过程
 https://wiki.openstack.org/wiki/Docker#Configure_OpenStack_to_enable_Docker
+http://technodrone.blogspot.com/2014/10/nova-docker-on-juno.html
 glance配置文件glance-api.conf 
 
 docker pull centos:7
