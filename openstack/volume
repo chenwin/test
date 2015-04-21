@@ -33,6 +33,22 @@ losetup -d /dev/loop4
 查看
 losetup -a
 
+创建ISCSI LVM卷组作为cinder存储后端
+参考http://bderzhavets.blogspot.com/2014/11/lvmiscsi-cinder-backend-for-rdo-juno-on.html
+pvcreate /dev/loop3
+vgcreate cinder-volumes52 /dev/loop3
+
+vi /etc/cinder/cinder.conf
+enabled_backends=lvm52
+
+[lvm52]
+iscsi_helper=lioadm
+volume_group=cinder-volumes52
+volume_driver=cinder.volume.drivers.lvm.LVMISCSIDriver
+iscsi_ip_address=186.100.41.110
+volume_backend_name=LVM_iSCSI52
+
+
 docker-py中volumes参数用法
 https://docker-py.readthedocs.org/en/latest/volumes/
 
