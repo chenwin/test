@@ -1,0 +1,92 @@
+1. nova-compute load_driver失败。
+
+2015-04-21 03:46:17.497 INFO nova.virt.driver [-] Loading compute driver 'novadocker.virt.docker.DockerDriver'
+2015-04-21 03:46:17.525 INFO nova.openstack.common.periodic_task [-] Skipping periodic task _periodic_update_dns because its interval is negative
+2015-04-21 03:46:17.553 CRITICAL nova [-] TypeError: __init__() takes at least 2 arguments (1 given)
+
+2015-04-21 03:46:17.553 TRACE nova Traceback (most recent call last):
+2015-04-21 03:46:17.553 TRACE nova   File "/usr/bin/nova-compute", line 10, in <module>
+2015-04-21 03:46:17.553 TRACE nova     sys.exit(main())
+2015-04-21 03:46:17.553 TRACE nova   File "/opt/stack/nova/nova/cmd/compute.py", line 72, in main
+2015-04-21 03:46:17.553 TRACE nova     db_allowed=CONF.conductor.use_local)
+2015-04-21 03:46:17.553 TRACE nova   File "/opt/stack/nova/nova/service.py", line 265, in create
+2015-04-21 03:46:17.553 TRACE nova     db_allowed=db_allowed)
+2015-04-21 03:46:17.553 TRACE nova   File "/opt/stack/nova/nova/service.py", line 142, in __init__
+2015-04-21 03:46:17.553 TRACE nova     self.manager = manager_class(host=self.host, *args, **kwargs)
+2015-04-21 03:46:17.553 TRACE nova   File "/opt/stack/nova/nova/compute/manager.py", line 701, in __init__
+2015-04-21 03:46:17.553 TRACE nova     self.driver = driver.load_compute_driver(self.virtapi, compute_driver)
+2015-04-21 03:46:17.553 TRACE nova   File "/opt/stack/nova/nova/virt/driver.py", line 1389, in load_compute_driver
+2015-04-21 03:46:17.553 TRACE nova     virtapi)
+2015-04-21 03:46:17.553 TRACE nova   File "/usr/lib/python2.7/site-packages/oslo_utils/importutils.py", line 52, in import_object_ns
+2015-04-21 03:46:17.553 TRACE nova     return import_class(import_str)(*args, **kwargs)
+2015-04-21 03:46:17.553 TRACE nova   File "/usr/lib/python2.7/site-packages/novadocker/virt/docker/driver.py", line 105, in __init__
+2015-04-21 03:46:17.553 TRACE nova     default='nova.virt.firewall.NoopFirewallDriver')
+2015-04-21 03:46:17.553 TRACE nova   File "/opt/stack/nova/nova/virt/firewall.py", line 48, in load_driver
+2015-04-21 03:46:17.553 TRACE nova     return fw_class(*args, **kwargs)
+2015-04-21 03:46:17.553 TRACE nova TypeError: __init__() takes at least 2 arguments (1 given)
+2015-04-21 03:46:17.553 TRACE nova 
+
+
+解决方法/etc/nova/nova.conf  firewall_driver使用下面的
+firewall_driver=nova.virt.firewall.NoopFirewallDriver
+
+
+2. ConnectionError
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/eventlet/hubs/hub.py", line 457, in fire_timers
+    timer()
+  File "/usr/lib/python2.7/site-packages/eventlet/hubs/timer.py", line 58, in __call__
+    cb(*args, **kw)
+  File "/usr/lib/python2.7/site-packages/eventlet/greenthread.py", line 214, in main
+    result = function(*args, **kwargs)
+  File "/opt/stack/nova/nova/openstack/common/service.py", line 497, in run_service
+    service.start()
+  File "/opt/stack/nova/nova/service.py", line 158, in start
+    self.manager.init_host()
+  File "/opt/stack/nova/nova/compute/manager.py", line 1261, in init_host
+    self.driver.init_host(host=self.host)
+  File "/usr/lib/python2.7/site-packages/novadocker/virt/docker/driver.py", line 114, in init_host
+    if self._is_daemon_running() is False:
+  File "/usr/lib/python2.7/site-packages/novadocker/virt/docker/driver.py", line 120, in _is_daemon_running
+    return self.docker.ping()
+  File "/usr/lib/python2.7/site-packages/novadocker/virt/docker/client.py", line 36, in wrapper
+    out = f(*args, **kwds)
+  File "/usr/lib/python2.7/site-packages/docker/client.py", line 783, in ping
+    return self._result(self._get(self._url('/_ping')))
+  File "/usr/lib/python2.7/site-packages/docker/client.py", line 76, in _get
+    return self.get(url, **self._set_request_timeout(kwargs))
+  File "/usr/lib/python2.7/site-packages/novadocker/virt/docker/client.py", line 36, in wrapper
+    out = f(*args, **kwds)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 469, in get
+    return self.request('GET', url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/novadocker/virt/docker/client.py", line 36, in wrapper
+    out = f(*args, **kwds)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 457, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/site-packages/novadocker/virt/docker/client.py", line 36, in wrapper
+    out = f(*args, **kwds)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 569, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/adapters.py", line 407, in send
+    raise ConnectionError(err, request=request)
+ConnectionError: ('Connection aborted.', error(2, 'ENOENT'))
+
+解决方法，启动docker服务
+service docker start
+
+3.
+  File "/usr/lib/python2.7/site-packages/novadocker/virt/docker/client.py", line 36, in wrapper
+    out = f(*args, **kwds)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 457, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/site-packages/novadocker/virt/docker/client.py", line 36, in wrapper
+    out = f(*args, **kwds)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 569, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/adapters.py", line 407, in send
+    raise ConnectionError(err, request=request)
+ConnectionError: ('Connection aborted.', error(13, 'EACCES'))
+
+nova.conf中设置host_url为/run/docker.sock
+/run/docker.sock要设置为stack用户可以访问
+chown -R stack:stack /run/docker.sock
