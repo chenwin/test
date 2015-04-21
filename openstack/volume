@@ -48,6 +48,9 @@ volume_driver=cinder.volume.drivers.lvm.LVMISCSIDriver
 iscsi_ip_address=186.100.41.110
 volume_backend_name=LVM_iSCSI52
 
+devstack
+cinder type-list查看到的为cinder.conf默认的default_volume_type = lvmdriver-1
+
 
 docker-py中volumes参数用法
 https://docker-py.readthedocs.org/en/latest/volumes/
