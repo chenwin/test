@@ -38,7 +38,7 @@ enabled=1
 gpgcheck=1
 
 yum makecache
-1.配置代理
+1.配置代理, 注意如果使用代理，一定要配置no_proxy，否则keystone鉴权失败
 export http_proxy=http://186.100.4.109:808
 export https_proxy=http://186.100.4.109:808
 export no_proxy=127.0.0.1,186.100.4.109,186.100.4.110
