@@ -1,1 +1,25 @@
 https://coolsvap.wordpress.com/2014/09/16/openstack-how-to-use-screen-in-devstack/
+
+Ctrl+A+' 可跳转页面Switch to window: 输入对应数字即可
+
+Ctrl+A 然后Shitf+',可以选择对应进程号
+ Num Name                                                                                                       Flags
+
+   0 shell                                                                                                          $
+   1 dstat                                                                                                       $(L)
+   2 key                                                                                                         $(L)
+   3 key-access                                                                                                  $(L)
+   4 horizon                                                                                                     $(L)
+   5 g-reg                                                                                                       $(L)
+   6 g-api                                                                                                       $(L)
+   7 n-api                                                                                                       $(L)
+   8 n-cond                                                                                                      $(L)
+   9 n-crt                                                                                                       $(L)
+  10 n-net                                                                                                       $(L)
+  11 n-sch                                                                                                       $(L)
+  12 n-novnc                                                                                                     $(L)
+  13 n-cpu                                                                                                       $(L)
+  14 c-api                                                                                                       $(L)
+  15 c-sch                                                                                                       $(L)
+  16 c-vol                                                                                                       $(L)
+  17 shell
