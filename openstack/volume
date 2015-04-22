@@ -64,6 +64,10 @@ service target start
 service target status
 cinder list
 
+nova boot test01 \
+--flavor 2 --image cirros:latest \
+--nic net-id=7754392d-f56e-4240-9a64-9ee5710251be \
+--block-device id=7b2da991-986a-4806-9384-9210a9b700cf,bus=sata,source=volume,bootindex=2
 
 docker-py中volumes参数用法
 https://docker-py.readthedocs.org/en/latest/volumes/
