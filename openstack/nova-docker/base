@@ -28,7 +28,11 @@ vi /etc/glance/glance-api.conf,解除注释，并追加docker
 container_formats = ami,ari,aki,bare,ovf,docker
 重启glance-api进程
 
-
+cd devstack
+source openrc admin admin
+docker pull centos:7
+docker save centos:7 | glance image-create --is-public=True --container-format=docker --disk-format=raw --name centos:7
+nova boot --flavor 2 --image centos:7 --key-name key1 --nic net-id=2510a249-1665-4184-afc8-62a2eccf6c3b a172
 
 官方WIKI配置过程
 https://wiki.openstack.org/wiki/Docker#Configure_OpenStack_to_enable_Docker
@@ -36,10 +40,6 @@ http://technodrone.blogspot.com/2014/10/nova-docker-on-juno.html
 glance配置文件glance-api.conf 
 
 http://blog.csdn.net/halcyonbaby/article/details/41210307
-
-docker pull centos:7
-docker save centos:7 | glance image-create --is-public=True --container-format=docker --disk-format=raw --name centos:7
-nova boot --flavor 2 --image centos:7 --key-name key1 --nic net-id=2510a249-1665-4184-afc8-62a2eccf6c3b a172
 
 https://github.com/stackforge/nova-docker
 https://wiki.openstack.org/wiki/Docker
