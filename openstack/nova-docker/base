@@ -5,6 +5,9 @@ python setup.py install
 vi /etc/nova/nova.conf
 firewall_driver=nova.virt.firewall.NoopFirewallDriver
 compute_driver = novadocker.virt.docker.DockerDriver
+host_url = /run/docker.sock
+
+chown -R stack:stack /run/docker.sock
 
 vi /etc/nova/rootwrap.d/docker.filters
 [Filters]
