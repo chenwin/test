@@ -1,3 +1,8 @@
+git clone http://github.com/stackforge/nova-docker.git
+cd nova-docker/
+python setup.py install
+
+
 官方WIKI配置过程
 https://wiki.openstack.org/wiki/Docker#Configure_OpenStack_to_enable_Docker
 http://technodrone.blogspot.com/2014/10/nova-docker-on-juno.html
