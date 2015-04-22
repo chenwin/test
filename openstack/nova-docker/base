@@ -6,6 +6,7 @@ vi /etc/nova/nova.conf
 firewall_driver=nova.virt.firewall.NoopFirewallDriver
 compute_driver = novadocker.virt.docker.DockerDriver
 host_url = /run/docker.sock
+重启nova-compute进程
 
 chown -R stack:stack /run/docker.sock
 
@@ -16,6 +17,7 @@ ln: CommandFilter, /bin/ln, root
 
 vi /etc/glance/glance-api.conf,解除注释，并追加docker
 container_formats = ami,ari,aki,bare,ovf,docker
+重启glance-api进程
 
 
 
