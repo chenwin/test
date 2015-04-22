@@ -2,6 +2,19 @@ git clone http://github.com/stackforge/nova-docker.git
 cd nova-docker/
 python setup.py install
 
+vi /etc/nova/nova.conf
+firewall_driver=nova.virt.firewall.NoopFirewallDriver
+compute_driver = novadocker.virt.docker.DockerDriver
+
+vi /etc/nova/rootwrap.d/docker.filters
+[Filters]
+# nova/virt/docker/driver.py: 'ln', '-sf', '/var/run/netns/.*'
+ln: CommandFilter, /bin/ln, root
+
+vi /etc/glance/glance-api.conf,解除注释，并追加docker
+container_formats = ami,ari,aki,bare,ovf,docker
+
+
 
 官方WIKI配置过程
 https://wiki.openstack.org/wiki/Docker#Configure_OpenStack_to_enable_Docker
