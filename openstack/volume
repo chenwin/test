@@ -33,6 +33,9 @@ losetup -d /dev/loop4
 查看
 losetup -a
 
+查找当前目录下字符串
+grep "lvmdriver" ./* -R
+
 dd格式化指定设备
 dd bs=8M if=/dev/zero of=/dev/loop1
 
