@@ -18,6 +18,7 @@ host_url = /run/docker.sock
 重启nova-compute进程
 
 chown -R stack:stack /run/docker.sock
+chmod 777 /run/docker.sock
 
 vi /etc/nova/rootwrap.d/docker.filters
 [Filters]
