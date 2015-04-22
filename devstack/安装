@@ -154,6 +154,9 @@ cd /home/devstack/tools/
 修改devstack目录权限,让stack用户可以运行
 chown -R stack:stack /home/devstack
 
+配置文件
+cp ./samples/local.conf ./
+
 切换到stack用户下
 su stack
 cd /home/devstack
