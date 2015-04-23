@@ -1,3 +1,5 @@
 https://github.com/openstack/magnum/blob/master/magnum/templates/heat-kubernetes/fragments/enable-services-master.sh
 
 https://bugs.launchpad.net/kolla
+
+https://blueprints.launchpad.net/kolla/
