@@ -1,0 +1,2 @@
+拼磁盘xml
+\nova-master\nova\virt\libvirt\driver.py:_get_guest_storage_config
