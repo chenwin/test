@@ -20,8 +20,8 @@ service openvswitch start
 9. 重启后处理
 恢复卷组和准备cinder-volume： 
 chmod 777 /run/docker.sock
-losetup -f stack-volumes-default-backing-file
-losetup -f stack-volumes-lvmdriver-1-backing-file
+losetup -f /opt/stack/data/stack-volumes-default-backing-file
+losetup -f /opt/stack/data/stack-volumes-lvmdriver-1-backing-file
 
 删除残留的sock文件：  
 rm -rf /var/lib/mysql/mysql.sock
