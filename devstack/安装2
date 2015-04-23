@@ -8,17 +8,21 @@ chkconfig rabbitmq-server on
 service rabbitmq-server start
 chkconfig httpd on
 service httpd start
+service mariadb start
+chkconfig mariadb on
+
+以下不需要了
 chkconfig mysqld on
 service mysqld start
 chkconfig openvswitch on
 service openvswitch start
 
-service mariadb start
-chkconfig mariadb on
-
 9. 重启后处理
 恢复卷组和准备cinder-volume： 
-losetup -f /opt/stack/data/stack-volumes-backing-file 
+chmod 777 /run/docker.sock
+losetup -f stack-volumes-default-backing-file
+losetup -f stack-volumes-lvmdriver-1-backing-file
+
 删除残留的sock文件：  
 rm -rf /var/lib/mysql/mysql.sock
 重新启动：
