@@ -1,2 +1,5 @@
 拼磁盘xml
 \nova-master\nova\virt\libvirt\driver.py:_get_guest_storage_config
+
+创建启动VM
+\nova-master\nova\compute\manager.py:_build_and_run_instance
