@@ -64,10 +64,17 @@ service target start
 service target status
 cinder list
 
+cinder create --display-name my-volume 8
+
 nova boot test01 \
 --flavor 2 --image cirros:latest \
 --nic net-id=7754392d-f56e-4240-9a64-9ee5710251be \
---block-device id=7b2da991-986a-4806-9384-9210a9b700cf,bus=sata,source=volume,bootindex=2
+--block-device id=7b2da991-986a-4806-9384-9210a9b700cf,bus=scsi,source=volume,bootindex=1
+
+报错Block Device Mapping is Invalid: Boot sequence for the instance and image/block device mapping combination is not valid.
+https://bugs.launchpad.net/nova/+bug/1433609
+需要在kilo版本上打补丁https://review.openstack.org/#/c/165932/1
+
 
 docker-py中volumes参数用法
 https://docker-py.readthedocs.org/en/latest/volumes/
