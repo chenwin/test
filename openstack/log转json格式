@@ -8,6 +8,8 @@ True  替换为true
 
 \nova\compute\manager.py_build_instance-->_prep_block_device->_spawn
 
+确认_prep_block_device返回的block_device_info
+
 {
     "block_device_mapping": [
         {
