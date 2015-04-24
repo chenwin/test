@@ -71,6 +71,20 @@ nova boot test01 \
 --nic net-id=7754392d-f56e-4240-9a64-9ee5710251be \
 --block-device id=7b2da991-986a-4806-9384-9210a9b700cf,bus=scsi,source=volume,bootindex=1
 
+用这个block_device_mapping才会不为[]
+nova boot test52 \
+--flavor 2 --image cirros:latest \
+--nic net-id=7754392d-f56e-4240-9a64-9ee5710251be \
+--block-device-mapping vdc=33bad44f-79c4-428e-b1a4-5f2bb0bce965:::0
+
+dirver的spawn函数
+block_device_mapping里面必须有device_path
+
+查看卷是否已经挂载上
+lsblk
+iscsiadm -m session
+ls /dev/block/
+
 报错Block Device Mapping is Invalid: Boot sequence for the instance and image/block device mapping combination is not valid.
 https://bugs.launchpad.net/nova/+bug/1433609
 需要在kilo版本上打补丁https://review.openstack.org/#/c/165932/1
