@@ -6,6 +6,8 @@ None 替换为null
 False 替换为false
 True  替换为true
 
+\nova\compute\manager.py_build_instance-->_prep_block_device->_spawn
+
 {
     "block_device_mapping": [
         {
