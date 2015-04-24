@@ -5,3 +5,32 @@ u' 替换为'
 None 替换为null
 False 替换为false
 True  替换为true
+
+{
+    "block_device_mapping": [
+        {
+            "connection_info": {
+                "driver_volume_type": "iscsi",
+                "serial": "07d0da92-f12d-4b3c-af8d-0c167d15fc36",
+                "data": {
+                    "access_mode": "rw",
+                    "target_discovered": false,
+                    "encrypted": false,
+                    "qos_specs": null,
+                    "target_iqn": "iqn.2010-10.org.openstack:volume-07d0da92-f12d-4b3c-af8d-0c167d15fc36",
+                    "target_portal": "186.100.41.110:3260",
+                    "volume_id": "07d0da92-f12d-4b3c-af8d-0c167d15fc36",
+                    "target_lun": 1,
+                    "auth_password": "gN5uQDPKSWLpCkKb",
+                    "auth_username": "k3ET5Rysht8s5vM26pqh",
+                    "auth_method": "CHAP"
+                }
+            },
+            "mount_device": "/dev/vdc",
+            "delete_on_termination": false
+        }
+    ],
+    "root_device_name": "/dev/sda",
+    "ephemerals": [],
+    "swap": null
+}
