@@ -48,7 +48,7 @@ export https_proxy=http://186.100.4.109:808
 export no_proxy=127.0.0.1,186.100.4.109,186.100.4.110
 
 2.配置国内源：g/str1/s//str2/g    g/mirrorlist.centos.org/s//mirrors.aliyun.com/g
-/etc/apt/sources.list
+/etc/apt/sources.list (vi下输入:，在执行g/mirrorlist.centos.org/s//mirrors.aliyun.com/g)
 deb http://mirrors.aliyun.com/ubuntu/ precise main restricted universe multiverse
 deb http://mirrors.aliyun.com/ubuntu/ precise-security main restricted universe multiverse
 deb http://mirrors.aliyun.com/ubuntu/ precise-updates main restricted universe multiverse
