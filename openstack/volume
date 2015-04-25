@@ -6,6 +6,9 @@ http://lists.openstack.org/pipermail/openstack-dev/2013-December/021442.html
 读取块设备512k内容到指定文件
 dd if=/dev/sdc of=/home/c.file bs=512 count=1
 
+王申github
+https://github.com/Peter--wang/test/blob/
+
 docker不支持在线挂载，可以在创建容器时挂载，需要预先把卷创建。
 现有的容器span流程。没有理会block_device_info，需要修改。
 
