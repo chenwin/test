@@ -85,6 +85,12 @@ nova boot test52 \
 dirver的spawn函数
 block_device_mapping里面必须有device_path
 
+iscsi发现
+[root@localhost logs]# IQN=iqn.2010-10.org.openstack:volume-79c9c916-583b-4e45-b73d-42be60012f23
+[root@localhost logs]# IP=186.100.41.110 
+[root@localhost logs]# iscsiadm -m node --targetname $IQN --portal $IP --login
+[root@localhost logs]# iscsiadm -m node --targetname $IQN --portal $IP --logout
+
 查看卷是否已经挂载上
 lsblk
 iscsiadm -m session
