@@ -50,6 +50,9 @@ git review
 
 pep8检查
 easy_install tox
+nova-docker的tox.ini文件
+https://github.com/stackforge/nova-docker/blob/master/tox.ini
+
 在代码目录下执行
 tox -e pep8
 http://tox.readthedocs.org/en/latest/install.html
