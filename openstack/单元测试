@@ -32,6 +32,12 @@ pip install -r /opt/stack/heat/test-requirements.txt
 nosetests /opt/stack/heat/contrib/heat_docker/heat_docker/tests/test_docker_container.py
 nosetests  /usr/lib/python2.7/site-packages/novadocker/tests/virt/docker/test_driver.py
 
+单独测试某个类
+nosetests  ./test_driver.py:DockerDriverTestCase
+
+单独测试某个函数
+nosetests  ./test_driver.py:DockerDriverTestCase.test_create_container_device
+
 卸载老包
 pip uninstall heat-contrib-docker
 
