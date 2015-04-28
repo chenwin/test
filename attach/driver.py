@@ -1,10 +1,17 @@
-from nova.volume import encryptors
-from nova import volume
+33
 from nova import block_device
 
-from novadocker.virt.docker import utils as docker_utils
+from nova import utils as nova_utils之后
 from nova.virt import block_device as driver_block_device
-from nova import objects
+
+from nova.virt import images之后
+from nova import volume
+from nova.volume import encryptors
+
+倒数第二行
+from novadocker.virt.docker import utils as docker_utils
+
+
 
 docker_volume_drivers = [
     'iscsi=novadocker.virt.docker.volume.DockerISCSIVolumeDriver',
