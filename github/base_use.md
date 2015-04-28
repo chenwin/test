@@ -9,5 +9,6 @@ git config --global core.autocrlf false
 
 ####配置用户
 git config --global user.name "XXX"
+
 git config --global user.email "XXX@XXXXXX.com"
 
