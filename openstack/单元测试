@@ -30,6 +30,7 @@ pip install -r /opt/stack/heat/test-requirements.txt
 或者pip install nose oslotest mock oslo.utils（不好）
 运行测试用例
 nosetests /opt/stack/heat/contrib/heat_docker/heat_docker/tests/test_docker_container.py
+nosetests  /usr/lib/python2.7/site-packages/novadocker/tests/virt/docker/test_driver.py
 
 卸载老包
 pip uninstall heat-contrib-docker
