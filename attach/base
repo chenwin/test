@@ -1,0 +1,5 @@
+https://blueprints.launchpad.net/nova-docker/+spec/container-cinder-support
+
+Cinder back-end support for containers
+
+bp/container-cinder-support
