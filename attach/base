@@ -6,6 +6,9 @@ Cinder back-end support for containers
 
 bp/container-cinder-support
 
+在标题增加
+https://blueprints.launchpad.net/nova-docker/+spec/container-cinder-support
+
 _validate_transport第一行之后需要空行
 driver.py
 335
