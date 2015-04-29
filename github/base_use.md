@@ -18,6 +18,8 @@ git commit
 git push
 
 使用密码方式，修改./git/config下的
+
 [remote "origin"]
+
 	url = https://chenwin:PASS@github.com/chenwin/nova-docker.git
 
