@@ -7,6 +7,11 @@ Cinder back-end support for containers
 bp/container-cinder-support
 
 _validate_transport第一行之后需要空行
+driver.py
+335
+return instance.get_flavor()
+687
+flavor = instance.get_flavor()
 
 
 git add .
