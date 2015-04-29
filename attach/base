@@ -6,6 +6,8 @@ Cinder back-end support for containers
 
 bp/container-cinder-support
 
+_validate_transport第一行之后需要空行
+
 
 git add .
 git commit
