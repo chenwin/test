@@ -84,6 +84,10 @@ index-url=http://mirrors.aliyun.com/pypi/simple/
 http://pypi.douban.com/simple/
 
 
+设置代理
+http://www.cyberciti.biz/faq/linux-unix-set-proxy-environment-variable/
+
+
 5.下载代码
 git clone http://git.openstack.org/openstack-dev/devstack
 
