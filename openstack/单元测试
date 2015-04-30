@@ -38,6 +38,8 @@ nosetests  ./test_driver.py:DockerDriverTestCase
 单独测试某个函数
 nosetests  ./test_driver.py:DockerDriverTestCase.test_create_container_device
 
+nosetests支持断点，使用-s 或 --nocapture，否则用例挂死，不进入断点
+nosetests -s
 卸载老包
 pip uninstall heat-contrib-docker
 
