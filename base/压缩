@@ -4,3 +4,10 @@ tar -zcvf shell.tar.gz shell/
 将gzip文件解压：
 
 tar -zxvf shell.tar.gz
+
+压缩为bz2文件：
+
+tar -jcvf shell.tar.bz2 shell/
+将bz2文件解压：
+
+tar -jxvf shell.tar.bz2
