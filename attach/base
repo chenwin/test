@@ -20,3 +20,39 @@ flavor = instance.get_flavor()
 git add .
 git commit
 git push
+
+        self.stubs.Set(objects.BlockDeviceMapping,
+                       'get_by_volume_id', classmethod(lambda *a, **k: None))
+        self.stubs.Set(driver_block_device.DriverVolumeBlockDevice,
+                       '__init__', classmethod(lambda *a, **k: None))
+        self.stubs.Set(driver_block_device.DriverVolumeBlockDevice,
+                       'save', classmethod(lambda *a, **k: None))
+        self.stubs.Set(volume.DockerISCSIVolumeDriver(None),
+                       '_run_iscsiadm', classmethod(lambda *a, **k: None))
+        mock.patch.object(os.path, 'exists', return_value=True)
+  
+import os
+import contextlib
+import socket
+
+import mock
+from oslo_config import fixture as config_fixture
+from oslo_utils import units
+
+from nova.compute import task_states
+from nova import context
+from nova import exception
+from nova import objects
+from nova import test
+import nova.tests.unit.image.fake
+from nova.tests.unit import matchers
+from nova.tests.unit import utils
+from nova.tests.unit.virt import test_virt_drivers
+from nova.virt import block_device as driver_block_device
+from nova.virt import fake
+from novadocker.tests.virt.docker import mock_client
+import novadocker.virt.docker
+from novadocker.virt.docker import driver as docker_driver
+from novadocker.virt.docker import hostinfo
+from novadocker.virt.docker import network
+from novadocker.virt.docker import volume
