@@ -1,0 +1,6 @@
+压缩成gzip文件：
+
+tar -zcvf shell.tar.gz shell/
+将gzip文件解压：
+
+tar -zxvf shell.tar.gz
