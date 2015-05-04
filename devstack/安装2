@@ -16,6 +16,11 @@ chkconfig tgtd on
 否则报错
 tgtadm: failed to send request hdr to tgt daemon, Transport endpoint is not connected
 
+AMQP server on 186.100.41.110:5672 is unreachable: [Errno 111] ECONNREFUSED. Trying again in 2 seconds.
+重新启动rabbitmq
+service rabbitmq-server restart
+
+
 以下不需要了
 chkconfig mysqld on
 service mysqld start
