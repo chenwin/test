@@ -1,0 +1,5 @@
+http://www.tecmint.com/ifconfig-command-examples/
+
+ifdown eth0
+
+ifconfig eth0 netmask 255.255.255.224
