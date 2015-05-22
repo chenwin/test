@@ -4,6 +4,8 @@ https://github.com/Netflix/SimianArmy/wiki/Chaos-Monkey
 
 git clone git://github.com/Netflix/SimianArmy.git
 
+http://techblog.netflix.com/2014/11/zerotodocker-easy-way-to-evaluate.html
+
 视频
 Cloud Native NetflixOSS Services on Docker by Andrew Spyker (IBM) and Sudhir Tonse (Netflix)
 https://www.youtube.com/watch?v=Ca7HVPNsZN4
