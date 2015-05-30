@@ -1,0 +1,15 @@
+import logging
+
+
+try:
+    logging.basicConfig(filename='D:\oj.log', filemode='w',
+                        format='%(message)s', level=logging.DEBUG)
+except Exception:
+    pass
+
+IS_LOG = True
+
+
+def mg_log(msg):
+    if IS_LOG:
+        logging.debug(msg)
