@@ -2,9 +2,11 @@ import logging
 
 try:
     logging.basicConfig(filename='D:\oj.log', filemode='w',
-                        format='%(funcName)8s() %(lineno)3d %(message)s',
+                        format='%(funcName)-8s() %(lineno)-3d %(message)s',
                         level=logging.DEBUG)
     logger = logging.getLogger()
     logger.disabled = False
 except IOError:
     pass
+    
+加-是左对齐，不加-是右对齐
