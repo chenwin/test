@@ -1,15 +1,10 @@
 import logging
 
-
 try:
     logging.basicConfig(filename='D:\oj.log', filemode='w',
-                        format='%(message)s', level=logging.DEBUG)
-except Exception:
+                        format='%(funcName)8s() %(lineno)3d %(message)s',
+                        level=logging.DEBUG)
+    logger = logging.getLogger()
+    logger.disabled = False
+except IOError:
     pass
-
-IS_LOG = True
-
-
-def mg_log(msg):
-    if IS_LOG:
-        logging.debug(msg)
