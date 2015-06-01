@@ -2,11 +2,9 @@ def cmd_console(input_cmd):
     args = input_cmd.split()
     cmd = args[0]
     if cmd == "r":
-        return hero.cmd_r()
+        return cmd_r()
         
 
-from huawei.demo import cmd_console
-from huawei.formate_data import *
 import unittest
 
 class Test(unittest.TestCase):
