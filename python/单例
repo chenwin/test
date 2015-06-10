@@ -1,32 +1,12 @@
-class Singleton(object):
-    def __new__(cls, *args, **kw):
-        if not hasattr(cls, '_instance'):
-            orig = super(Singleton, cls)
-            cls._instance = orig.__new__(cls, *args, **kw)
-        return cls._instance
+class Singleton(type):
+    _instances = {}
+
+    def __call__(cls, *args, **kwargs):
+        if cls not in cls._instances:
+            cls._instances[cls] = super(Singleton, cls).__call__(
+                *args, **kwargs)
+        return cls._instances[cls]
 
 
-class MyClass(Singleton):
-    a = 0
-
-    def __init__(self):
-        pass
-
-    def print_a(self):
-        print MyClass().a
-
-    def reset(self):
-        MyClass().a = 0
-
-
-def test(a):
-    one = MyClass()
-    one.a += a
-    if a == 4:
-        one.reset()
-    one.print_a()
-
-test(1)
-test(2)
-test(3)
-test(4)
+class Game(object):
+    __metaclass__ = Singleton
