@@ -1,5 +1,7 @@
 
 http://www.open-open.com/lib/view/open1352354768500.html
+http://ftp.sunet.se/pub/multimedia/graphics/ImageMagick/binaries/
+
 
 D:\ImageMagick-6.8.6-Q16\convert -colorspace Gray D:\yanzheng.PNG D:\1.PNG
 D:\Tesseract-OCR\tesseract.exe D:\1.PNG D:\output
