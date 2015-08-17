@@ -1,0 +1,10 @@
+
+创建卷
+qemu-img create -f raw -o size=4G vol6
+
+挂载自动分配loop号
+losetup -f vol6
+卸载指定loop设备
+losetup -d /dev/loop4
+查看
+losetup -a
