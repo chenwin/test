@@ -1,4 +1,5 @@
 http://stackoverflow.com/questions/6089368/how-can-i-use-a-piped-string-of-commands-with-python-subprocess-module
+自动化分区
 
 import shlex, subprocess
 command_line = 'echo -e "n\np\n1\n\n\nw\n" | fdisk -S 56 /dev/xvde'
