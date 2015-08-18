@@ -1,8 +1,22 @@
 http://stackoverflow.com/questions/6089368/how-can-i-use-a-piped-string-of-commands-with-python-subprocess-module
 http://www.linuxforums.org/forum/programming-scripting/120613-need-script-fdisk-command.html
+http://superuser.com/questions/332252/creating-and-formating-a-partition-using-a-bash-script
 自动化分区
 
 import shlex, subprocess
 command_line = 'echo -e "n\np\n1\n\n\nw\n" | fdisk -S 56 /dev/xvde'
 args = shlex.split(command_line)
 p = subprocess.Popen(args)
+
+#!/bin/sh
+fdisk /dev/loop0 << EOF
+n
+p
+1
+
+
+w
+EOF
+
+或者
+echo -e "o\nn\np\n1\n\n\nw" | fdisk /dev/loop0
