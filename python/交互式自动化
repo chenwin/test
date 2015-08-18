@@ -1,4 +1,5 @@
 http://stackoverflow.com/questions/6089368/how-can-i-use-a-piped-string-of-commands-with-python-subprocess-module
+http://www.linuxforums.org/forum/programming-scripting/120613-need-script-fdisk-command.html
 自动化分区
 
 import shlex, subprocess
