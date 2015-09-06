@@ -21,3 +21,6 @@ http://wiki.woodpecker.org.cn/moin/WxPythonInAction/ChapterNine
 
 docker化的svn服务端
 https://hub.docker.com/r/krisdavison/svn-server/
+
+查找字符串出现的次数
+https://techleaves.wordpress.com/2011/07/12/count-specific-characters-cstring/
