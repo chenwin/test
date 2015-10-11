@@ -15,6 +15,7 @@ vim /etc/profile
 export JAVA_HOME=/usr/share/java/jdk1.7.0_79
 export PATH=$JAVA_HOME/bin:$PATH
 
+source /etc/profile
 
 步骤：
 1、在server端执行以下命令，先开启http
