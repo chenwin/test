@@ -1,0 +1,24 @@
+【clent】可参考http://web.hanzheng.info/tag/http_load最后
+wget http://www.acme.com/software/http_load/http_load-14aug2014.tar.gz
+tar zxvf http_load-14aug2014.tar.gz
+cd http_load-14aug2014
+make && make install
+vi urls
+http://117.78.34.148:8080/ #
+
+
+【server】
+netty-example-5.0.0.Alpha3-SNAPSHOT-jar-with-dependencies.jar
+tar xzvf jdk-7u79-linux-x64.tar.gz\?AuthParam\=1442462493_9d33a986a6aefc8d8d776ffe9e1e1e02 
+mv jdk1.7.0_79/ /usr/share/java/
+vim /etc/profile
+export JAVA_HOME=/usr/share/java/jdk1.7.0_79
+export PATH=$JAVA_HOME/bin:$PATH
+
+
+步骤：
+1、在server端执行以下命令，先开启http
+java -cp netty-example-5.0.0.Alpha3-SNAPSHOT-jar-with-dependencies.jar io.netty.example.http.helloworld.HttpHelloWorldServer 
+
+2、在clent，http_load路径下执行
+./http_load -rate 5 -seconds 10 -parallel 1000 urls
