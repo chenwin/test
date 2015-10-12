@@ -26,5 +26,7 @@ java -cp netty-example-5.0.0.Alpha3-SNAPSHOT-jar-with-dependencies.jar io.netty.
 
 tcpdump -i eth1，多网卡需要指定网卡的
 
-114.215.172.43 (公) 115.29.248.73 (公)
+A 114.215.172.43 (公) 115.29.248.73 (公)
 H没有@
+
+H 117.78.37.19, 117.78.37.193
