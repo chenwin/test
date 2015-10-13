@@ -37,3 +37,4 @@ sar -n DEV Interval_time
 
 Ali 34ms
 HWS 25ms
+2.6.32-431.el6.x86_64
