@@ -38,3 +38,20 @@ sar -n DEV Interval_time
 Ali 34ms
 HWS 25ms
 2.6.32-431.el6.x86_64
+
+[root@host-192-168-197-8 http_load-14aug2014]# ./http_load -rate 1000 -seconds 10 -parallel 1000 urls
+61892 fetches, 1000 max parallel, 680812 bytes, in 10.0001 seconds
+11 mean bytes/connection
+6189.12 fetches/sec, 68080.3 bytes/sec
+msecs/connect: 70.0787 mean, 3028.64 max, 0.429 min
+msecs/first-response: 80.2786 mean, 5415.47 max, 1.236 min
+HTTP response codes:
+  code 200 -- 61892
+[root@host-192-168-197-8 http_load-14aug2014]# ./http_load -rate 1000 -seconds 10 -parallel 1000 urls
+62593 fetches, 1000 max parallel, 688523 bytes, in 10 seconds
+11 mean bytes/connection
+6259.3 fetches/sec, 68852.3 bytes/sec
+msecs/connect: 81.4565 mean, 3039.63 max, 0.491 min
+msecs/first-response: 63.5143 mean, 2299.42 max, 1.37 min
+HTTP response codes:
+  code 200 -- 62593
