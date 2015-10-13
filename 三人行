@@ -33,6 +33,7 @@ H 117.78.37.19, 117.78.37.193
 
 yum install sysstat
 sar -n DEV Interval_time
+sar -n  ，n后为DEV（网络接口信息）、EDEV（网络错误统计信息）、SOCK（套接字信息）、和FULL（显示所有）
 查看网络接口信息
 
 Ali 34ms
