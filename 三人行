@@ -34,3 +34,6 @@ H 117.78.37.19, 117.78.37.193
 yum install sysstat
 sar -n DEV Interval_time
 查看网络接口信息
+
+Ali 34ms
+HWS 25ms
