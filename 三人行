@@ -36,13 +36,18 @@ sar -n DEV Interval_time
 定向输出
     sar -n DEV 1 >sar.txt
 sar -n  ，n后为DEV（网络接口信息）、EDEV（网络错误统计信息）、SOCK（套接字信息）、和FULL（显示所有）
+#########################################
+sar -n DEV 1 10 >sar.txt  每秒打印一次网卡情况，共打印10次
+#########################################
 查看网络接口信息
 
 Ali 34ms
 HWS 25ms
 2.6.32-431.el6.x86_64
 定向输出
+#########################################
     top -b -d 1 -n 10 >>top.txt
+#########################################
 
 [root@host-192-168-197-8 http_load-14aug2014]# ./http_load -rate 1000 -seconds 10 -parallel 1000 urls
 61892 fetches, 1000 max parallel, 680812 bytes, in 10.0001 seconds
