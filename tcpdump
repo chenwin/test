@@ -1,0 +1,7 @@
+想知道我们可以通过哪几个网卡抓包，可以使用-D参数
+~ # tcpdump -D
+1.eth0
+2.any (Pseudo-device that captures on all interfaces)
+3.lo
+
+tcpdump -i eth0 port 8080 -s 10000 -w ./1.cap
