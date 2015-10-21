@@ -5,3 +5,9 @@
 3.lo
 
 tcpdump -i eth0 port 8080 -s 10000 -w ./1.cap
+
+1、捕捉10秒的HTTP数据包。
+tcpdump -i eth0 tcp[20:2]=0x4745 or tcp[20:2]=0x504f -w /tmp/tcp.cap -s 512 2>&1 &
+sleep 10
+kill `ps aux | grep tcpdump | grep -v grep | awk '{print $2}'`
+此命令表示监控网卡eth0，捕捉tcp，且21-22字节字符为GE或者PO，表示匹配GET或者POST请求的数据包，并写到/tmp/tcp.cap文件。
