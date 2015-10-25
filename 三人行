@@ -50,6 +50,7 @@ HWS 25ms
 #########################################
 
 http://www.vpsmm.com/page/iftop-for-aliyun-setup-and-tutorial/
+iftop查看实时使用带宽
 #如果你是centos系统，执行：
 yum install iftop
 #如果你是debian/ubuntu系统，执行：
