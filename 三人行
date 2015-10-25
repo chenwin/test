@@ -49,39 +49,14 @@ HWS 25ms
     top -b -d 1 -n 10 >>top.txt
 #########################################
 
-[root@host-192-168-197-8 http_load-14aug2014]# ./http_load -rate 1000 -seconds 10 -parallel 1000 urls
-61892 fetches, 1000 max parallel, 680812 bytes, in 10.0001 seconds
-11 mean bytes/connection
-6189.12 fetches/sec, 68080.3 bytes/sec
-msecs/connect: 70.0787 mean, 3028.64 max, 0.429 min
-msecs/first-response: 80.2786 mean, 5415.47 max, 1.236 min
-HTTP response codes:
-  code 200 -- 61892
-[root@host-192-168-197-8 http_load-14aug2014]# ./http_load -rate 1000 -seconds 10 -parallel 1000 urls
-62593 fetches, 1000 max parallel, 688523 bytes, in 10 seconds
-11 mean bytes/connection
-6259.3 fetches/sec, 68852.3 bytes/sec
-msecs/connect: 81.4565 mean, 3039.63 max, 0.491 min
-msecs/first-response: 63.5143 mean, 2299.42 max, 1.37 min
-HTTP response codes:
-  code 200 -- 62593
+http://www.vpsmm.com/page/iftop-for-aliyun-setup-and-tutorial/
+#如果你是centos系统，执行：
+yum install iftop
+#如果你是debian/ubuntu系统，执行：
+apt-get install iftop
+iftop
+iftop -i eth0
 
 
-[root@chen http_load-14aug2014]# traceroute 117.78.37.19
-traceroute to 117.78.37.19 (117.78.37.19), 30 hops max, 60 byte packets
- 1  192.168.1.2 (192.168.1.2)  0.936 ms  1.471 ms  1.352 ms
- 2  36.46.232.1 (36.46.232.1)  9.135 ms  9.108 ms  9.891 ms
- 3  10.224.164.1 (10.224.164.1)  8.164 ms  8.969 ms  9.734 ms
- 4  117.36.240.81 (117.36.240.81)  9.706 ms  10.485 ms  10.455 ms
- 5  202.97.80.69 (202.97.80.69)  23.908 ms  24.616 ms  24.554 ms
- 6  * * *
- 7  218.30.25.73 (218.30.25.73)  25.134 ms  25.856 ms  25.791 ms
- 8  218.30.28.74 (218.30.28.74)  68.604 ms  69.281 ms  70.009 ms
- 9  218.30.104.66 (218.30.104.66)  22.966 ms  23.547 ms  24.305 ms
-10  * * *
-11  * * *
-12  * * *
-13  * * *
-14  * * *
-15  * * *
-16  117.78.37.19 (117.78.37.19)  24.178 ms  24.831 ms  25.456 ms
+
+
