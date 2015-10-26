@@ -8,6 +8,8 @@ http://117.78.34.148:8080/ #
 
 
 【server】
+下载地址http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html
+
 netty-example-5.0.0.Alpha3-SNAPSHOT-jar-with-dependencies.jar
 tar xzvf jdk-7u79-linux-x64.tar.gz\?AuthParam\=1442462493_9d33a986a6aefc8d8d776ffe9e1e1e02 
 mv jdk1.7.0_79/ /usr/share/java/
