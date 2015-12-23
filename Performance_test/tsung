@@ -3,3 +3,35 @@ http://tsung.erlang-projects.org/user_manual/
 
 官方代码
 https://github.com/processone/tsung
+
+wget http://tsung.erlang-projects.org/dist/tsung-1.6.0.tar.gz
+yum install epel*
+yum install erlang
+
+tar -zxvf tsung-1.6.0.tar.gz
+cd tsung-1.6.0
+./configure
+make
+make install
+
+mkdir /root/.tsung/
+cd /root/.tsung/
+建立tsung.xml配置文件
+ 
+tsung start
+
+查看结果
+wget http://cpan.org/modules/by-module/Template/Template-Toolkit-2.26.tar.gz
+tar -zxvf Template-Toolkit-2.26.tar.gz
+cd Template-Toolkit-2.26
+yum install gnuplot
+make
+make install
+如果make时候报错（hws不会报错，青云会）
+ 
+则需要安装下面即可，不make
+yum install perl-Template-Toolkit
+
+/usr/lib/tsung/bin/tsung_stats.pl
+sz report.html
+yum install lrzsz
