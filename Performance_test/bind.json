@@ -1,0 +1,57 @@
+{
+	"id": "565ea8d63c907fb2ca450733",
+	"ip": "192.168.1.1",
+	"user_agent": "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/534.13 (KHTML, like Gecko) Chrome/9.0.597.107 Safari/534.13,gzip",
+	"country": "US",
+	"region": "US-MA",
+	"city": "Boston",
+	"metro": 506,
+	"url": "http://www.example.com/",
+	"detected_language": "en",
+	"detected_vertical": {
+		"id": 355,
+		"weight": 0.32210726
+	},
+	"partner": "test",
+	"tags": [{
+		"tagid": "56288c843ae1261564a6cd55",
+		"tagtype": "area"
+	}, {
+		"tagid": "rtb",
+		"tagtype": "buymethod"
+	}, {
+		"tagid": "dsp",
+		"tagtype": "platcat"
+	}],
+	"puid": "puid2015",
+	"adslot": {
+		"id": 1,
+		"width": 300,
+		"height": 250,
+		"excluded_attribute": 22,
+		"matching_ad_data": {
+			"adgroup_id": 2646216548,
+			"minimum_cpm_micros": 2000000
+		},
+		"targetable_channel": "all pages,middle right",
+		"publisher_settings_list_id": "I\u001cÜo~)÷\u001c\u0010E#w",
+		"slot_visibility": false
+	},
+	"is_test": false,
+	"cookie_version": 1,
+	"google_user_id": "CAESEIcS1pC2TBvb-4SLDjMqsY9",
+	"seller_network_id": 1,
+	"publisher_settings_list_id": "ïV)Ê5%|$\u001a\"",
+	"vertical_dictionary_version": 2,
+	"timezone_offset": -300,
+	"cookie_age_seconds": 7685804,
+	"site": {
+		"page": "www.baidu.com"
+	},
+	"impl": [{
+		"banner": {
+			"private_auction": "1",
+			"deals": []
+		}
+	}]
+}
