@@ -24,6 +24,7 @@ tsung start
 wget http://cpan.org/modules/by-module/Template/Template-Toolkit-2.26.tar.gz
 tar -zxvf Template-Toolkit-2.26.tar.gz
 cd Template-Toolkit-2.26
+perl Makefile.PL
 yum install gnuplot
 make
 make install
@@ -35,3 +36,9 @@ yum install perl-Template-Toolkit
 /usr/lib/tsung/bin/tsung_stats.pl
 sz report.html
 yum install lrzsz
+
+python -m SimpleHTTPServer  使用python建立一个简单的httpserver，开启端口8000，在本地浏览器输入http://yourserver:8000
+
+比如a.html在/home目录下，在/home目录下运行你刚才的python命令
+然后http://{$server_ip}:8000/a.html
+
