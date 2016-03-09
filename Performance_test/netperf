@@ -1,0 +1,12 @@
+wget ftp://ftp.netperf.org/netperf/netperf-2.7.0.tar.gz
+
+下载：http://www.netperf.org/netperf/
+在linux下安装，先下载完成后，运行如下操作：
+tar zxvf netperf-2.7.0.tar.gz
+cd netperf-2.7.0
+./configure
+make
+make install
+
+Linux下网络性能测试Netperf工具介绍及安装
+http://www.cnblogs.com/mayingbao/p/3198629.html
