@@ -1,3 +1,10 @@
+wget http://parallel-ssh.googlecode.com/files/pssh-2.2.2.tar.gz
+tar zxvf pssh-2.2.2.tar.gz
+cd pssh-2.2.2
+python setup.py install
+
+
+
 Usage: pssh [OPTIONS] -h hosts.txt prog [arg0] ..
 
   -h --hosts   hosts file (each line "host[:port] [user]")
