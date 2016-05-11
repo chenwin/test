@@ -1,0 +1,25 @@
+Usage: pssh [OPTIONS] -h hosts.txt prog [arg0] ..
+
+  -h --hosts   hosts file (each line "host[:port] [user]")
+  -l --user    username (OPTIONAL)
+  -p --par     max number of parallel threads (OPTIONAL)
+  -o --outdir  output directory for stdout files (OPTIONAL)
+  -e --errdir  output directory for stderr files (OPTIONAL)
+  -t --timeout timeout (secs) (-1 = no timeout) per host (OPTIONAL)
+  -O --options SSH options (OPTIONAL)
+  -v --verbose turn on warning and diagnostic messages (OPTIONAL)
+  -P --print   print output as we get it (OPTIONAL)
+  -i --inline  inline aggregated output for each server (OPTIONAL)
+
+
+pssh重要参数
+The -A option will prompt for the password.提示输入密码并且把密码传递给ssh
+    -i option will display output and error on standard output.显示标准输出和标准错误
+    -O StrictHostKeyChecking=no : SSH option not to perform Strict HostKeyChecking.设置ssh一些选项
+    -o output to a file with name by IP in the pssh server.输出内容重定向到一个文件
+    -t 设置命令执行超时时间
+    -p --par     max number of parallel threads (OPTIONAL)
+    
+pssh -h server.txt -A -O StrictHostKeyChecking=no -l root -o /tmp/result 'wget http://pkgs.repoforge.org/fio/fio-2.0.14-1.el5.rf.x86_64.rpm'
+
+pssh -h server.txt -A -O StrictHostKeyChecking=no -p 100 -l root -t 180000 -o /tmp/fio_result 'fio -filename=/test/datafile -direct=1 -rw=write -bs=512k -size=10G -iodepth=1 -ioengine=libaio -numjobs=1 -group_reporting -name=model_512kwrite -time_based -runtime=1800'
