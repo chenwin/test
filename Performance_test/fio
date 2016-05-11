@@ -1,0 +1,5 @@
+单个安装
+rpm -ivh http://pkgs.repoforge.org/fio/fio-2.0.14-1.el5.rf.x86_64.rpm
+
+批量安装
+pssh -h server.txt -A -O StrictHostKeyChecking=no -l root -o /tmp/result 'rpm -ivh http://pkgs.repoforge.org/fio/fio-2.0.14-1.el5.rf.x86_64.rpm'
