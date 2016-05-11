@@ -1,4 +1,6 @@
 单个安装
+yum install libaio-devel fio
+或者
 rpm -ivh http://pkgs.repoforge.org/fio/fio-2.0.14-1.el5.rf.x86_64.rpm
 
 批量安装
