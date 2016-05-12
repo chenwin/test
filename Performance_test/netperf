@@ -10,3 +10,10 @@ make install
 
 Linux下网络性能测试Netperf工具介绍及安装
 http://www.cnblogs.com/mayingbao/p/3198629.html
+
+服务端执行
+netserver
+
+客户端执行
+netperf -H <service_node_eip> -t TCP_STREAM -l 120 -- -m 1340
+
