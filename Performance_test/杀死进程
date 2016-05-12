@@ -1,0 +1,1 @@
+pnuke -h server.txt -A --user=root fio
