@@ -1,5 +1,7 @@
 wget ftp://ftp.netperf.org/netperf/netperf-2.7.0.tar.gz
 
+用http的,ftp的有并发限制
+wget http://fossies.org/linux/misc/netperf-2.7.0.tar.gz
 下载：http://www.netperf.org/netperf/
 在linux下安装，先下载完成后，运行如下操作：
 tar zxvf netperf-2.7.0.tar.gz
