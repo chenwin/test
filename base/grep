@@ -3,3 +3,6 @@ grep 123 -R ./
 
 排除掉abc目录，只返回路径，不含内容
 grep -rl --exclude-dir='.abc' '123' ./
+
+在多个文件中替换123为456
+sed -i .bak 's/123/456/g' `grep -rl --exclude-dir='.abc' '123' .`
