@@ -1,0 +1,3 @@
+统计A1数据在Sheet1中出现的次数
+
+=COUNTIF(Sheet1!A:A,A1)
