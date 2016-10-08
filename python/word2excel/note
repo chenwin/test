@@ -1,0 +1,14 @@
+安装win32com.client的网址： https://sourceforge.net/projects/pywin32/
+https://sourceforge.net/projects/pywin32/files/pywin32/Build%20219/pywin32-219.win32-py2.7.exe/download
+
+到python官网下载http://pypi.python.org/pypi/xlrd模块安装，xlwt写入。前提是已经安装了python 环境。
+
+http://www.icodeguru.com/WebServer/Python-Programming-on-Win32/ch09.htm
+
+http://stackoverflow.com/questions/10164621/python-com-between-python-and-excel
+
+Workbooks.Open Method (Excel)
+https://msdn.microsoft.com/en-us/library/office/ff194819.aspx
+https://msdn.microsoft.com/zh-cn/library/office/ff194819.aspx
+
+http://stackoverflow.com/questions/2936174/how-to-split-line-at-non-printing-ascii-character-in-python
