@@ -1,0 +1,9 @@
+def processDirectory(args, dirname, filenames):
+    for filename in filenames:
+        if filename[-4:] == '.doc' and filename.find("~$") == -1:
+            read_doc(dirname + '\\' + filename)
+
+
+if __name__ == "__main__":
+    os.path.walk(FILE_PATH, processDirectory, None)
+    print "end"
