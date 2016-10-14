@@ -1,0 +1,145 @@
+def zhilian(path, text):
+    if path.find(u"智联招聘") == -1:
+        return
+
+    tmp_path = path.split('\\')
+    #print tmp_path
+    man = tmp_path[len(tmp_path)-3]
+    date = tmp_path[len(tmp_path)-2]
+
+    name_start = text.find(u"ID：") + len("9GUkYQHkCst3uCJJKfqpeQ") + 70
+    name_end = text.find(u"手机：") - len(u"手机：") + 2
+    tmp_name1 = text[name_start:name_end]
+    tmp_name2 = tmp_name1.strip()
+
+    name = '/'
+    if len(tmp_name2) <= 4:
+        name = tmp_name2
+    else:
+        name = tmp_name2[:4]
+    print name
+    if name.find(u"个人信息") != -1:
+        name = '/'
+
+    shouji_pos = text.find(u"手机：")
+    tel_num = '/'
+    if shouji_pos != -1:
+        shouji_start = shouji_pos + len(u"手机：")
+        tel_num = text[shouji_start:shouji_start + len("13823238433")]
+    print tel_num
+
+    email_pos = text.find(u"E-mail：")
+    mail = '/'
+    if email_pos != -1:
+        email_start = email_pos + len(u"E-mail：")
+        email_end = text.find(".com") + len(".com")
+        mail = text[email_start:email_end]
+    print mail
+
+    sex = None
+    home_pos = text.find(u"现居住地")
+    if text[0:home_pos].find(u"男") != -1:
+        sex = u"男"
+    elif text[0:home_pos].find(u"女") != -1:
+        sex = u"女"
+    else:
+        sex = u"未知"
+
+    old = None
+    old_pos = text[0:home_pos].find(u"岁")
+    old = text[old_pos - 2:old_pos]
+    print old
+
+    region_start = text.find(u"期望工作地区：") + len(u"期望工作地区：") + 2
+    region_end = text.find(u"期望月薪：")
+    region = text[region_start:region_end - 4]
+    print region
+
+    school_start = text.find(u"教育经历") + len(u"教育经历")
+    my_school = text[school_start:-1]
+    pos = my_school.split('\r', 4)
+    #print pos
+    tmp_school = pos[1]
+    print tmp_school
+    tmp_school2 = re.split('\xa0\xa0', tmp_school)
+    print tmp_school2
+    school = tmp_school2[1]
+    xueli = tmp_school2[3]
+    year = 0
+    if tmp_school2[0].find(u"至今") == -1:
+        year = 2016 - int(tmp_school2[0][-7:-3])
+
+    work_start = text.find(u"工作经历") + len(u"工作经历")
+    is_huawei = text[work_start:school_start].find(u"华为技术")
+    if is_huawei > 0:
+        is_huawei = 1
+    else:
+        is_huawei = 0
+    write_to_excel([man, date, name, sex, old, region, tel_num, mail, school,
+                    xueli, year, is_huawei])
+
+
+def liepin(path, text):
+    if path.find(u"猎聘网") == -1:
+        return
+
+    tmp_path = path.split('\\')
+    #print tmp_path
+    man = tmp_path[len(tmp_path)-3]
+    date = tmp_path[len(tmp_path)-2]
+
+    name_start = text.find(u"姓名：") + len(u"姓名：") + 2
+    name_end = text.find(u"性别：") - 1
+    name = text[name_start:name_end].strip()
+    print name
+
+    sex_start = text.find(u"性别：") + len(u"性别：") + 2
+    sex = text[sex_start:sex_start + 2]
+    print sex
+
+    tel_start = text.find(u"手机号码：") + len(u"手机号码：") + 2
+    tel_end = text.find(u"年龄：") - 2
+    tel_num = text[tel_start:tel_end]
+    print tel_num
+
+    old_start = text.find(u"年龄：") + len(u"年龄：") + 2
+    old = text[old_start:old_start + 2]
+    print old
+
+    region_start = text.find(u"期望地点：") + len(u"期望地点：") + 2
+    region_end = text.find(u"期望年薪：") - 4
+    region = text[region_start:region_end]
+    print region
+
+    mail_start = text.find(u"电子邮件：") + len(u"电子邮件：") + 2
+    mail_end = text.find(u"教育程度") - 2
+    mail = text[mail_start:mail_end]
+    print mail
+
+    school_start = text.find(u"教育经历") + len(u"教育经历") + 2
+    my_school = text[school_start:-1]
+    pos = my_school.split('\r', 3)
+    #print pos
+    school = pos[2].split()[0]
+    print school
+    xueli = None
+    if pos[3].find(u"本科") != -1:
+        xueli = u"本科"
+    if pos[3].find(u"硕士") != -1:
+        xueli = u"硕士"
+    if pos[3].find(u"博士") != -1:
+        xueli = u"博士"
+    if my_school.find(u"大专") != -1:
+        xueli = u"专升本"
+    year = 0
+    if pos[2].find(u"至今") == -1:
+        year = 2016 - int(pos[2][-7:-3])
+
+    work_start = text.find(u"工作经历") + len(u"工作经历")
+    is_huawei = text[work_start:-1].find(u"华为")
+    if is_huawei > 0:
+        is_huawei = 1
+    else:
+        is_huawei = 0
+    write_to_excel([man, date, name, sex, old, region, tel_num, mail, school,
+                    xueli, year, is_huawei])
