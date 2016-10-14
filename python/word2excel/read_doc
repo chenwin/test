@@ -70,7 +70,7 @@ def zhilian(path, text):
         year = 2016 - int(tmp_school2[0][-7:-3])
 
     work_start = text.find(u"工作经历") + len(u"工作经历")
-    is_huawei = text[work_start:school_start].find(u"华为技术")
+    is_huawei = text[work_start:school_start].find(u"技术")
     if is_huawei > 0:
         is_huawei = 1
     else:
@@ -136,7 +136,7 @@ def liepin(path, text):
         year = 2016 - int(pos[2][-7:-3])
 
     work_start = text.find(u"工作经历") + len(u"工作经历")
-    is_huawei = text[work_start:-1].find(u"华为")
+    is_huawei = text[work_start:-1].find(u"技术")
     if is_huawei > 0:
         is_huawei = 1
     else:
