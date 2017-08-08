@@ -1,0 +1,14 @@
+http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase6-419409.html
+http://tomcat.apache.org/download-70.cgi
+http://maven.apache.org/download.cgi
+
+
+http://download.oracle.com/otn/java/jdk/6u45-b06/jdk-6u45-linux-x64.bin
+http://mirror.jax.hugeserver.com/apache/tomcat/tomcat-7/v7.0.79/bin/apache-tomcat-7.0.79.tar.gz
+https://archive.apache.org/dist/maven/maven-3/3.2.3/
+http://svn.apache.org/repos/asf/geronimo/daytrader/tags/daytrader-parent-3.0.0/
+http://geronimo.apache.org/downloads.html
+https://downloads.mysql.com/archives/c-j/
+
+daytrader-parent-3.0.0\javaee6\assemblies\daytrader-ear\target\daytrader-ear-3.0.0.ear
+http://mvnrepository.com/artifact/org.apache.geronimo.samples.daytrader.assemblies.web/daytrader-web-jdbc/3.0-M1
