@@ -12,3 +12,14 @@ https://downloads.mysql.com/archives/c-j/
 
 daytrader-parent-3.0.0\javaee6\assemblies\daytrader-ear\target\daytrader-ear-3.0.0.ear
 http://mvnrepository.com/artifact/org.apache.geronimo.samples.daytrader.assemblies.web/daytrader-web-jdbc/3.0-M1
+
+apache-tomcat
+/apache-tomcat-7.0.56/conf/tomcat-users.xml
+
+<role rolename="manager-gui"/>
+<role rolename="manager-script"/>
+<role rolename="manager-jmx"/>
+<role rolename="manager-status"/>
+
+<user username="tomcat" password="PASSWD" roles="manager-gui,manager-script,manager-jmx,manager-status"/>
+
