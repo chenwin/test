@@ -13,6 +13,7 @@ https://downloads.mysql.com/archives/c-j/
 
 daytrader-parent-3.0.0\javaee6\assemblies\daytrader-ear\target\daytrader-ear-3.0.0.ear
 /home/daytrader/javaee6/assemblies/daytrader-ear/target/daytrader-ear-3.0.0.ear
+/home/daytrader/javaee6/plans/target/classes/daytrader-mysql-xa-plan.xml
 http://mvnrepository.com/artifact/org.apache.geronimo.samples.daytrader.assemblies.web/daytrader-web-jdbc/3.0-M1
 
 apache-tomcat
