@@ -3,7 +3,7 @@ http://tomcat.apache.org/download-70.cgi
 http://maven.apache.org/download.cgi
 http://geronimo.apache.org/downloads.html
 
-
+DayTrader 还提供了一个复杂的交易场景来衡量 Java EE 应用服务器的整体性能
 http://download.oracle.com/otn/java/jdk/6u45-b06/jdk-6u45-linux-x64.bin
 http://mirror.jax.hugeserver.com/apache/tomcat/tomcat-7/v7.0.79/bin/apache-tomcat-7.0.79.tar.gz
 https://archive.apache.org/dist/maven/maven-3/3.2.3/
