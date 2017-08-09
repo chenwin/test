@@ -26,3 +26,6 @@ apache-tomcat
 
 <user username="tomcat" password="PASSWD" roles="manager-gui,manager-script,manager-jmx,manager-status"/>
 
+应用
+https://www.ibm.com/developerworks/cn/opensource/os-perfbenchmk/
+
