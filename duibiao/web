@@ -12,6 +12,7 @@ http://www.apache.org/dyn/closer.cgi/geronimo/3.0.1/geronimo-tomcat7-javaee6-3.0
 https://downloads.mysql.com/archives/c-j/
 
 daytrader-parent-3.0.0\javaee6\assemblies\daytrader-ear\target\daytrader-ear-3.0.0.ear
+/home/daytrader/javaee6/assemblies/daytrader-ear/target/daytrader-ear-3.0.0.ear
 http://mvnrepository.com/artifact/org.apache.geronimo.samples.daytrader.assemblies.web/daytrader-web-jdbc/3.0-M1
 
 apache-tomcat
