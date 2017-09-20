@@ -4,4 +4,4 @@ yum clean all
 yum update
 yum makecache
 
-yum makecache
+yum repolist
