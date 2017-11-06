@@ -1,4 +1,4 @@
-
+yum install qemu-img -y
 创建卷
 qemu-img create -f raw -o size=4G vol6
 
