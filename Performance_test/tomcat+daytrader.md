@@ -410,12 +410,13 @@ java.net.ConnectException: Connection timed out: connect
     time=$1
     date1=`date +"%Y-%m-%d"`
     date2=`date +"%H-%M-%S"`
-    path=$date1/$date2
+    path=/$2/$date1/$date2
     mkdir -p ./$path
     top -bd 1 -n $time > ./$path/top-$date2.txt&
     sar -n DEV 1 $time|grep eth0 > ./$path/sar-$date2.txt&
     mpstat -P ALL 1 $time > ./$path/mpstat-$date2.txt&
-    iostat -xdm 1 $time > ./$path/iostat-$date2.txt&
+    iostat -xdmt 1 $time > ./$path/iostat-$date2.txt&
+    vmstat -t -S M 1 $time > ./$path/vmstat-$date2.txt&
 
     # sleep 5;sh res.sh 600
 
