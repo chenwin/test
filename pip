@@ -1,5 +1,7 @@
 yum install python-pip
 
+python -m pip install matplotlib==1.5 --trusted-host mirrors.aliyun.com
+
 增加配置
 $ mkdir ~/.pip
 $ vi ~/.pip/pip.conf
