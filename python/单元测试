@@ -1,0 +1,8 @@
+import unittest
+from game import *
+
+
+class Test(unittest.TestCase):
+    def testValue01(self):
+        ret = cmd_console("r").strip('\n')
+        self.assertEqual(ret, S0001)
