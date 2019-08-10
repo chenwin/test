@@ -1,0 +1,46 @@
+sorted() 
+sorted(list)使list（tuple）按顺序排序
+
+>>> List=['b','d','c','a']
+>>> sorted(List)
+['a', 'b', 'c', 'd']
+
+reversed() 
+使list（tuple）倒序
+
+>>> reversed(List)
+<listreverseiterator object at 0x7fc100aee210>
+>>> for i in reversed(List):
+...     print i
+... 
+
+enumerate() 
+使list或者tuple输出时前面带索引号
+
+>>> enumerate(List)
+<enumerate object at 0x7fc100aec870>
+>>> for i in enumerate(List):
+...     print i
+... 
+(0, 'b')
+(1, 'd')
+(2, 'c')
+(3, 'a')
+>>> for i,j in enumerate(List):
+...     print i,j
+... 
+0 b
+1 d
+2 c
+3 a
+
+zip()
+
+>>> L=[1,2,4,3]
+>>> zip(List,L)
+[('b', 1), ('d', 2), ('c', 4), ('a', 3)]
+>>> dict(zip(List,L))
+{'a': 3, 'c': 4, 'b': 1, 'd': 2}
+--------------------- 
+版权声明：本文为CSDN博主「lockeroots」的原创文章，遵循CC 4.0 by-sa版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/lockeroots/article/details/51685749
