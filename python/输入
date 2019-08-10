@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 def cmd_console(input_cmd):
     args = input_cmd.split()
     cmd = args[0]
