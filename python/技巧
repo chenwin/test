@@ -58,5 +58,11 @@ print reduce(lambda x,y: x.upper()+' '+y.upper(),
 判断字符串相等	"code = '012345'
 if code == '012345':
    print 'OK'"
+   
+join
+就是把一个list中所有的串按照你定义的分隔符连接起来，比如:
+list = ['a','b','c']
+sep = '|'
+join(list,sep)的结果就是a|b|c2
 
 
