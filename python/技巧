@@ -20,3 +20,43 @@ print s[::2]
 
 列表反转
 print(list(reversed(['dream', 'a', 'have', 'I'])))
+
+
+加减乘除,取余数
+from operator import add, sub, mul, div, mod
+print add(4, 5)
+print sub(4, 5)
+print mul(4, 5)
+print div(4, 5)
+print mod(4, 5)
+
+
+"capitalize是大写一句话的首字母
+print reduce(lambda x,y: x.capitalize()+' '+y,
+             [""emperor"", ""joshua"", ""abraham"", ""norton""])"
+"每个单词的首字母大写
+print reduce(lambda x,y: x.title()+' '+y.title(),
+             [""emperor"", ""joshua"", ""abraham"", ""norton""])"
+"最有一个单词保持不变
+print reduce(lambda x,y: x.upper()+' '+y,
+             [""emperor"", ""joshua"", ""abraham"", ""norton""])"
+"全部转大写
+print reduce(lambda x,y: x.upper()+' '+y.upper(),
+             [""emperor"", ""joshua"", ""abraham"", ""norton""])"
+             
+
+字典序	根据ASCII码排
+	0-9（对应数值48-59）
+	A-Z（对应数值65-90）
+	a-z（对应数值97-122）
+字母序	比较字母顺序
+标准序	短在前，长在后，相同的按照字母序
+按字母排序不区分大小写	a = "BbAa"
+	print sorted(list(a),key=str.lower)
+按字典排序	a = "BbAa0"
+	print sorted(list(a))
+判断字符串相等	"code = '012345'
+if code == '012345':
+   print 'OK'"
+
+
