@@ -3,6 +3,9 @@ tar zxvf pssh-2.2.2.tar.gz
 cd pssh-2.2.2
 python setup.py install
 
+参考
+https://www.cyberciti.biz/cloud-computing/how-to-use-pssh-parallel-ssh-program-on-linux-unix/
+支持5-10个，多了有问题
 
 
 Usage: pssh [OPTIONS] -h hosts.txt prog [arg0] ..
